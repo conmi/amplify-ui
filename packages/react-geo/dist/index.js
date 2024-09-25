@@ -10,11 +10,11 @@ var maplibreGlJsAmplify = require('maplibre-gl-js-amplify');
 var ReactMapGL = require('react-map-gl');
 var uiReactCore = require('@aws-amplify/ui-react-core');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-var maplibregl__default = /*#__PURE__*/_interopDefaultLegacy(maplibregl);
-var ReactMapGL__default = /*#__PURE__*/_interopDefaultLegacy(ReactMapGL);
+var React__default = /*#__PURE__*/_interopDefault(React);
+var maplibregl__default = /*#__PURE__*/_interopDefault(maplibregl);
+var ReactMapGL__default = /*#__PURE__*/_interopDefault(ReactMapGL);
 
 /**
  * The `MapView` component uses [react-map-gl](https://visgl.github.io/react-map-gl/) and

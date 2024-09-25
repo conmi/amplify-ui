@@ -6,7 +6,7 @@ var React = require('react');
 var isEqual = require('lodash/isEqual.js');
 var uiReactCore = require('@aws-amplify/ui-react-core');
 var ui = require('@aws-amplify/ui');
-var Field = require('./Field-3db91851.js');
+var Field = require('./Field-DNG47Vw2.js');
 require('aws-amplify/storage');
 var debounce = require('lodash/debounce.js');
 var Dropdown = require('@radix-ui/react-dropdown-menu');
@@ -14,11 +14,11 @@ var RadixSlider = require('@radix-ui/react-slider');
 var QRCode = require('qrcode');
 var utils = require('aws-amplify/utils');
 var RadixDirection = require('@radix-ui/react-direction');
-var ThemeStyle = require('./ThemeStyle-7d5abbc4.js');
+var ThemeStyle = require('./ThemeStyle-CgfvQJ7V.js');
 require('@aws-amplify/core');
 require('aws-amplify/auth');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
 function _interopNamespace(e) {
     if (e && e.__esModule) return e;
@@ -39,12 +39,11 @@ function _interopNamespace(e) {
 }
 
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-var isEqual__default = /*#__PURE__*/_interopDefaultLegacy(isEqual);
-var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce);
+var isEqual__default = /*#__PURE__*/_interopDefault(isEqual);
+var debounce__default = /*#__PURE__*/_interopDefault(debounce);
 var Dropdown__namespace = /*#__PURE__*/_interopNamespace(Dropdown);
 var RadixSlider__namespace = /*#__PURE__*/_interopNamespace(RadixSlider);
-var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
+var QRCode__default = /*#__PURE__*/_interopDefault(QRCode);
 var RadixDirection__namespace = /*#__PURE__*/_interopNamespace(RadixDirection);
 
 /**
@@ -1166,12 +1165,12 @@ const DropZoneProvider = ({ value, children, }) => {
 };
 
 const Container = ({ className, children, testId, isDisabled, onDragEnter, onDragLeave, onDragOver, onDragStart, onDrop, ...rest }, ref) => {
-    const dragState = React__default["default"].useContext(DropZoneContext);
+    const dragState = React__namespace["default"].useContext(DropZoneContext);
     // Don't add drag event handlers if it is disabled.
     const dragProps = isDisabled
         ? {}
         : { onDragEnter, onDragLeave, onDragOver, onDragStart, onDrop };
-    return (React__default["default"].createElement(Field.View, { ...rest, ...dragProps, isDisabled: isDisabled, className: ui.classNames(className, ui.classNameModifierByFlag(ui.ComponentClassName.DropZone, 'rejected', dragState === 'reject'), ui.classNameModifierByFlag(ui.ComponentClassName.DropZone, 'accepted', dragState === 'accept'), ui.classNameModifierByFlag(ui.ComponentClassName.DropZone, 'disabled', isDisabled), ui.ComponentClassName.DropZone), "data-testid": testId, ref: ref }, children));
+    return (React__namespace["default"].createElement(Field.View, { ...rest, ...dragProps, isDisabled: isDisabled, className: ui.classNames(className, ui.classNameModifierByFlag(ui.ComponentClassName.DropZone, 'rejected', dragState === 'reject'), ui.classNameModifierByFlag(ui.ComponentClassName.DropZone, 'accepted', dragState === 'accept'), ui.classNameModifierByFlag(ui.ComponentClassName.DropZone, 'disabled', isDisabled), ui.ComponentClassName.DropZone), "data-testid": testId, ref: ref }, children));
 };
 const DropZoneContainer = Field.primitiveWithForwardRef(Container);
 DropZoneContainer.displayName = 'DropZoneContainer';
@@ -1635,7 +1634,7 @@ const Placeholder = Field.primitiveWithForwardRef(PlaceholderPrimitive);
 Placeholder.displayName = 'Placeholder';
 
 const defaultValue = { name: 'default' };
-const RadioGroupContext = React__default["default"].createContext(defaultValue);
+const RadioGroupContext = React__namespace["default"].createContext(defaultValue);
 const useRadioGroupContext = () => {
     return React.useContext(RadioGroupContext);
 };
@@ -2414,7 +2413,7 @@ ToggleButtonGroup.displayName = 'ToggleButtonGroup';
 
 var index$1 = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    IconsProvider: IconsProvider,
+    Accordion: Accordion,
     Alert: Alert,
     Autocomplete: Autocomplete,
     Avatar: Avatar,
@@ -2425,9 +2424,10 @@ var index$1 = /*#__PURE__*/Object.freeze({
     Card: Card,
     CheckboxField: CheckboxField,
     Collection: Collection,
+    ComponentPropsToStylePropsMap: Field.ComponentPropsToStylePropsMap,
+    ComponentPropsToStylePropsMapKeys: Field.ComponentPropsToStylePropsMapKeys,
     Divider: Divider,
     DropZone: DropZone,
-    Accordion: Accordion,
     FieldGroupIcon: Field.FieldGroupIcon,
     FieldGroupIconButton: Field.FieldGroupIconButton,
     Fieldset: Fieldset,
@@ -2436,6 +2436,7 @@ var index$1 = /*#__PURE__*/Object.freeze({
     Heading: Heading,
     HighlightMatch: HighlightMatch,
     Icon: Field.Icon,
+    IconsProvider: IconsProvider,
     Image: Image,
     Input: Input,
     Label: Field.Label,
@@ -2458,6 +2459,12 @@ var index$1 = /*#__PURE__*/Object.freeze({
     SliderField: SliderField,
     StepperField: StepperField,
     SwitchField: SwitchField,
+    Table: Table,
+    TableBody: TableBody,
+    TableCell: TableCell,
+    TableFoot: TableFoot,
+    TableHead: TableHead,
+    TableRow: TableRow,
     Tabs: Tabs,
     Text: Field.Text,
     TextAreaField: TextAreaField,
@@ -2466,15 +2473,7 @@ var index$1 = /*#__PURE__*/Object.freeze({
     ToggleButtonGroup: ToggleButtonGroup,
     View: Field.View,
     VisuallyHidden: VisuallyHidden,
-    Table: Table,
-    TableBody: TableBody,
-    TableCell: TableCell,
-    TableFoot: TableFoot,
-    TableHead: TableHead,
-    TableRow: TableRow,
-    usePagination: usePagination,
-    ComponentPropsToStylePropsMap: Field.ComponentPropsToStylePropsMap,
-    ComponentPropsToStylePropsMapKeys: Field.ComponentPropsToStylePropsMapKeys
+    usePagination: usePagination
 });
 
 var ComponentClassName;
@@ -2487,19 +2486,19 @@ const ValidationErrors = ({ errors, id, dataAttr, }) => {
     if (!(errors?.length > 0))
         return null;
     const dataAttrProp = dataAttr ? { [dataAttr]: true } : {};
-    return (React__default["default"].createElement(Field.View, { ...dataAttrProp, id: id }, errors.map((error) => {
-        return (React__default["default"].createElement(Field.Text, { key: error, role: "alert", variation: "error" }, ui.translate(error)));
+    return (React__namespace["default"].createElement(Field.View, { ...dataAttrProp, id: id }, errors.map((error) => {
+        return (React__namespace["default"].createElement(Field.Text, { key: error, role: "alert", variation: "error" }, ui.translate(error)));
     })));
 };
 
 const DefaultErrorMessage = (props) => {
-    return React__default["default"].createElement(Alert, { variation: "error", ...props });
+    return React__namespace["default"].createElement(Alert, { variation: "error", ...props });
 };
 
 const DefaultPasswordField = ({ fieldValidationErrors, label, ...rest }) => {
-    return (React__default["default"].createElement(React__default["default"].Fragment, null,
-        React__default["default"].createElement(PasswordField, { ...rest, label: label }),
-        fieldValidationErrors ? (React__default["default"].createElement(ValidationErrors, { errors: fieldValidationErrors })) : null));
+    return (React__namespace["default"].createElement(React__namespace["default"].Fragment, null,
+        React__namespace["default"].createElement(PasswordField, { ...rest, label: label }),
+        fieldValidationErrors ? (React__namespace["default"].createElement(ValidationErrors, { errors: fieldValidationErrors })) : null));
 };
 const DEFAULTS$1 = {
     CurrentPasswordField: DefaultPasswordField,
@@ -2536,13 +2535,13 @@ const getIsDisabled = (formValues, validationError) => {
     return arePasswordsInvalid;
 };
 function ChangePassword({ components, displayText: overrideDisplayText, onError, onSuccess, validators, }) {
-    const [errorMessage, setErrorMessage] = React__default["default"].useState(null);
-    const [formValues, setFormValues] = React__default["default"].useState({});
-    const [validationError, setValidationError] = React__default["default"].useState({});
-    const blurredFields = React__default["default"].useRef([]);
+    const [errorMessage, setErrorMessage] = React__namespace["default"].useState(null);
+    const [formValues, setFormValues] = React__namespace["default"].useState({});
+    const [validationError, setValidationError] = React__namespace["default"].useState({});
+    const blurredFields = React__namespace["default"].useRef([]);
     const { user, isLoading } = Field.useAuth();
     const isDisabled = getIsDisabled(formValues, validationError);
-    const passwordValidators = React__default["default"].useMemo(() => {
+    const passwordValidators = React__namespace["default"].useMemo(() => {
         return validators ?? ui.getDefaultPasswordValidators();
     }, [validators]);
     uiReactCore.useSetUserAgent({
@@ -2554,7 +2553,7 @@ function ChangePassword({ components, displayText: overrideDisplayText, onError,
      * Note that formValues and other states are passed in as props so that
      * it does not depend on whether or not those states have been updated yet
      */
-    const validateNewPassword = React__default["default"].useCallback(({ formValues, eventType }) => {
+    const validateNewPassword = React__namespace["default"].useCallback(({ formValues, eventType }) => {
         const { newPassword } = formValues;
         const hasBlurred = blurredFields.current.includes('newPassword');
         return ui.runFieldValidators({
@@ -2564,7 +2563,7 @@ function ChangePassword({ components, displayText: overrideDisplayText, onError,
             hasBlurred,
         });
     }, [passwordValidators]);
-    const validateConfirmPassword = React__default["default"].useCallback(({ formValues, eventType }) => {
+    const validateConfirmPassword = React__namespace["default"].useCallback(({ formValues, eventType }) => {
         const { newPassword, confirmPassword } = formValues;
         const hasBlurred = blurredFields.current.includes('confirmPassword');
         const confirmPasswordValidators = ui.getDefaultConfirmPasswordValidators(newPassword);
@@ -2575,7 +2574,7 @@ function ChangePassword({ components, displayText: overrideDisplayText, onError,
             hasBlurred,
         });
     }, []);
-    const runValidation = React__default["default"].useCallback((param) => {
+    const runValidation = React__namespace["default"].useCallback((param) => {
         const passwordErrors = validateNewPassword(param);
         const confirmPasswordErrors = validateConfirmPassword(param);
         const newValidationError = {
@@ -2594,7 +2593,7 @@ function ChangePassword({ components, displayText: overrideDisplayText, onError,
     };
     const { confirmPasswordFieldLabel, currentPasswordFieldLabel, newPasswordFieldLabel, updatePasswordButtonText, } = displayText;
     /* Subcomponents */
-    const { CurrentPasswordField, NewPasswordField, ConfirmPasswordField, SubmitButton, ErrorMessage, } = React__default["default"].useMemo(() => ({ ...DEFAULTS$1, ...(components ?? {}) }), [components]);
+    const { CurrentPasswordField, NewPasswordField, ConfirmPasswordField, SubmitButton, ErrorMessage, } = React__namespace["default"].useMemo(() => ({ ...DEFAULTS$1, ...(components ?? {}) }), [components]);
     /* Event Handlers */
     const handleChange = (event) => {
         event.preventDefault();
@@ -2643,13 +2642,13 @@ function ChangePassword({ components, displayText: overrideDisplayText, onError,
         logger$2.warn('<ChangePassword /> requires user to be authenticated.');
         return null;
     }
-    return (React__default["default"].createElement(Field.View, { as: "form", className: ComponentClassName.ChangePassword, onSubmit: handleSubmit },
-        React__default["default"].createElement(Field.Flex, { direction: "column" },
-            React__default["default"].createElement(CurrentPasswordField, { autoComplete: "current-password", isRequired: true, label: currentPasswordFieldLabel, name: "currentPassword", onBlur: handleBlur, onChange: handleChange }),
-            React__default["default"].createElement(NewPasswordField, { autoComplete: "new-password", fieldValidationErrors: validationError?.newPassword, isRequired: true, label: newPasswordFieldLabel, name: "newPassword", onBlur: handleBlur, onChange: handleChange }),
-            React__default["default"].createElement(ConfirmPasswordField, { autoComplete: "new-password", fieldValidationErrors: validationError?.confirmPassword, isRequired: true, label: confirmPasswordFieldLabel, name: "confirmPassword", onBlur: handleBlur, onChange: handleChange }),
-            React__default["default"].createElement(SubmitButton, { isDisabled: isDisabled, type: "submit" }, updatePasswordButtonText),
-            errorMessage ? React__default["default"].createElement(ErrorMessage, null, errorMessage) : null)));
+    return (React__namespace["default"].createElement(Field.View, { as: "form", className: ComponentClassName.ChangePassword, onSubmit: handleSubmit },
+        React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+            React__namespace["default"].createElement(CurrentPasswordField, { autoComplete: "current-password", isRequired: true, label: currentPasswordFieldLabel, name: "currentPassword", onBlur: handleBlur, onChange: handleChange }),
+            React__namespace["default"].createElement(NewPasswordField, { autoComplete: "new-password", fieldValidationErrors: validationError?.newPassword, isRequired: true, label: newPasswordFieldLabel, name: "newPassword", onBlur: handleBlur, onChange: handleChange }),
+            React__namespace["default"].createElement(ConfirmPasswordField, { autoComplete: "new-password", fieldValidationErrors: validationError?.confirmPassword, isRequired: true, label: confirmPasswordFieldLabel, name: "confirmPassword", onBlur: handleBlur, onChange: handleChange }),
+            React__namespace["default"].createElement(SubmitButton, { isDisabled: isDisabled, type: "submit" }, updatePasswordButtonText),
+            errorMessage ? React__namespace["default"].createElement(ErrorMessage, null, errorMessage) : null)));
 }
 ChangePassword.CurrentPasswordField = DEFAULTS$1.CurrentPasswordField;
 ChangePassword.NewPasswordField = DEFAULTS$1.NewPasswordField;
@@ -2664,14 +2663,14 @@ const DefaultWarningView = ({ displayText: overrideDisplayText, isDisabled, onCa
         ...overrideDisplayText,
     };
     const { cancelButtonText, confirmDeleteButtonText, warningText } = displayText;
-    return (React__default["default"].createElement(Card, null,
-        React__default["default"].createElement(Field.Flex, { direction: "column" },
-            React__default["default"].createElement(Field.Text, { color: "font.error" }, warningText),
-            React__default["default"].createElement(Field.Flex, null,
-                React__default["default"].createElement(Field.Button, { variation: "link", onClick: onCancel, isDisabled: isDisabled }, cancelButtonText),
-                React__default["default"].createElement(Field.Button, { variation: "destructive", onClick: onConfirm, isDisabled: isDisabled }, confirmDeleteButtonText)))));
+    return (React__namespace["default"].createElement(Card, null,
+        React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+            React__namespace["default"].createElement(Field.Text, { color: "font.error" }, warningText),
+            React__namespace["default"].createElement(Field.Flex, null,
+                React__namespace["default"].createElement(Field.Button, { variation: "link", onClick: onCancel, isDisabled: isDisabled }, cancelButtonText),
+                React__namespace["default"].createElement(Field.Button, { variation: "destructive", onClick: onConfirm, isDisabled: isDisabled }, confirmDeleteButtonText)))));
 };
-const DefaultDeleteButton = (props) => (React__default["default"].createElement(Field.Button, { ...props, variation: "warning" }));
+const DefaultDeleteButton = (props) => (React__namespace["default"].createElement(Field.Button, { ...props, variation: "warning" }));
 const DEFAULTS = {
     ErrorMessage: DefaultErrorMessage,
     DeleteButton: DefaultDeleteButton,
@@ -2680,8 +2679,8 @@ const DEFAULTS = {
 
 const logger$1 = ui.getLogger('AccountSettings');
 function DeleteUser({ components, displayText: overrideDisplayText, handleDelete, onError, onSuccess, }) {
-    const [state, setState] = React__default["default"].useState('IDLE');
-    const [errorMessage, setErrorMessage] = React__default["default"].useState(null);
+    const [state, setState] = React__namespace["default"].useState('IDLE');
+    const [errorMessage, setErrorMessage] = React__namespace["default"].useState(null);
     uiReactCore.useSetUserAgent({
         componentName: 'DeleteUser',
         packageName: 'react',
@@ -2695,12 +2694,12 @@ function DeleteUser({ components, displayText: overrideDisplayText, handleDelete
     const { deleteAccountButtonText } = displayText;
     const { user, isLoading } = Field.useAuth();
     // subcomponents
-    const { ErrorMessage, DeleteButton, WarningView } = React__default["default"].useMemo(() => ({ ...DEFAULTS, ...(components ?? {}) }), [components]);
+    const { ErrorMessage, DeleteButton, WarningView } = React__namespace["default"].useMemo(() => ({ ...DEFAULTS, ...(components ?? {}) }), [components]);
     const startConfirmation = (event) => {
         event.preventDefault();
         setState('CONFIRMATION');
     };
-    const runDeleteUser = React__default["default"].useCallback(async () => {
+    const runDeleteUser = React__namespace["default"].useCallback(async () => {
         if (!user) {
             return;
         }
@@ -2731,10 +2730,10 @@ function DeleteUser({ components, displayText: overrideDisplayText, handleDelete
         }
     }, [errorMessage, handleDelete, onError, onSuccess, user]);
     // called when end user cancels account deletion confirmation
-    const handleCancel = React__default["default"].useCallback(() => {
+    const handleCancel = React__namespace["default"].useCallback(() => {
         setState('IDLE');
     }, []);
-    const handleConfirmDelete = React__default["default"].useCallback(() => {
+    const handleConfirmDelete = React__namespace["default"].useCallback(() => {
         runDeleteUser();
     }, [runDeleteUser]);
     // Return null if Auth.getgetCurrentUser is still in progress
@@ -2750,10 +2749,10 @@ function DeleteUser({ components, displayText: overrideDisplayText, handleDelete
     if (state === 'DONE') {
         return null;
     }
-    return (React__default["default"].createElement(Field.Flex, { className: ComponentClassName.DeleteUser, direction: "column" },
-        React__default["default"].createElement(DeleteButton, { isDisabled: state === 'CONFIRMATION' || state === 'DELETING', onClick: startConfirmation }, deleteAccountButtonText),
-        state === 'CONFIRMATION' || state === 'DELETING' ? (React__default["default"].createElement(WarningView, { displayText: displayText, isDisabled: state === 'DELETING', onCancel: handleCancel, onConfirm: handleConfirmDelete })) : null,
-        errorMessage ? React__default["default"].createElement(ErrorMessage, null, errorMessage) : null));
+    return (React__namespace["default"].createElement(Field.Flex, { className: ComponentClassName.DeleteUser, direction: "column" },
+        React__namespace["default"].createElement(DeleteButton, { isDisabled: state === 'CONFIRMATION' || state === 'DELETING', onClick: startConfirmation }, deleteAccountButtonText),
+        state === 'CONFIRMATION' || state === 'DELETING' ? (React__namespace["default"].createElement(WarningView, { displayText: displayText, isDisabled: state === 'DELETING', onCancel: handleCancel, onConfirm: handleConfirmDelete })) : null,
+        errorMessage ? React__namespace["default"].createElement(ErrorMessage, null, errorMessage) : null));
 }
 DeleteUser.ErrorMessage = DEFAULTS.ErrorMessage;
 DeleteUser.DeleteButton = DEFAULTS.DeleteButton;
@@ -2785,11 +2784,11 @@ function RouteContainer({ children, className, variation = 'default', }) {
     const { 
     // @ts-ignore
     components: { Header, Footer }, } = useCustomComponents();
-    return (React__default["default"].createElement(Field.View, { className: className, "data-amplify-authenticator": "", "data-variation": variation },
-        React__default["default"].createElement(Field.View, { "data-amplify-container": "" },
-            React__default["default"].createElement(Header, null),
-            React__default["default"].createElement(Field.View, { "data-amplify-router": "", "data-amplify-router-content": hasTabs(route) ? undefined : '' }, children),
-            React__default["default"].createElement(Footer, null))));
+    return (React__namespace["default"].createElement(Field.View, { className: className, "data-amplify-authenticator": "", "data-variation": variation },
+        React__namespace["default"].createElement(Field.View, { "data-amplify-container": "" },
+            React__namespace["default"].createElement(Header, null),
+            React__namespace["default"].createElement(Field.View, { "data-amplify-router": "", "data-amplify-router-content": hasTabs(route) ? undefined : '' }, children),
+            React__namespace["default"].createElement(Footer, null))));
 }
 
 const getFormDataFromEvent = (event) => {
@@ -2824,7 +2823,7 @@ function useFormHandlers() {
 
 const RemoteErrorMessage = () => {
     const { error } = uiReactCore.useAuthenticator((context) => [context.error]);
-    return (React__default["default"].createElement(React__default["default"].Fragment, null, error ? (React__default["default"].createElement(Alert, { variation: "error", isDismissible: true }, ui.translate(error))) : null));
+    return (React__namespace["default"].createElement(React__namespace["default"].Fragment, null, error ? (React__namespace["default"].createElement(Alert, { variation: "error", isDismissible: true }, ui.translate(error))) : null));
 };
 
 function FormField({ autocomplete: autoComplete, dialCode, name, type, ...props }) {
@@ -2875,23 +2874,23 @@ function ConfirmSignUp({ className, variation, }) {
     ConfirmSignUp: { Header = ConfirmSignUp.Header, Footer = ConfirmSignUp.Footer, }, }, } = useCustomComponents();
     return (
     // TODO Automatically add these namespaces again from `useAmplify`
-    React__default["default"].createElement(RouteContainer, { className: className, variation: variation },
-        React__default["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-confirmsignup": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
-            React__default["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
-                React__default["default"].createElement(Header, null),
-                React__default["default"].createElement(Field.Flex, { direction: "column" },
-                    React__default["default"].createElement(Field.Text, { className: "amplify-authenticator__subtitle" }, getDeliveryMessageText(codeDeliveryDetails)),
-                    React__default["default"].createElement(FormFields, null),
-                    React__default["default"].createElement(RemoteErrorMessage, null),
-                    React__default["default"].createElement(Field.Button, { variation: "primary", isDisabled: isPending, type: "submit", loadingText: getConfirmingText$1(), isLoading: isPending }, getConfirmText$1()),
-                    React__default["default"].createElement(Field.Button, { onClick: resendCode, type: "button" }, getResendCodeText$1())),
-                React__default["default"].createElement(Footer, null)))));
+    React__namespace["default"].createElement(RouteContainer, { className: className, variation: variation },
+        React__namespace["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-confirmsignup": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
+            React__namespace["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
+                React__namespace["default"].createElement(Header, null),
+                React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+                    React__namespace["default"].createElement(Field.Text, { className: "amplify-authenticator__subtitle" }, getDeliveryMessageText(codeDeliveryDetails)),
+                    React__namespace["default"].createElement(FormFields, null),
+                    React__namespace["default"].createElement(RemoteErrorMessage, null),
+                    React__namespace["default"].createElement(Field.Button, { variation: "primary", isDisabled: isPending, type: "submit", loadingText: getConfirmingText$1(), isLoading: isPending }, getConfirmText$1()),
+                    React__namespace["default"].createElement(Field.Button, { onClick: resendCode, type: "button" }, getResendCodeText$1())),
+                React__namespace["default"].createElement(Footer, null)))));
 }
 const DefaultHeader = () => {
     const { codeDeliveryDetails } = uiReactCore.useAuthenticator((context) => [
         context.codeDeliveryDetails,
     ]);
-    return (React__default["default"].createElement(Heading, { level: 4 }, getDeliveryMethodText(codeDeliveryDetails)));
+    return (React__namespace["default"].createElement(Heading, { level: 4 }, getDeliveryMethodText(codeDeliveryDetails)));
 };
 ConfirmSignUp.Header = DefaultHeader;
 ConfirmSignUp.Footer = function Footer() {
@@ -2909,21 +2908,21 @@ const ForceNewPassword = ({ className, variation, }) => {
     const { components: { 
     // @ts-ignore
     ForceNewPassword: { FormFields = ForceNewPassword.FormFields, Header = ForceNewPassword.Header, Footer = ForceNewPassword.Footer, }, }, } = useCustomComponents();
-    return (React__default["default"].createElement(RouteContainer, { className: className, variation: variation },
-        React__default["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-forcenewpassword": "", method: "post", onChange: handleChange, onSubmit: handleSubmit, onBlur: handleBlur },
-            React__default["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
-                React__default["default"].createElement(Header, null),
-                React__default["default"].createElement(FormFields, null),
-                React__default["default"].createElement(RemoteErrorMessage, null),
-                React__default["default"].createElement(Field.Button, { isDisabled: isPending, type: "submit", variation: "primary", isLoading: isPending, loadingText: getChangingText() }, getChangePasswordText()),
-                React__default["default"].createElement(Field.Button, { onClick: toSignIn, type: "button", variation: "link", size: "small" }, getBackToSignInText$2()),
-                React__default["default"].createElement(Footer, null)))));
+    return (React__namespace["default"].createElement(RouteContainer, { className: className, variation: variation },
+        React__namespace["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-forcenewpassword": "", method: "post", onChange: handleChange, onSubmit: handleSubmit, onBlur: handleBlur },
+            React__namespace["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
+                React__namespace["default"].createElement(Header, null),
+                React__namespace["default"].createElement(FormFields, null),
+                React__namespace["default"].createElement(RemoteErrorMessage, null),
+                React__namespace["default"].createElement(Field.Button, { isDisabled: isPending, type: "submit", variation: "primary", isLoading: isPending, loadingText: getChangingText() }, getChangePasswordText()),
+                React__namespace["default"].createElement(Field.Button, { onClick: toSignIn, type: "button", variation: "link", size: "small" }, getBackToSignInText$2()),
+                React__namespace["default"].createElement(Footer, null)))));
 };
 ForceNewPassword.FormFields = function FormFields$1() {
-    return React__default["default"].createElement(FormFields, null);
+    return React__namespace["default"].createElement(FormFields, null);
 };
 ForceNewPassword.Header = function Header() {
-    return React__default["default"].createElement(Heading, { level: 4 }, getChangePasswordText());
+    return React__namespace["default"].createElement(Heading, { level: 4 }, getChangePasswordText());
 };
 ForceNewPassword.Footer = function Footer() {
     return null;
@@ -2935,9 +2934,9 @@ const ConfirmSignInFooter = () => {
         context.isPending,
         context.toSignIn,
     ]);
-    return (React__default["default"].createElement(Field.Flex, { direction: "column" },
-        React__default["default"].createElement(Field.Button, { isDisabled: isPending, type: "submit", variation: "primary", isLoading: isPending, loadingText: getConfirmingText() }, getConfirmText()),
-        React__default["default"].createElement(Field.Button, { onClick: toSignIn, type: "button", variation: "link", size: "small" }, getBackToSignInText$1())));
+    return (React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+        React__namespace["default"].createElement(Field.Button, { isDisabled: isPending, type: "submit", variation: "primary", isLoading: isPending, loadingText: getConfirmingText() }, getConfirmText()),
+        React__namespace["default"].createElement(Field.Button, { onClick: toSignIn, type: "button", variation: "link", size: "small" }, getBackToSignInText$1())));
 };
 
 const logger = new utils.ConsoleLogger('SetupTotp-logger');
@@ -3020,34 +3019,34 @@ const TwoButtonSubmitFooter = (props) => {
                 return;
         }
     };
-    const defaultSubmitText = isPending ? (React__default["default"].createElement(React__default["default"].Fragment, null,
+    const defaultSubmitText = isPending ? (React__namespace["default"].createElement(React__namespace["default"].Fragment, null,
         getSubmittingText(),
-        "\u2026")) : (React__default["default"].createElement(React__default["default"].Fragment, null, getSubmitText()));
+        "\u2026")) : (React__namespace["default"].createElement(React__namespace["default"].Fragment, null, getSubmitText()));
     const submitText = submitButtonText ?? defaultSubmitText;
-    return (React__default["default"].createElement(Field.Flex, { direction: "column" },
-        React__default["default"].createElement(Field.Button, { variation: "primary", isDisabled: isPending, type: "submit" }, submitText),
-        React__default["default"].createElement(Field.Flex, { direction: "column", alignItems: "center" },
-            React__default["default"].createElement(Field.Button, { onClick: onClick, type: "button", variation: "link", size: "small" }, cancelButtonText))));
+    return (React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+        React__namespace["default"].createElement(Field.Button, { variation: "primary", isDisabled: isPending, type: "submit" }, submitText),
+        React__namespace["default"].createElement(Field.Flex, { direction: "column", alignItems: "center" },
+            React__namespace["default"].createElement(Field.Button, { onClick: onClick, type: "button", variation: "link", size: "small" }, cancelButtonText))));
 };
 
 const AppleIcon = () => {
-    return (React__default["default"].createElement("svg", { "aria-label": "Apple icon", className: "amplify-icon federated-sign-in-icon", fill: "#000", preserveAspectRatio: "xMidYMid", stroke: "#000", strokeWidth: "0", viewBox: "0 0 1024 1024", xmlns: "http://www.w3.org/2000/svg" },
-        React__default["default"].createElement("path", { d: "M747.4 535.7c-.4-68.2 30.5-119.6 92.9-157.5-34.9-50-87.7-77.5-157.3-82.8-65.9-5.2-138 38.4-164.4 38.4-27.9 0-91.7-36.6-141.9-36.6C273.1 298.8 163 379.8 163 544.6c0 48.7 8.9 99 26.7 150.8 23.8 68.2 109.6 235.3 199.1 232.6 46.8-1.1 79.9-33.2 140.8-33.2 59.1 0 89.7 33.2 141.9 33.2 90.3-1.3 167.9-153.2 190.5-221.6-121.1-57.1-114.6-167.2-114.6-170.7zm-105.1-305c50.7-60.2 46.1-115 44.6-134.7-44.8 2.6-96.6 30.5-126.1 64.8-32.5 36.8-51.6 82.3-47.5 133.6 48.4 3.7 92.6-21.2 129-63.7z" })));
+    return (React__namespace["default"].createElement("svg", { "aria-label": "Apple icon", className: "amplify-icon federated-sign-in-icon", fill: "#000", preserveAspectRatio: "xMidYMid", stroke: "#000", strokeWidth: "0", viewBox: "0 0 1024 1024", xmlns: "http://www.w3.org/2000/svg" },
+        React__namespace["default"].createElement("path", { d: "M747.4 535.7c-.4-68.2 30.5-119.6 92.9-157.5-34.9-50-87.7-77.5-157.3-82.8-65.9-5.2-138 38.4-164.4 38.4-27.9 0-91.7-36.6-141.9-36.6C273.1 298.8 163 379.8 163 544.6c0 48.7 8.9 99 26.7 150.8 23.8 68.2 109.6 235.3 199.1 232.6 46.8-1.1 79.9-33.2 140.8-33.2 59.1 0 89.7 33.2 141.9 33.2 90.3-1.3 167.9-153.2 190.5-221.6-121.1-57.1-114.6-167.2-114.6-170.7zm-105.1-305c50.7-60.2 46.1-115 44.6-134.7-44.8 2.6-96.6 30.5-126.1 64.8-32.5 36.8-51.6 82.3-47.5 133.6 48.4 3.7 92.6-21.2 129-63.7z" })));
 };
 const GoogleIcon = () => {
-    return (React__default["default"].createElement("svg", { "aria-label": "Google icon", className: "amplify-icon federated-sign-in-icon", viewBox: "0 0 256 262", xmlns: "http://www.w3.org/2000/svg", preserveAspectRatio: "xMidYMid" },
-        React__default["default"].createElement("path", { d: "M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027", fill: "#4285F4" }),
-        React__default["default"].createElement("path", { d: "M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1", fill: "#34A853" }),
-        React__default["default"].createElement("path", { d: "M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782", fill: "#FBBC05" }),
-        React__default["default"].createElement("path", { d: "M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251", fill: "#EB4335" })));
+    return (React__namespace["default"].createElement("svg", { "aria-label": "Google icon", className: "amplify-icon federated-sign-in-icon", viewBox: "0 0 256 262", xmlns: "http://www.w3.org/2000/svg", preserveAspectRatio: "xMidYMid" },
+        React__namespace["default"].createElement("path", { d: "M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027", fill: "#4285F4" }),
+        React__namespace["default"].createElement("path", { d: "M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1", fill: "#34A853" }),
+        React__namespace["default"].createElement("path", { d: "M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782", fill: "#FBBC05" }),
+        React__namespace["default"].createElement("path", { d: "M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251", fill: "#EB4335" })));
 };
 const FacebookIcon = () => {
-    return (React__default["default"].createElement(Field.Icon, { className: "federated-sign-in-icon", ariaLabel: "Facebook icon", viewBox: { minX: 0, minY: 0, width: 279, height: 538 }, pathData: "M82.3409742,538 L82.3409742,292.936652 L0,292.936652 L0,196.990154 L82.2410458,196.990154 L82.2410458,126.4295 C82.2410458,44.575144 132.205229,0 205.252865,0 C240.227794,0 270.306232,2.59855099 279,3.79788222 L279,89.2502322 L228.536175,89.2502322 C188.964542,89.2502322 181.270057,108.139699 181.270057,135.824262 L181.270057,196.89021 L276.202006,196.89021 L263.810888,292.836708 L181.16913,292.836708 L181.16913,538 L82.3409742,538 Z", fill: "#1877F2" }));
+    return (React__namespace["default"].createElement(Field.Icon, { className: "federated-sign-in-icon", ariaLabel: "Facebook icon", viewBox: { minX: 0, minY: 0, width: 279, height: 538 }, pathData: "M82.3409742,538 L82.3409742,292.936652 L0,292.936652 L0,196.990154 L82.2410458,196.990154 L82.2410458,126.4295 C82.2410458,44.575144 132.205229,0 205.252865,0 C240.227794,0 270.306232,2.59855099 279,3.79788222 L279,89.2502322 L228.536175,89.2502322 C188.964542,89.2502322 181.270057,108.139699 181.270057,135.824262 L181.270057,196.89021 L276.202006,196.89021 L263.810888,292.836708 L181.16913,292.836708 L181.16913,538 L82.3409742,538 Z", fill: "#1877F2" }));
 };
 const AmazonIcon = () => {
-    return (React__default["default"].createElement("svg", { "aria-label": "Amazon icon", className: "amplify-icon federated-sign-in-icon", viewBox: "0 0 243 264", xmlns: "http://www.w3.org/2000/svg", preserveAspectRatio: "xMidYMid" },
-        React__default["default"].createElement("path", { d: "M230.826 208.039C227.468 203.683 208.551 205.982 200.056 206.998C197.471 207.321 197.076 205.042 199.407 203.405C214.475 192.665 239.201 195.766 242.082 199.364C244.966 202.982 241.337 228.071 227.173 240.049C225.001 241.888 222.93 240.904 223.898 238.468C227.077 230.431 234.205 212.419 230.826 208.039ZM123.769 264C71.0234 264 39.0764 241.955 14.7853 217.542C9.97339 212.706 3.71799 206.296 0.311513 200.691C-1.09773 198.372 2.59096 195.022 5.04421 196.844C35.239 219.268 79.1012 239.538 122.53 239.538C151.82 239.538 188.046 227.47 217.669 214.868C222.147 212.966 222.147 219.18 221.512 221.061C221.183 222.032 206.515 236.221 186.247 247.047C167.304 257.166 143.397 264 123.769 264Z", fill: "#F2541B" }),
-        React__default["default"].createElement("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M142.943 111.185C142.943 124.756 143.268 136.054 136.406 148.123C130.856 157.913 122.027 163.95 112.222 163.95C98.8288 163.95 90.9806 153.772 90.9806 138.693C90.9806 109.036 117.677 103.647 142.943 103.647V111.185ZM178.166 196.081C175.858 198.15 171.635 198.22 169.914 196.894C157.974 187.684 149.89 173.688 149.89 173.688C130.706 193.156 117.127 199 92.2879 199C62.8772 199 40 180.905 40 144.729C40 116.461 55.3552 97.2408 77.2563 87.823C96.2094 79.5256 122.684 78.0173 142.943 75.7517C142.943 75.7517 144.633 53.933 138.699 45.9806C134.098 39.8163 126.272 36.9329 119.089 36.9329C106.127 36.8829 93.61 43.9051 91.1262 57.4188C90.4136 61.2829 87.5533 64.5261 84.54 64.206L51.0823 60.5922C48.5156 60.2951 45.0381 57.6639 45.8636 53.3081C53.644 12.3684 90.7373 0 123.989 0C140.983 0 163.21 4.51651 176.608 17.3349C193.597 33.1648 191.969 54.2755 191.969 77.2722V131.51C191.969 147.835 198.768 154.987 205.151 163.775C207.376 166.953 207.886 170.714 205.04 173.032C197.902 178.999 178.166 196.081 178.166 196.081Z", fill: "#F2541B" })));
+    return (React__namespace["default"].createElement("svg", { "aria-label": "Amazon icon", className: "amplify-icon federated-sign-in-icon", viewBox: "0 0 243 264", xmlns: "http://www.w3.org/2000/svg", preserveAspectRatio: "xMidYMid" },
+        React__namespace["default"].createElement("path", { d: "M230.826 208.039C227.468 203.683 208.551 205.982 200.056 206.998C197.471 207.321 197.076 205.042 199.407 203.405C214.475 192.665 239.201 195.766 242.082 199.364C244.966 202.982 241.337 228.071 227.173 240.049C225.001 241.888 222.93 240.904 223.898 238.468C227.077 230.431 234.205 212.419 230.826 208.039ZM123.769 264C71.0234 264 39.0764 241.955 14.7853 217.542C9.97339 212.706 3.71799 206.296 0.311513 200.691C-1.09773 198.372 2.59096 195.022 5.04421 196.844C35.239 219.268 79.1012 239.538 122.53 239.538C151.82 239.538 188.046 227.47 217.669 214.868C222.147 212.966 222.147 219.18 221.512 221.061C221.183 222.032 206.515 236.221 186.247 247.047C167.304 257.166 143.397 264 123.769 264Z", fill: "#F2541B" }),
+        React__namespace["default"].createElement("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M142.943 111.185C142.943 124.756 143.268 136.054 136.406 148.123C130.856 157.913 122.027 163.95 112.222 163.95C98.8288 163.95 90.9806 153.772 90.9806 138.693C90.9806 109.036 117.677 103.647 142.943 103.647V111.185ZM178.166 196.081C175.858 198.15 171.635 198.22 169.914 196.894C157.974 187.684 149.89 173.688 149.89 173.688C130.706 193.156 117.127 199 92.2879 199C62.8772 199 40 180.905 40 144.729C40 116.461 55.3552 97.2408 77.2563 87.823C96.2094 79.5256 122.684 78.0173 142.943 75.7517C142.943 75.7517 144.633 53.933 138.699 45.9806C134.098 39.8163 126.272 36.9329 119.089 36.9329C106.127 36.8829 93.61 43.9051 91.1262 57.4188C90.4136 61.2829 87.5533 64.5261 84.54 64.206L51.0823 60.5922C48.5156 60.2951 45.0381 57.6639 45.8636 53.3081C53.644 12.3684 90.7373 0 123.989 0C140.983 0 163.21 4.51651 176.608 17.3349C193.597 33.1648 191.969 54.2755 191.969 77.2722V131.51C191.969 147.835 198.768 154.987 205.151 163.775C207.376 166.953 207.886 170.714 205.04 173.032C197.902 178.999 178.166 196.081 178.166 196.081Z", fill: "#F2541B" })));
 };
 const FederatedSignInButton = (props) => {
     const { icon, provider, text } = props;
@@ -3058,20 +3057,20 @@ const FederatedSignInButton = (props) => {
     };
     let iconComponent;
     if (icon === 'facebook') {
-        iconComponent = React__default["default"].createElement(FacebookIcon, null);
+        iconComponent = React__namespace["default"].createElement(FacebookIcon, null);
     }
     else if (icon === 'google') {
-        iconComponent = React__default["default"].createElement(GoogleIcon, null);
+        iconComponent = React__namespace["default"].createElement(GoogleIcon, null);
     }
     else if (icon === 'amazon') {
-        iconComponent = React__default["default"].createElement(AmazonIcon, null);
+        iconComponent = React__namespace["default"].createElement(AmazonIcon, null);
     }
     else if (icon === 'apple') {
-        iconComponent = React__default["default"].createElement(AppleIcon, null);
+        iconComponent = React__namespace["default"].createElement(AppleIcon, null);
     }
-    return (React__default["default"].createElement(Field.Button, { onClick: handleClick, className: "federated-sign-in-button", gap: "1rem" },
+    return (React__namespace["default"].createElement(Field.Button, { onClick: handleClick, className: "federated-sign-in-button", gap: "1rem" },
         iconComponent,
-        React__default["default"].createElement(Field.Text, { as: "span" }, text)));
+        React__namespace["default"].createElement(Field.Text, { as: "span" }, text)));
 };
 
 const { getSignInWithFederationText, getOrText } = ui.authenticatorTextUtil;
@@ -3081,23 +3080,23 @@ function FederatedSignIn() {
         // @ts-ignore
         return null;
     }
-    return (React__default["default"].createElement(Field.Flex, { direction: "column", padding: `0 0 1rem 0`, className: "federated-sign-in-container" },
+    return (React__namespace["default"].createElement(Field.Flex, { direction: "column", padding: `0 0 1rem 0`, className: "federated-sign-in-container" },
         socialProviders.map((provider) => {
             switch (provider) {
                 case 'amazon':
-                    return (React__default["default"].createElement(FederatedSignInButton, { icon: "amazon", key: provider, provider: ui.FederatedIdentityProviders.Amazon, text: getSignInWithFederationText(route, provider) }));
+                    return (React__namespace["default"].createElement(FederatedSignInButton, { icon: "amazon", key: provider, provider: ui.FederatedIdentityProviders.Amazon, text: getSignInWithFederationText(route, provider) }));
                 case 'apple':
-                    return (React__default["default"].createElement(FederatedSignInButton, { icon: "apple", key: provider, provider: ui.FederatedIdentityProviders.Apple, text: getSignInWithFederationText(route, provider) }));
+                    return (React__namespace["default"].createElement(FederatedSignInButton, { icon: "apple", key: provider, provider: ui.FederatedIdentityProviders.Apple, text: getSignInWithFederationText(route, provider) }));
                 case 'facebook':
-                    return (React__default["default"].createElement(FederatedSignInButton, { icon: "facebook", key: provider, provider: ui.FederatedIdentityProviders.Facebook, text: getSignInWithFederationText(route, provider) }));
+                    return (React__namespace["default"].createElement(FederatedSignInButton, { icon: "facebook", key: provider, provider: ui.FederatedIdentityProviders.Facebook, text: getSignInWithFederationText(route, provider) }));
                 case 'google':
-                    return (React__default["default"].createElement(FederatedSignInButton, { icon: "google", key: provider, provider: ui.FederatedIdentityProviders.Google, text: getSignInWithFederationText(route, provider) }));
+                    return (React__namespace["default"].createElement(FederatedSignInButton, { icon: "google", key: provider, provider: ui.FederatedIdentityProviders.Google, text: getSignInWithFederationText(route, provider) }));
                 default:
                     // eslint-disable-next-line no-console
                     console.error(`Authenticator does not support ${provider}. Please open an issue: https://github.com/aws-amplify/amplify-ui/issues/choose`);
             }
         }),
-        React__default["default"].createElement(Divider, { size: "small", label: getOrText() })));
+        React__namespace["default"].createElement(Divider, { size: "small", label: getOrText() })));
 }
 
 const { getSignInText, getSigningInText, getForgotPasswordText } = ui.authenticatorTextUtil;
@@ -3107,25 +3106,25 @@ function SignIn() {
     const { components: { 
     // @ts-ignore
     SignIn: { Header = SignIn.Header, Footer = SignIn.Footer }, }, } = useCustomComponents();
-    return (React__default["default"].createElement(Field.View, null,
-        React__default["default"].createElement(Header, null),
-        React__default["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-signin": "", method: "post", onSubmit: handleSubmit, onChange: handleChange },
-            React__default["default"].createElement(FederatedSignIn, null),
-            React__default["default"].createElement(Field.Flex, { direction: "column" },
-                React__default["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
-                    React__default["default"].createElement(VisuallyHidden, null,
-                        React__default["default"].createElement("legend", null, getSignInText())),
-                    React__default["default"].createElement(FormFields, null)),
-                React__default["default"].createElement(RemoteErrorMessage, null),
-                React__default["default"].createElement(Field.Button, { isDisabled: isPending, type: "submit", variation: "primary", isLoading: isPending, loadingText: getSigningInText() }, getSignInText()),
-                React__default["default"].createElement(Footer, null)))));
+    return (React__namespace["default"].createElement(Field.View, null,
+        React__namespace["default"].createElement(Header, null),
+        React__namespace["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-signin": "", method: "post", onSubmit: handleSubmit, onChange: handleChange },
+            React__namespace["default"].createElement(FederatedSignIn, null),
+            React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+                React__namespace["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
+                    React__namespace["default"].createElement(VisuallyHidden, null,
+                        React__namespace["default"].createElement("legend", null, getSignInText())),
+                    React__namespace["default"].createElement(FormFields, null)),
+                React__namespace["default"].createElement(RemoteErrorMessage, null),
+                React__namespace["default"].createElement(Field.Button, { isDisabled: isPending, type: "submit", variation: "primary", isLoading: isPending, loadingText: getSigningInText() }, getSignInText()),
+                React__namespace["default"].createElement(Footer, null)))));
 }
 const DefaultFooter = () => {
     const { toForgotPassword } = uiReactCore.useAuthenticator((context) => [
         context.toForgotPassword,
     ]);
-    return (React__default["default"].createElement(Field.View, { "data-amplify-footer": "" },
-        React__default["default"].createElement(Field.Button, { onClick: toForgotPassword, size: "small", variation: "link" }, getForgotPasswordText())));
+    return (React__namespace["default"].createElement(Field.View, { "data-amplify-footer": "" },
+        React__namespace["default"].createElement(Field.Button, { onClick: toForgotPassword, size: "small", variation: "link" }, getForgotPasswordText())));
 };
 SignIn.Footer = DefaultFooter;
 SignIn.Header = function Header() {
@@ -3143,23 +3142,23 @@ function SignUp() {
     const { components: { 
     // @ts-ignore
     SignUp: { Header = SignUp.Header, FormFields = SignUp.FormFields, Footer = SignUp.Footer, }, }, } = useCustomComponents();
-    return (React__default["default"].createElement(Field.View, null,
-        React__default["default"].createElement(Header, null),
-        React__default["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-signup": "", method: "post", onChange: handleChange, onSubmit: handleSubmit, onBlur: handleBlur },
-            React__default["default"].createElement(FederatedSignIn, null),
-            React__default["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
-                React__default["default"].createElement(Field.Flex, { direction: "column" },
-                    React__default["default"].createElement(FormFields, null),
-                    React__default["default"].createElement(RemoteErrorMessage, null)),
-                React__default["default"].createElement(Field.Button, { isDisabled: hasValidationErrors || isPending, isFullWidth: true, type: "submit", variation: "primary", isLoading: isPending, loadingText: getCreatingAccountText() }, getCreateAccountText()),
-                React__default["default"].createElement(Footer, null)))));
+    return (React__namespace["default"].createElement(Field.View, null,
+        React__namespace["default"].createElement(Header, null),
+        React__namespace["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-signup": "", method: "post", onChange: handleChange, onSubmit: handleSubmit, onBlur: handleBlur },
+            React__namespace["default"].createElement(FederatedSignIn, null),
+            React__namespace["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
+                React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+                    React__namespace["default"].createElement(FormFields, null),
+                    React__namespace["default"].createElement(RemoteErrorMessage, null)),
+                React__namespace["default"].createElement(Field.Button, { isDisabled: hasValidationErrors || isPending, isFullWidth: true, type: "submit", variation: "primary", isLoading: isPending, loadingText: getCreatingAccountText() }, getCreateAccountText()),
+                React__namespace["default"].createElement(Footer, null)))));
 }
 SignUp.Header = function Header() {
     // @ts-ignore
     return null;
 };
 SignUp.FormFields = function FormFields$1() {
-    return React__default["default"].createElement(FormFields, null);
+    return React__namespace["default"].createElement(FormFields, null);
 };
 SignUp.Footer = function Footer() {
     // @ts-ignore
@@ -3173,14 +3172,14 @@ const SignInSignUpTabs = ({ className, hideSignUp, variation, }) => {
         context.toSignIn,
         context.toSignUp,
     ]);
-    return (React__default["default"].createElement(RouteContainer, { className: className, variation: variation }, hideSignUp ? (React__default["default"].createElement(Field.View, { "data-amplify-router-content": "" }, route === 'signIn' && React__default["default"].createElement(SignIn, null))) : (React__default["default"].createElement(Tabs.Container, { value: route, isLazy: true, onValueChange: () => (route === 'signIn' ? toSignUp() : toSignIn()) },
-        React__default["default"].createElement(Tabs.List, { spacing: "equal", indicatorPosition: "top" },
-            React__default["default"].createElement(Tabs.Item, { value: "signIn" }, getSignInTabText()),
-            React__default["default"].createElement(Tabs.Item, { value: "signUp" }, getSignUpTabText())),
-        React__default["default"].createElement(Tabs.Panel, { value: "signIn", "data-amplify-router-content": "" },
-            React__default["default"].createElement(SignIn, null)),
-        React__default["default"].createElement(Tabs.Panel, { value: "signUp", "data-amplify-router-content": "" },
-            React__default["default"].createElement(SignUp, null))))));
+    return (React__namespace["default"].createElement(RouteContainer, { className: className, variation: variation }, hideSignUp ? (React__namespace["default"].createElement(Field.View, { "data-amplify-router-content": "" }, route === 'signIn' && React__namespace["default"].createElement(SignIn, null))) : (React__namespace["default"].createElement(Tabs.Container, { value: route, isLazy: true, onValueChange: () => (route === 'signIn' ? toSignUp() : toSignIn()) },
+        React__namespace["default"].createElement(Tabs.List, { spacing: "equal", indicatorPosition: "top" },
+            React__namespace["default"].createElement(Tabs.Item, { value: "signIn" }, getSignInTabText()),
+            React__namespace["default"].createElement(Tabs.Item, { value: "signUp" }, getSignUpTabText())),
+        React__namespace["default"].createElement(Tabs.Panel, { value: "signIn", "data-amplify-router-content": "" },
+            React__namespace["default"].createElement(SignIn, null)),
+        React__namespace["default"].createElement(Tabs.Panel, { value: "signUp", "data-amplify-router-content": "" },
+            React__namespace["default"].createElement(SignUp, null))))));
 };
 
 const { getAccountRecoveryInfoText: getAccountRecoveryInfoText$1, getSkipText: getSkipText$1 } = ui.authenticatorTextUtil;
@@ -3190,18 +3189,18 @@ const ConfirmVerifyUser = ({ className, variation, }) => {
     const { components: { 
     // @ts-ignore
     ConfirmVerifyUser: { Header = ConfirmVerifyUser.Header, Footer = ConfirmVerifyUser.Footer, }, }, } = useCustomComponents();
-    return (React__default["default"].createElement(RouteContainer, { className: className, variation: variation },
-        React__default["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-confirmverifyuser": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
-            React__default["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
-                React__default["default"].createElement(Header, null),
-                React__default["default"].createElement(Field.Flex, { direction: "column" },
-                    React__default["default"].createElement(FormFields, null)),
-                React__default["default"].createElement(RemoteErrorMessage, null),
-                React__default["default"].createElement(TwoButtonSubmitFooter, { cancelButtonText: getSkipText$1(), cancelButtonSendType: "SKIP" }),
-                React__default["default"].createElement(Footer, null)))));
+    return (React__namespace["default"].createElement(RouteContainer, { className: className, variation: variation },
+        React__namespace["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-confirmverifyuser": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
+            React__namespace["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
+                React__namespace["default"].createElement(Header, null),
+                React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+                    React__namespace["default"].createElement(FormFields, null)),
+                React__namespace["default"].createElement(RemoteErrorMessage, null),
+                React__namespace["default"].createElement(TwoButtonSubmitFooter, { cancelButtonText: getSkipText$1(), cancelButtonSendType: "SKIP" }),
+                React__namespace["default"].createElement(Footer, null)))));
 };
 ConfirmVerifyUser.Header = function Header() {
-    return React__default["default"].createElement(Heading, { level: 3 }, getAccountRecoveryInfoText$1());
+    return React__namespace["default"].createElement(Heading, { level: 3 }, getAccountRecoveryInfoText$1());
 };
 ConfirmVerifyUser.Footer = function Footer() {
     return null;
@@ -3211,7 +3210,7 @@ const { getSkipText, getVerifyText, getVerifyContactText, getAccountRecoveryInfo
 const generateRadioGroup = (attributes) => {
     return Object.entries(attributes).map(([key, value], index) => {
         const verificationType = ui.defaultFormFieldOptions[key].label;
-        return (React__default["default"].createElement(Radio, { name: "unverifiedAttr", value: key, key: key, defaultChecked: index === 0 },
+        return (React__namespace["default"].createElement(Radio, { name: "unverifiedAttr", value: key, key: key, defaultChecked: index === 0 },
             ui.translate(verificationType),
             ":",
             ' ',
@@ -3227,19 +3226,19 @@ const VerifyUser = ({ className, variation, }) => {
         unverifiedUserAttributes,
     ]);
     const { handleChange, handleSubmit } = useFormHandlers();
-    const footerSubmitText = isPending ? (React__default["default"].createElement(React__default["default"].Fragment, null, "Verifying\u2026")) : (React__default["default"].createElement(React__default["default"].Fragment, null, getVerifyText()));
-    const verificationRadioGroup = (React__default["default"].createElement(RadioGroupField, { legend: getVerifyContactText(), name: "verify_context", isDisabled: isPending, legendHidden: true }, generateRadioGroup(unverifiedUserAttributes)));
-    return (React__default["default"].createElement(RouteContainer, { className: className, variation: variation },
-        React__default["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-verifyuser": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
-            React__default["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
-                React__default["default"].createElement(Header, null),
+    const footerSubmitText = isPending ? (React__namespace["default"].createElement(React__namespace["default"].Fragment, null, "Verifying\u2026")) : (React__namespace["default"].createElement(React__namespace["default"].Fragment, null, getVerifyText()));
+    const verificationRadioGroup = (React__namespace["default"].createElement(RadioGroupField, { legend: getVerifyContactText(), name: "verify_context", isDisabled: isPending, legendHidden: true }, generateRadioGroup(unverifiedUserAttributes)));
+    return (React__namespace["default"].createElement(RouteContainer, { className: className, variation: variation },
+        React__namespace["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-verifyuser": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
+            React__namespace["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
+                React__namespace["default"].createElement(Header, null),
                 verificationRadioGroup,
-                React__default["default"].createElement(RemoteErrorMessage, null),
-                React__default["default"].createElement(TwoButtonSubmitFooter, { cancelButtonText: getSkipText(), cancelButtonSendType: "SKIP", submitButtonText: footerSubmitText }),
-                React__default["default"].createElement(Footer, null)))));
+                React__namespace["default"].createElement(RemoteErrorMessage, null),
+                React__namespace["default"].createElement(TwoButtonSubmitFooter, { cancelButtonText: getSkipText(), cancelButtonSendType: "SKIP", submitButtonText: footerSubmitText }),
+                React__namespace["default"].createElement(Footer, null)))));
 };
 VerifyUser.Header = function Header() {
-    return React__default["default"].createElement(Heading, { level: 3 }, getAccountRecoveryInfoText());
+    return React__namespace["default"].createElement(Heading, { level: 3 }, getAccountRecoveryInfoText());
 };
 VerifyUser.Footer = function Footer() {
     // @ts-ignore
@@ -3253,21 +3252,21 @@ const ConfirmSignIn = ({ className, variation, }) => {
     const { components: { 
     // @ts-ignore
     ConfirmSignIn: { Header = ConfirmSignIn.Header, Footer = ConfirmSignIn.Footer, }, }, } = useCustomComponents();
-    return (React__default["default"].createElement(RouteContainer, { className: className, variation: variation },
-        React__default["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-confirmsignin": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
-            React__default["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
-                React__default["default"].createElement(Header, null),
-                React__default["default"].createElement(Field.Flex, { direction: "column" },
-                    React__default["default"].createElement(FormFields, null),
-                    React__default["default"].createElement(RemoteErrorMessage, null)),
-                React__default["default"].createElement(ConfirmSignInFooter, null),
-                React__default["default"].createElement(Footer, null)))));
+    return (React__namespace["default"].createElement(RouteContainer, { className: className, variation: variation },
+        React__namespace["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-confirmsignin": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
+            React__namespace["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
+                React__namespace["default"].createElement(Header, null),
+                React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+                    React__namespace["default"].createElement(FormFields, null),
+                    React__namespace["default"].createElement(RemoteErrorMessage, null)),
+                React__namespace["default"].createElement(ConfirmSignInFooter, null),
+                React__namespace["default"].createElement(Footer, null)))));
 };
 function Header() {
     const { challengeName } = uiReactCore.useAuthenticator(({ challengeName }) => [
         challengeName,
     ]);
-    return React__default["default"].createElement(Heading, { level: 3 }, getChallengeText(challengeName));
+    return React__namespace["default"].createElement(Heading, { level: 3 }, getChallengeText(challengeName));
 }
 ConfirmSignIn.Header = Header;
 ConfirmSignIn.Footer = function Footer() {
@@ -3282,19 +3281,19 @@ const ConfirmResetPassword = ({ className, variation, }) => {
     const { components: { 
     // @ts-ignore
     ConfirmResetPassword: { Header = ConfirmResetPassword.Header, Footer = ConfirmResetPassword.Footer, }, }, } = useCustomComponents();
-    return (React__default["default"].createElement(RouteContainer, { className: className, variation: variation },
-        React__default["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-confirmresetpassword": "", method: "post", onSubmit: handleSubmit, onChange: handleChange, onBlur: handleBlur },
-            React__default["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
-                React__default["default"].createElement(Header, null),
-                React__default["default"].createElement(Field.Flex, { direction: "column" },
-                    React__default["default"].createElement(FormFields, null)),
-                React__default["default"].createElement(RemoteErrorMessage, null),
-                React__default["default"].createElement(TwoButtonSubmitFooter, { cancelButtonSendType: "RESEND", cancelButtonText: getResendCodeText() }),
-                React__default["default"].createElement(Footer, null)))));
+    return (React__namespace["default"].createElement(RouteContainer, { className: className, variation: variation },
+        React__namespace["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-confirmresetpassword": "", method: "post", onSubmit: handleSubmit, onChange: handleChange, onBlur: handleBlur },
+            React__namespace["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
+                React__namespace["default"].createElement(Header, null),
+                React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+                    React__namespace["default"].createElement(FormFields, null)),
+                React__namespace["default"].createElement(RemoteErrorMessage, null),
+                React__namespace["default"].createElement(TwoButtonSubmitFooter, { cancelButtonSendType: "RESEND", cancelButtonText: getResendCodeText() }),
+                React__namespace["default"].createElement(Footer, null)))));
 };
 ConfirmResetPassword.Header = function Header() {
     const headerText = getResetYourPasswordText$1();
-    return React__default["default"].createElement(Heading, { level: 3 }, headerText);
+    return React__namespace["default"].createElement(Heading, { level: 3 }, headerText);
 };
 ConfirmResetPassword.Footer = function Footer() {
     // @ts-ignore
@@ -3308,20 +3307,20 @@ const ForgotPassword = ({ className, variation, }) => {
     const { components: { 
     // @ts-ignore
     ForgotPassword: { Header = ForgotPassword.Header, Footer = ForgotPassword.Footer, }, }, } = useCustomComponents();
-    return (React__default["default"].createElement(RouteContainer, { className: className, variation: variation },
-        React__default["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-forgotpassword": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
-            React__default["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
-                React__default["default"].createElement(Header, null),
-                React__default["default"].createElement(Field.Flex, { direction: "column" },
-                    React__default["default"].createElement(FormFields, null)),
-                React__default["default"].createElement(RemoteErrorMessage, null),
-                React__default["default"].createElement(TwoButtonSubmitFooter, { cancelButtonText: getBackToSignInText(), cancelButtonSendType: "SIGN_IN", submitButtonText: isPending ? (React__default["default"].createElement(React__default["default"].Fragment, null,
+    return (React__namespace["default"].createElement(RouteContainer, { className: className, variation: variation },
+        React__namespace["default"].createElement("form", { "data-amplify-form": "", "data-amplify-authenticator-forgotpassword": "", method: "post", onChange: handleChange, onSubmit: handleSubmit },
+            React__namespace["default"].createElement(Field.Flex, { as: "fieldset", direction: "column", isDisabled: isPending },
+                React__namespace["default"].createElement(Header, null),
+                React__namespace["default"].createElement(Field.Flex, { direction: "column" },
+                    React__namespace["default"].createElement(FormFields, null)),
+                React__namespace["default"].createElement(RemoteErrorMessage, null),
+                React__namespace["default"].createElement(TwoButtonSubmitFooter, { cancelButtonText: getBackToSignInText(), cancelButtonSendType: "SIGN_IN", submitButtonText: isPending ? (React__namespace["default"].createElement(React__namespace["default"].Fragment, null,
                         getSendingText(),
-                        "\u2026")) : (React__default["default"].createElement(React__default["default"].Fragment, null, getSendCodeText())) }),
-                React__default["default"].createElement(Footer, null)))));
+                        "\u2026")) : (React__namespace["default"].createElement(React__namespace["default"].Fragment, null, getSendCodeText())) }),
+                React__namespace["default"].createElement(Footer, null)))));
 };
 ForgotPassword.Header = function Header() {
-    return React__default["default"].createElement(Heading, { level: 3 }, getResetYourPasswordText());
+    return React__namespace["default"].createElement(Heading, { level: 3 }, getResetYourPasswordText());
 };
 ForgotPassword.Footer = function Footer() {
     // @ts-ignore
@@ -3369,7 +3368,7 @@ const getRouteComponent = (route) => {
 function Router({ className, hideSignUp, variation, }) {
     const { route } = uiReactCore.useAuthenticator(({ route }) => [route]);
     const RouterChildren = React.useMemo(() => getRouteComponent(route), [route]);
-    return (React__default["default"].createElement(RouterChildren, { className: className, 
+    return (React__namespace["default"].createElement(RouterChildren, { className: className, 
         // @ts-ignore
         hideSignUp: isSignInOrSignUpRoute(route) ? hideSignUp : undefined, variation: variation }));
 }
@@ -3487,7 +3486,7 @@ Authenticator.ForceNewPassword = ForceNewPassword;
 function withAuthenticator(Component, options = {}) {
     const { variation = 'modal' } = options;
     return function WrappedWithAuthenticator(props) {
-        return (React__default["default"].createElement(Authenticator, { variation: variation, ...options }, (withAuthenticatorProps) => (React__default["default"].createElement(Component, { ...props, ...withAuthenticatorProps }))));
+        return (React__namespace["default"].createElement(Authenticator, { variation: variation, ...options }, (withAuthenticatorProps) => (React__namespace["default"].createElement(Component, { ...props, ...withAuthenticatorProps }))));
     };
 }
 
@@ -3509,28 +3508,28 @@ var index = /*#__PURE__*/Object.freeze({
     __proto__: null,
     AccountSettings: AccountSettings,
     Authenticator: Authenticator,
-    withAuthenticator: withAuthenticator,
+    ThemeProvider: ThemeProvider,
     useAuthenticator: uiReactCore.useAuthenticator,
-    ThemeProvider: ThemeProvider
+    withAuthenticator: withAuthenticator
 });
 
-Object.defineProperty(exports, 'useAuthenticator', {
+Object.defineProperty(exports, "useAuthenticator", {
     enumerable: true,
     get: function () { return uiReactCore.useAuthenticator; }
 });
-Object.defineProperty(exports, 'createTheme', {
+Object.defineProperty(exports, "createTheme", {
     enumerable: true,
     get: function () { return ui.createTheme; }
 });
-Object.defineProperty(exports, 'defaultDarkModeOverride', {
+Object.defineProperty(exports, "defaultDarkModeOverride", {
     enumerable: true,
     get: function () { return ui.defaultDarkModeOverride; }
 });
-Object.defineProperty(exports, 'defaultTheme', {
+Object.defineProperty(exports, "defaultTheme", {
     enumerable: true,
     get: function () { return ui.defaultTheme; }
 });
-Object.defineProperty(exports, 'translations', {
+Object.defineProperty(exports, "translations", {
     enumerable: true,
     get: function () { return ui.translations; }
 });

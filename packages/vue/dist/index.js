@@ -2624,7 +2624,7 @@ function H(e, t) {
   return i;
 }
 function Q(e, t, n) {
-  if (n || arguments.length === 2)
+  if (arguments.length === 2)
     for (var r = 0, o = t.length, i; r < o; r++)
       (i || !(r in t)) && (i || (i = Array.prototype.slice.call(t, 0, r)), i[r] = t[r]);
   return e.concat(i || Array.prototype.slice.call(t));
@@ -7836,7 +7836,7 @@ const nn = (e, t) => {
   always: { actions: "configure", target: "getConfig" }
 };
 function Ob(e) {
-  const { useNextWaitConfig: t, ...n } = e ?? {};
+  const { useNextWaitConfig: t, ...n } = {};
   return _t({
     id: "authenticator",
     initial: "idle",

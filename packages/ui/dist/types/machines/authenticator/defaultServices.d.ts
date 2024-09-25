@@ -204,8 +204,8 @@ export declare const defaultServices: {
     handleConfirmSignUp: typeof confirmSignUp;
     handleForgotPasswordSubmit: typeof confirmResetPassword;
     handleForgotPassword: typeof resetPassword;
-    validateCustomSignUp(formData: AuthFormData, touchData: AuthTouchData): Promise<ValidatorResult>;
+    validateCustomSignUp(_: AuthFormData, __: AuthTouchData): Promise<ValidatorResult>;
     validateFormPassword(formData: AuthFormData, touchData: AuthTouchData, passwordSettings: PasswordSettings): Promise<ValidatorResult>;
     validateConfirmPassword(formData: AuthFormData, touchData: AuthTouchData): Promise<ValidatorResult>;
-    validatePreferredUsername(formData: AuthFormData, touchData: AuthTouchData): Promise<ValidatorResult>;
+    validatePreferredUsername(_: AuthFormData, __: AuthTouchData): Promise<ValidatorResult>;
 };

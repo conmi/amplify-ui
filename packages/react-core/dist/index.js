@@ -9,8 +9,6 @@ var ui = require('@aws-amplify/ui');
 var reactHookForm = require('react-hook-form');
 var storage = require('aws-amplify/storage');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
 function _interopNamespace(e) {
     if (e && e.__esModule) return e;
     var n = Object.create(null);
@@ -29,7 +27,6 @@ function _interopNamespace(e) {
     return Object.freeze(n);
 }
 
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 
 /**
@@ -37,7 +34,7 @@ var React__namespace = /*#__PURE__*/_interopNamespace(React);
  *
  * https://xstate.js.org/docs/recipes/react.html#context-provider
  */
-const AuthenticatorContext = React__default["default"].createContext(null);
+const AuthenticatorContext = React__namespace["default"].createContext(null);
 
 const createHubHandler = (options) => (data, service) => {
     ui.defaultAuthHubHandler(data, service, options);
@@ -47,9 +44,9 @@ function AuthenticatorProvider({ children, }) {
     // state machine as the machine only updates on `Authenticator` initiated events, which
     // leads to scenarios where the state machine `authStatus` gets "stuck". For exmample,
     // if a user was to sign in using `Auth.signIn` directly rather than using `Authenticator`
-    const [authStatus, setAuthStatus] = React__default["default"].useState('configuring');
+    const [authStatus, setAuthStatus] = React__namespace["default"].useState('configuring');
     // only run on first render
-    React__default["default"].useEffect(() => {
+    React__namespace["default"].useEffect(() => {
         auth.getCurrentUser()
             .then(() => {
             setAuthStatus('authenticated');
@@ -79,7 +76,7 @@ function AuthenticatorProvider({ children, }) {
         const unsubscribe = ui.listenToAuthHub(activeService, createHubHandler({ onSignIn, onSignOut }));
         return unsubscribe;
     }, [activeService]);
-    return (React__default["default"].createElement(AuthenticatorContext.Provider, { value: value }, children));
+    return (React__namespace["default"].createElement(AuthenticatorContext.Provider, { value: value }, children));
 }
 
 const USE_AUTHENTICATOR_ERROR = '`useAuthenticator` must be used inside an `Authenticator.Provider`.';
@@ -185,7 +182,7 @@ const getMachineFields = (route, state, unverifiedUserAttributes) => {
  * [📖 Docs](https://ui.docs.amplify.aws/react/connected-components/authenticator/headless#useauthenticator-hook)
  */
 function useAuthenticator(selector) {
-    const context = React__default["default"].useContext(AuthenticatorContext);
+    const context = React__namespace["default"].useContext(AuthenticatorContext);
     if (!context) {
         throw new Error(USE_AUTHENTICATOR_ERROR);
     }
@@ -243,13 +240,13 @@ function useForm(options = {}) {
     };
     // memoize `registerField` and `setFormValue` together,
     // `register` and `setValue` maintain stable references
-    const { registerField, setFormValue } = React__default["default"].useMemo(() => {
+    const { registerField, setFormValue } = React__namespace["default"].useMemo(() => {
         return {
             registerField: ({ name, ...options }) => register(name, options),
             setFormValue: ({ name, value, ...options }) => setValue(name, value, options),
         };
     }, [register, setValue]);
-    const onSubmit = React__default["default"].useCallback((event) => {
+    const onSubmit = React__namespace["default"].useCallback((event) => {
         const handler = _onSubmit ? handleSubmit(_onSubmit) : ui.noop;
         handler(event);
     }, [_onSubmit, handleSubmit]);
@@ -282,14 +279,14 @@ function useField(params) {
 }
 
 const DEFAULT_MODE = 'onTouched';
-const FormProvider = React__default["default"].forwardRef(function FormProvider({ children, defaultValues, mode = DEFAULT_MODE }, ref) {
+const FormProvider = React__namespace["default"].forwardRef(function FormProvider({ children, defaultValues, mode = DEFAULT_MODE }, ref) {
     const formProviderProps = reactHookForm.useForm({
         defaultValues,
         mode,
     });
     const { getValues, reset } = formProviderProps;
-    React__default["default"].useImperativeHandle(ref, () => ({ getValues, reset: () => reset(defaultValues) }), [defaultValues, getValues, reset]);
-    return (React__default["default"].createElement(reactHookForm.FormProvider, { ...formProviderProps }, children));
+    React__namespace["default"].useImperativeHandle(ref, () => ({ getValues, reset: () => reset(defaultValues) }), [defaultValues, getValues, reset]);
+    return (React__namespace["default"].createElement(reactHookForm.FormProvider, { ...formProviderProps }, children));
 });
 
 /**
@@ -297,9 +294,9 @@ const FormProvider = React__default["default"].forwardRef(function FormProvider(
  * @returns Composed `Form` component exposing `FormContext` values to descendents
  */
 function withFormProvider(Child) {
-    return React__default["default"].forwardRef(function Form({ defaultValues, mode, ...props }, ref) {
-        return (React__default["default"].createElement(FormProvider, { defaultValues: defaultValues, mode: mode, ref: ref },
-            React__default["default"].createElement(Child, { ...props })));
+    return React__namespace["default"].forwardRef(function Form({ defaultValues, mode, ...props }, ref) {
+        return (React__namespace["default"].createElement(FormProvider, { defaultValues: defaultValues, mode: mode, ref: ref },
+            React__namespace["default"].createElement(Child, { ...props })));
     });
 }
 
@@ -549,8 +546,8 @@ function useAuthenticatorRoute({ components, }) {
 const routeSelector = ({ route }) => [route];
 function useAuthenticatorInitMachine(data) {
     const { route, initializeMachine } = useAuthenticator(routeSelector);
-    const hasInitialized = React__default["default"].useRef(false);
-    React__default["default"].useEffect(() => {
+    const hasInitialized = React__namespace["default"].useRef(false);
+    React__namespace["default"].useEffect(() => {
         if (!hasInitialized.current && route === 'setup') {
             initializeMachine(data);
             hasInitialized.current = true;
@@ -567,12 +564,12 @@ const resolveMaybeAsync = async (value) => {
     return awaited;
 };
 function useDataState(action, initialData) {
-    const [dataState, setDataState] = React__default["default"].useState(() => ({
+    const [dataState, setDataState] = React__namespace["default"].useState(() => ({
         ...INITIAL_STATE,
         data: initialData,
     }));
-    const prevData = React__default["default"].useRef(initialData);
-    const handleAction = React__default["default"].useCallback((...input) => {
+    const prevData = React__namespace["default"].useRef(initialData);
+    const handleAction = React__namespace["default"].useCallback((...input) => {
         setDataState(({ data }) => ({ ...LOADING_STATE, data }));
         resolveMaybeAsync(action(prevData.current, ...input))
             .then((data) => {
@@ -679,11 +676,11 @@ function useSetUserAgent({ componentName, packageName, version, }) {
 }
 
 function useTimeout({ callback, delay, }) {
-    const storedCallback = React__default["default"].useRef(callback);
-    React__default["default"].useLayoutEffect(() => {
+    const storedCallback = React__namespace["default"].useRef(callback);
+    React__namespace["default"].useLayoutEffect(() => {
         storedCallback.current = callback;
     }, [callback]);
-    React__default["default"].useEffect(() => {
+    React__namespace["default"].useEffect(() => {
         if (!ui.isTypedFunction(storedCallback.current) || !delay) {
             return;
         }
@@ -748,20 +745,20 @@ function createContextUtilities(options) {
     if (ui.isUndefined(defaultValue) && !ui.isString(errorMessage)) {
         throw new Error(INVALID_OPTIONS_MESSAGE);
     }
-    const Context = React__default["default"].createContext(defaultValue);
+    const Context = React__namespace["default"].createContext(defaultValue);
     function Provider(props) {
         const { children, ...context } = props;
-        const value = React__default["default"].useMemo(() => context, 
+        const value = React__namespace["default"].useMemo(() => context, 
         // Unpack `context` for the dep array; using `[context]` results in
         // evaluation on every render
         // eslint-disable-next-line react-hooks/exhaustive-deps
         Object.values(context));
-        return React__default["default"].createElement(Context.Provider, { value: value }, children);
+        return React__namespace["default"].createElement(Context.Provider, { value: value }, children);
     }
     Provider.displayName = `${contextName}Provider`;
     return {
         [`use${contextName}`]: function (params) {
-            const context = React__default["default"].useContext(Context);
+            const context = React__namespace["default"].useContext(Context);
             if (ui.isUndefined(context)) {
                 throw new Error(params?.errorMessage ?? errorMessage);
             }

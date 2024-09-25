@@ -11,11 +11,11 @@ var pickBy = require('lodash/pickBy.js');
 var merge = require('lodash/merge.js');
 var kebabCase = require('lodash/kebabCase.js');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
-var pickBy__default = /*#__PURE__*/_interopDefaultLegacy(pickBy);
-var merge__default = /*#__PURE__*/_interopDefaultLegacy(merge);
-var kebabCase__default = /*#__PURE__*/_interopDefaultLegacy(kebabCase);
+var pickBy__default = /*#__PURE__*/_interopDefault(pickBy);
+var merge__default = /*#__PURE__*/_interopDefault(merge);
+var kebabCase__default = /*#__PURE__*/_interopDefault(kebabCase);
 
 /**
  * This file contains helpers that lets you easily access current actor's state
@@ -3225,7 +3225,7 @@ const getAliasDefaultFormField = (state) => {
     };
 };
 /** Reusable confirmation code form fields. */
-const getConfirmationCodeFormFields = (state) => ({
+const getConfirmationCodeFormFields = (_) => ({
     confirmation_code: {
         ...getDefaultFormField('confirmation_code'),
         label: 'Code *',
@@ -3261,12 +3261,13 @@ const getSignUpFormFields = (state) => {
         }
         else {
             // There's a `custom:*` attribute or one we don't already have an implementation for
+            // eslint-disable-next-line no-console
             console.debug(`Authenticator does not have a default implementation for ${fieldName}. Customize SignUp FormFields to add your own.`);
         }
     }
     return formField;
 };
-const getConfirmSignUpFormFields = (state) => ({
+const getConfirmSignUpFormFields = (_) => ({
     confirmation_code: {
         ...getDefaultFormField('confirmation_code'),
         placeholder: 'Enter your code',
@@ -3311,6 +3312,7 @@ const getForceNewPasswordFormFields = (state) => {
         }
         else {
             // There's a `custom:*` attribute or one we don't already have an implementation for
+            // eslint-disable-next-line no-console
             console.debug(`Authenticator does not have a default implementation for ${fieldName}. Customize ForceNewPassword FormFields to add your own.`);
         }
     }
@@ -4005,7 +4007,7 @@ const defaultServices = {
     handleForgotPasswordSubmit: auth.confirmResetPassword,
     handleForgotPassword: auth.resetPassword,
     // Validation hooks for overriding
-    async validateCustomSignUp(formData, touchData) { },
+    async validateCustomSignUp(_, __) { },
     async validateFormPassword(formData, touchData, passwordSettings) {
         const { password } = formData;
         const { password: touched_password } = touchData;
@@ -4055,7 +4057,7 @@ const defaultServices = {
             };
         }
     },
-    async validatePreferredUsername(formData, touchData) { },
+    async validatePreferredUsername(_, __) { },
 };
 
 function forgotPasswordActor({ services, }) {

@@ -2,15 +2,13 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var Field = require('./Field-3db91851.js');
+var Field = require('./Field-DNG47Vw2.js');
 var React = require('react');
 var Storage = require('aws-amplify/storage');
 var ui = require('@aws-amplify/ui');
 var uiReactCore = require('@aws-amplify/ui-react-core');
 require('@aws-amplify/core');
 require('aws-amplify/auth');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 function _interopNamespace(e) {
     if (e && e.__esModule) return e;
@@ -31,7 +29,6 @@ function _interopNamespace(e) {
 }
 
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var Storage__namespace = /*#__PURE__*/_interopNamespace(Storage);
 
 const useStorageURL = ({ key, options, fallbackURL, onStorageGetError, }) => {
@@ -86,7 +83,7 @@ const useThemeBreakpoint = () => {
 const FilterChildren = ({ allowedFilters, children = null, targetFilter, }) => {
     const showContent = Array.isArray(allowedFilters) &&
         allowedFilters.some((filter) => filter === targetFilter);
-    return showContent ? React__default["default"].createElement(React__default["default"].Fragment, null, children) : null;
+    return showContent ? React__namespace["default"].createElement(React__namespace["default"].Fragment, null, children) : null;
 };
 
 /**

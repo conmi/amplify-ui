@@ -8,6 +8,12 @@ import { WS_CLOSURE_CODE } from '../constants.mjs';
  * Note: This file was copied from https://github.com/aws/aws-sdk-js-v3/blob/main/packages/middleware-websocket/src/websocket-fetch-handler.ts#L176
  * Because of this the file is not fully typed at this time but we should eventually work on fully typing this file.
  */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/require-await */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 const DEFAULT_WS_CONNECTION_TIMEOUT_MS = 2000;
 const WEBSOCKET_CONNECTION_TIMEOUT_MESSAGE = 'Websocket connection timeout';
 const isWebSocketRequest = (request) => request.protocol === 'ws:' || request.protocol === 'wss:';

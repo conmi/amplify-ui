@@ -22,8 +22,6 @@ var uiReact = require('@aws-amplify/ui-react');
 var ui = require('@aws-amplify/ui');
 var internal = require('@aws-amplify/ui-react/internal');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
 function _interopNamespace(e) {
     if (e && e.__esModule) return e;
     var n = Object.create(null);
@@ -42,7 +40,6 @@ function _interopNamespace(e) {
     return Object.freeze(n);
 }
 
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 
 /**
@@ -844,6 +841,12 @@ const getLivenessUserAgent = () => {
  * Note: This file was copied from https://github.com/aws/aws-sdk-js-v3/blob/main/packages/middleware-websocket/src/websocket-fetch-handler.ts#L176
  * Because of this the file is not fully typed at this time but we should eventually work on fully typing this file.
  */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/require-await */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 const DEFAULT_WS_CONNECTION_TIMEOUT_MS = 2000;
 const WEBSOCKET_CONNECTION_TIMEOUT_MESSAGE = 'Websocket connection timeout';
 const isWebSocketRequest = (request) => request.protocol === 'ws:' || request.protocol === 'wss:';
@@ -2541,12 +2544,12 @@ const livenessMachine = xstate.createMachine({
     },
 });
 
-const FaceLivenessDetectorContext = React__default["default"].createContext(null);
+const FaceLivenessDetectorContext = React__namespace["default"].createContext(null);
 function FaceLivenessDetectorProvider({ children, ...props }) {
-    return (React__default["default"].createElement(FaceLivenessDetectorContext.Provider, { value: props }, children));
+    return (React__namespace["default"].createElement(FaceLivenessDetectorContext.Provider, { value: props }, children));
 }
 function useFaceLivenessDetector() {
-    const props = React__default["default"].useContext(FaceLivenessDetectorContext);
+    const props = React__namespace["default"].useContext(FaceLivenessDetectorContext);
     if (props === null) {
         throw new Error('useFaceLivenessDetector must be used within a FaceLivenessDetectorProvider');
     }
@@ -2661,8 +2664,8 @@ const CancelButton = ({ ariaLabel }) => {
     };
     if (isFinalState)
         return null;
-    return (React__default["default"].createElement(uiReact.Button, { autoFocus: true, variation: "link", onClick: handleClick, size: "large", className: LivenessClassNames.CancelButton, "aria-label": ariaLabel },
-        React__default["default"].createElement(internal.IconClose, { "aria-hidden": "true", "data-testid": "close-icon" })));
+    return (React__namespace["default"].createElement(uiReact.Button, { autoFocus: true, variation: "link", onClick: handleClick, size: "large", className: LivenessClassNames.CancelButton, "aria-label": ariaLabel },
+        React__namespace["default"].createElement(internal.IconClose, { "aria-hidden": "true", "data-testid": "close-icon" })));
 };
 
 const Toast = ({ variation = 'default', size = 'medium', children, isInitial = false, ...rest }) => {
@@ -2786,8 +2789,8 @@ const Hint = ({ hintDisplayText }) => {
 };
 
 const MatchIndicator = ({ percentage, initialPercentage = 25, testId, }) => {
-    const [matchPercentage, setMatchPercentage] = React__default["default"].useState(initialPercentage);
-    React__default["default"].useEffect(() => {
+    const [matchPercentage, setMatchPercentage] = React__namespace["default"].useState(initialPercentage);
+    React__namespace["default"].useEffect(() => {
         if (percentage < 0) {
             setMatchPercentage(0);
         }
@@ -2801,8 +2804,8 @@ const MatchIndicator = ({ percentage, initialPercentage = 25, testId, }) => {
     const percentageStyles = {
         '--percentage': `${matchPercentage}%`,
     };
-    return (React__default["default"].createElement("div", { className: LivenessClassNames.MatchIndicator, "data-testid": testId },
-        React__default["default"].createElement("div", { className: `${LivenessClassNames.MatchIndicator}__bar`, style: percentageStyles, role: "progressbar", "aria-label": "MatchIndicator", "aria-valuenow": percentage, "aria-valuetext": `${percentage}% face fit` })));
+    return (React__namespace["default"].createElement("div", { className: LivenessClassNames.MatchIndicator, "data-testid": testId },
+        React__namespace["default"].createElement("div", { className: `${LivenessClassNames.MatchIndicator}__bar`, style: percentageStyles, role: "progressbar", "aria-label": "MatchIndicator", "aria-valuenow": percentage, "aria-valuetext": `${percentage}% face fit` })));
 };
 
 const Overlay = ({ children, horizontal = 'center', vertical = 'center', className, ...rest }) => {
@@ -2810,11 +2813,11 @@ const Overlay = ({ children, horizontal = 'center', vertical = 'center', classNa
 };
 
 const RecordingIcon = ({ children }) => {
-    return (React__default["default"].createElement(uiReact.Flex, { className: LivenessClassNames.RecordingIcon },
-        React__default["default"].createElement(uiReact.Flex, { "data-testid": "rec-icon", justifyContent: "center" },
-            React__default["default"].createElement(uiReact.Icon, { viewBox: { width: 20, height: 20 }, width: "20", height: "20" },
-                React__default["default"].createElement("circle", { cx: "10", cy: "10", r: "8", fill: "red" }))),
-        React__default["default"].createElement(uiReact.Text, { as: "span", fontWeight: "bold" }, children)));
+    return (React__namespace["default"].createElement(uiReact.Flex, { className: LivenessClassNames.RecordingIcon },
+        React__namespace["default"].createElement(uiReact.Flex, { "data-testid": "rec-icon", justifyContent: "center" },
+            React__namespace["default"].createElement(uiReact.Icon, { viewBox: { width: 20, height: 20 }, width: "20", height: "20" },
+                React__namespace["default"].createElement("circle", { cx: "10", cy: "10", r: "8", fill: "red" }))),
+        React__namespace["default"].createElement(uiReact.Text, { as: "span", fontWeight: "bold" }, children)));
 };
 
 const defaultErrorDisplayText = {
@@ -2910,11 +2913,11 @@ const renderToastErrorModal = (props) => {
             heading = serverHeaderText;
             message = serverMessageText;
     }
-    return (React__default["default"].createElement(React__default["default"].Fragment, null,
-        React__default["default"].createElement(uiReact.Flex, { className: LivenessClassNames.ErrorModal },
-            React__default["default"].createElement(internal.AlertIcon, { ariaLabel: errorLabelText, role: "img", variation: "error" }),
-            React__default["default"].createElement(uiReact.Text, { className: LivenessClassNames.ErrorModalHeading, id: "amplify-liveness-error-heading" }, heading)),
-        React__default["default"].createElement(uiReact.Text, { id: "amplify-liveness-error-message" }, message)));
+    return (React__namespace["default"].createElement(React__namespace["default"].Fragment, null,
+        React__namespace["default"].createElement(uiReact.Flex, { className: LivenessClassNames.ErrorModal },
+            React__namespace["default"].createElement(internal.AlertIcon, { ariaLabel: errorLabelText, role: "img", variation: "error" }),
+            React__namespace["default"].createElement(uiReact.Text, { className: LivenessClassNames.ErrorModalHeading, id: "amplify-liveness-error-heading" }, heading)),
+        React__namespace["default"].createElement(uiReact.Text, { id: "amplify-liveness-error-message" }, message)));
 };
 const renderErrorModal = ({ errorState, overrideErrorDisplayText, }) => {
     const displayText = {
@@ -2940,11 +2943,11 @@ const FaceLivenessErrorModal = (props) => {
         ...overrideErrorDisplayText,
     };
     const { tryAgainText } = displayText;
-    return (React__default["default"].createElement(Overlay, { className: LivenessClassNames.OpaqueOverlay },
-        React__default["default"].createElement(Toast, { "aria-labelledby": "amplify-liveness-error-heading", "aria-describedby": "amplify-liveness-error-message", role: "alertdialog" },
+    return (React__namespace["default"].createElement(Overlay, { className: LivenessClassNames.OpaqueOverlay },
+        React__namespace["default"].createElement(Toast, { "aria-labelledby": "amplify-liveness-error-heading", "aria-describedby": "amplify-liveness-error-message", role: "alertdialog" },
             children,
-            React__default["default"].createElement(uiReact.Flex, { justifyContent: "center" },
-                React__default["default"].createElement(uiReact.Button, { variation: "primary", type: "button", onClick: onRetry }, tryAgainText)))));
+            React__namespace["default"].createElement(uiReact.Flex, { justifyContent: "center" },
+                React__namespace["default"].createElement(uiReact.Button, { variation: "primary", type: "button", onClick: onRetry }, tryAgainText)))));
 };
 
 /**
@@ -2980,19 +2983,19 @@ const LivenessIconWithPopover = ({ children, headingText, labelText }) => {
 LivenessIconWithPopover.displayName = 'LivenessIconWithPopover';
 
 const DefaultPhotosensitiveWarning = ({ bodyText, headingText, infoText, labelText, }) => {
-    return (React__default["default"].createElement(uiReact.Flex, { className: `${ui.ComponentClassName.Alert} ${LivenessClassNames.StartScreenWarning}`, style: { zIndex: '3' } },
-        React__default["default"].createElement(uiReact.View, { flex: "1" },
-            React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.AlertHeading }, headingText),
-            React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.AlertBody }, bodyText)),
-        React__default["default"].createElement(LivenessIconWithPopover, { labelText: labelText, headingText: headingText }, infoText)));
+    return (React__namespace["default"].createElement(uiReact.Flex, { className: `${ui.ComponentClassName.Alert} ${LivenessClassNames.StartScreenWarning}`, style: { zIndex: '3' } },
+        React__namespace["default"].createElement(uiReact.View, { flex: "1" },
+            React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.AlertHeading }, headingText),
+            React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.AlertBody }, bodyText)),
+        React__namespace["default"].createElement(LivenessIconWithPopover, { labelText: labelText, headingText: headingText }, infoText)));
 };
 const DefaultRecordingIcon = ({ recordingIndicatorText, }) => {
-    return (React__default["default"].createElement(uiReact.View, { className: LivenessClassNames.RecordingIconContainer },
-        React__default["default"].createElement(RecordingIcon, null, recordingIndicatorText)));
+    return (React__namespace["default"].createElement(uiReact.View, { className: LivenessClassNames.RecordingIconContainer },
+        React__namespace["default"].createElement(RecordingIcon, null, recordingIndicatorText)));
 };
 const DefaultCancelButton = ({ cancelLivenessCheckText, }) => {
-    return (React__default["default"].createElement(uiReact.View, { className: LivenessClassNames.CancelContainer },
-        React__default["default"].createElement(CancelButton, { ariaLabel: cancelLivenessCheckText })));
+    return (React__namespace["default"].createElement(uiReact.View, { className: LivenessClassNames.CancelContainer },
+        React__namespace["default"].createElement(CancelButton, { ariaLabel: cancelLivenessCheckText })));
 };
 
 const selectVideoConstraints = createLivenessSelector((state) => state.context.videoAssociatedParams?.videoConstraints);
@@ -3001,7 +3004,7 @@ const selectFaceMatchPercentage = createLivenessSelector((state) => state.contex
 const selectFaceMatchState = createLivenessSelector((state) => state.context.faceMatchAssociatedParams?.faceMatchState);
 const selectSelectedDeviceId = createLivenessSelector((state) => state.context.videoAssociatedParams?.selectedDeviceId);
 const selectSelectableDevices = createLivenessSelector((state) => state.context.videoAssociatedParams?.selectableDevices);
-const centeredLoader = (React__default["default"].createElement(uiReact.Loader, { size: "large", className: LivenessClassNames.Loader, "data-testid": "centered-loader" }));
+const centeredLoader = (React__namespace["default"].createElement(uiReact.Loader, { size: "large", className: LivenessClassNames.Loader, "data-testid": "centered-loader" }));
 const showMatchIndicatorStates = [
     FaceMatchState.TOO_FAR,
     FaceMatchState.CANT_IDENTIFY,
@@ -3013,7 +3016,7 @@ const showMatchIndicatorStates = [
  * The LivenessCameraModule still needs to be optimized for re-renders and at that time
  * we should be able to remove this memoization
  */
-const MemoizedMatchIndicator = React__default["default"].memo(MatchIndicator);
+const MemoizedMatchIndicator = React__namespace["default"].memo(MatchIndicator);
 const LivenessCameraModule = (props) => {
     const { isMobileScreen, isRecordingStopped, instructionDisplayText, streamDisplayText, hintDisplayText, errorDisplayText, cameraDisplayText, components: customComponents, testId, } = props;
     const { cancelLivenessCheckText, recordingIndicatorText } = streamDisplayText;
@@ -3046,12 +3049,12 @@ const LivenessCameraModule = (props) => {
     const [mediaWidth, setMediaWidth] = React.useState(videoWidth);
     const [mediaHeight, setMediaHeight] = React.useState(videoHeight);
     const [aspectRatio, setAspectRatio] = React.useState(() => videoWidth && videoHeight ? videoWidth / videoHeight : 0);
-    React__default["default"].useEffect(() => {
+    React__namespace["default"].useEffect(() => {
         if (canvasRef?.current && videoRef?.current && videoStream && isStartView) {
             drawStaticOval(canvasRef.current, videoRef.current, videoStream);
         }
     }, [canvasRef, videoRef, videoStream, colorMode, isStartView]);
-    React__default["default"].useEffect(() => {
+    React__namespace["default"].useEffect(() => {
         const updateColorModeHandler = (e) => {
             if (e.matches &&
                 canvasRef?.current &&
@@ -3070,7 +3073,7 @@ const LivenessCameraModule = (props) => {
             lightModePreference.addEventListener('change', updateColorModeHandler);
         };
     }, [canvasRef, videoRef, videoStream, isStartView]);
-    React__default["default"].useLayoutEffect(() => {
+    React__namespace["default"].useLayoutEffect(() => {
         if (isCameraReady) {
             send({
                 type: 'SET_DOM_AND_CAMERA_DETAILS',
@@ -3088,24 +3091,24 @@ const LivenessCameraModule = (props) => {
             setAspectRatio(videoRef.current.videoWidth / videoRef.current.videoHeight);
         }
     }, [send, videoRef, isCameraReady, isMobileScreen]);
-    React__default["default"].useEffect(() => {
+    React__namespace["default"].useEffect(() => {
         if (isDetectFaceBeforeStart) {
             clearOvalCanvas({ canvas: canvasRef.current });
         }
     }, [isDetectFaceBeforeStart]);
-    const photoSensitivityWarning = React__default["default"].useMemo(() => {
-        return (React__default["default"].createElement(uiReact.View, { style: { visibility: isStartView ? 'visible' : 'hidden' } },
-            React__default["default"].createElement(PhotosensitiveWarning, { bodyText: instructionDisplayText.photosensitivityWarningBodyText, headingText: instructionDisplayText.photosensitivityWarningHeadingText, infoText: instructionDisplayText.photosensitivityWarningInfoText, labelText: instructionDisplayText.photosensitivityWarningLabelText })));
+    const photoSensitivityWarning = React__namespace["default"].useMemo(() => {
+        return (React__namespace["default"].createElement(uiReact.View, { style: { visibility: isStartView ? 'visible' : 'hidden' } },
+            React__namespace["default"].createElement(PhotosensitiveWarning, { bodyText: instructionDisplayText.photosensitivityWarningBodyText, headingText: instructionDisplayText.photosensitivityWarningHeadingText, infoText: instructionDisplayText.photosensitivityWarningInfoText, labelText: instructionDisplayText.photosensitivityWarningLabelText })));
     }, [PhotosensitiveWarning, instructionDisplayText, isStartView]);
     const handleMediaPlay = () => {
         setIsCameraReady(true);
     };
-    const beginLivenessCheck = React__default["default"].useCallback(() => {
+    const beginLivenessCheck = React__namespace["default"].useCallback(() => {
         send({
             type: 'BEGIN',
         });
     }, [send]);
-    const onCameraChange = React__default["default"].useCallback((e) => {
+    const onCameraChange = React__namespace["default"].useCallback((e) => {
         const newDeviceId = e.target.value;
         const changeCamera = async () => {
             const newStream = await navigator.mediaDevices.getUserMedia({
@@ -3123,23 +3126,23 @@ const LivenessCameraModule = (props) => {
         changeCamera();
     }, [videoConstraints, send]);
     if (isCheckingCamera) {
-        return (React__default["default"].createElement(uiReact.Flex, { justifyContent: 'center', className: LivenessClassNames.StartScreenCameraWaiting },
-            React__default["default"].createElement(uiReact.Loader, { size: "large", className: LivenessClassNames.Loader, "data-testid": "centered-loader", position: "unset" }),
-            React__default["default"].createElement(uiReact.Text, { fontSize: "large", fontWeight: "bold", "data-testid": "waiting-camera-permission", className: `${LivenessClassNames.StartScreenCameraWaiting}__text` }, cameraDisplayText.waitingCameraPermissionText)));
+        return (React__namespace["default"].createElement(uiReact.Flex, { justifyContent: 'center', className: LivenessClassNames.StartScreenCameraWaiting },
+            React__namespace["default"].createElement(uiReact.Loader, { size: "large", className: LivenessClassNames.Loader, "data-testid": "centered-loader", position: "unset" }),
+            React__namespace["default"].createElement(uiReact.Text, { fontSize: "large", fontWeight: "bold", "data-testid": "waiting-camera-permission", className: `${LivenessClassNames.StartScreenCameraWaiting}__text` }, cameraDisplayText.waitingCameraPermissionText)));
     }
     // We don't show full screen camera on the pre check screen (isStartView/isWaitingForCamera)
     const shouldShowFullScreenCamera = isMobileScreen && !isStartView && !isWaitingForCamera;
-    return (React__default["default"].createElement(React__default["default"].Fragment, null,
+    return (React__namespace["default"].createElement(React__namespace["default"].Fragment, null,
         photoSensitivityWarning,
-        React__default["default"].createElement(uiReact.Flex, { className: ui.classNames(LivenessClassNames.CameraModule, shouldShowFullScreenCamera &&
+        React__namespace["default"].createElement(uiReact.Flex, { className: ui.classNames(LivenessClassNames.CameraModule, shouldShowFullScreenCamera &&
                 `${LivenessClassNames.CameraModule}--mobile`), "data-testid": testId, gap: "zero" },
             !isCameraReady && centeredLoader,
-            React__default["default"].createElement(Overlay, { horizontal: "center", vertical: isRecording && !isFlashingFreshness ? 'start' : 'space-between', className: LivenessClassNames.InstructionOverlay },
-                isRecording && (React__default["default"].createElement(DefaultRecordingIcon, { recordingIndicatorText: recordingIndicatorText })),
-                !isStartView && !isWaitingForCamera && !isCheckSucceeded && (React__default["default"].createElement(DefaultCancelButton, { cancelLivenessCheckText: cancelLivenessCheckText })),
-                React__default["default"].createElement(uiReact.Flex, { className: ui.classNames(LivenessClassNames.Hint, shouldShowFullScreenCamera && `${LivenessClassNames.Hint}--mobile`) },
-                    React__default["default"].createElement(Hint, { hintDisplayText: hintDisplayText })),
-                errorState && (React__default["default"].createElement(ErrorView, { onRetry: () => {
+            React__namespace["default"].createElement(Overlay, { horizontal: "center", vertical: isRecording && !isFlashingFreshness ? 'start' : 'space-between', className: LivenessClassNames.InstructionOverlay },
+                isRecording && (React__namespace["default"].createElement(DefaultRecordingIcon, { recordingIndicatorText: recordingIndicatorText })),
+                !isStartView && !isWaitingForCamera && !isCheckSucceeded && (React__namespace["default"].createElement(DefaultCancelButton, { cancelLivenessCheckText: cancelLivenessCheckText })),
+                React__namespace["default"].createElement(uiReact.Flex, { className: ui.classNames(LivenessClassNames.Hint, shouldShowFullScreenCamera && `${LivenessClassNames.Hint}--mobile`) },
+                    React__namespace["default"].createElement(Hint, { hintDisplayText: hintDisplayText })),
+                errorState && (React__namespace["default"].createElement(ErrorView, { onRetry: () => {
                         send({ type: 'CANCEL' });
                     }, displayText: errorDisplayText }, renderErrorModal({
                     errorState,
@@ -3147,24 +3150,24 @@ const LivenessCameraModule = (props) => {
                 }))),
                 isRecording &&
                     !isFlashingFreshness &&
-                    showMatchIndicatorStates.includes(faceMatchState) ? (React__default["default"].createElement(MemoizedMatchIndicator, { percentage: Math.ceil(faceMatchPercentage) })) : null),
-            React__default["default"].createElement(uiReact.View, { as: "canvas", ref: freshnessColorRef, className: LivenessClassNames.FreshnessCanvas, hidden: true }),
-            React__default["default"].createElement(uiReact.View, { className: LivenessClassNames.VideoAnchor, style: {
+                    showMatchIndicatorStates.includes(faceMatchState) ? (React__namespace["default"].createElement(MemoizedMatchIndicator, { percentage: Math.ceil(faceMatchPercentage) })) : null),
+            React__namespace["default"].createElement(uiReact.View, { as: "canvas", ref: freshnessColorRef, className: LivenessClassNames.FreshnessCanvas, hidden: true }),
+            React__namespace["default"].createElement(uiReact.View, { className: LivenessClassNames.VideoAnchor, style: {
                     aspectRatio: `${aspectRatio}`,
                 } },
-                React__default["default"].createElement("video", { ref: videoRef, muted: true, autoPlay: true, playsInline: true, width: mediaWidth, height: mediaHeight, onCanPlay: handleMediaPlay, "data-testid": "video", className: ui.classNames(LivenessClassNames.Video, isRecordingStopped && LivenessClassNames.FadeOut), "aria-label": cameraDisplayText.a11yVideoLabelText }),
-                React__default["default"].createElement(uiReact.Flex, { className: ui.classNames(LivenessClassNames.OvalCanvas, shouldShowFullScreenCamera &&
+                React__namespace["default"].createElement("video", { ref: videoRef, muted: true, autoPlay: true, playsInline: true, width: mediaWidth, height: mediaHeight, onCanPlay: handleMediaPlay, "data-testid": "video", className: ui.classNames(LivenessClassNames.Video, isRecordingStopped && LivenessClassNames.FadeOut), "aria-label": cameraDisplayText.a11yVideoLabelText }),
+                React__namespace["default"].createElement(uiReact.Flex, { className: ui.classNames(LivenessClassNames.OvalCanvas, shouldShowFullScreenCamera &&
                         `${LivenessClassNames.OvalCanvas}--mobile`, isRecordingStopped && LivenessClassNames.FadeOut) },
-                    React__default["default"].createElement(uiReact.View, { as: "canvas", ref: canvasRef })),
+                    React__namespace["default"].createElement(uiReact.View, { as: "canvas", ref: canvasRef })),
                 isStartView &&
                     !isMobileScreen &&
                     selectableDevices &&
-                    selectableDevices.length > 1 && (React__default["default"].createElement(uiReact.Flex, { className: LivenessClassNames.StartScreenCameraSelect },
-                    React__default["default"].createElement(uiReact.View, { className: LivenessClassNames.StartScreenCameraSelectContainer },
-                        React__default["default"].createElement(uiReact.Label, { htmlFor: "amplify-liveness-camera-select", className: `${LivenessClassNames.StartScreenCameraSelect}__label` }, "Camera:"),
-                        React__default["default"].createElement(uiReact.SelectField, { id: "amplify-liveness-camera-select", label: "Camera", labelHidden: true, value: selectedDeviceId, onChange: onCameraChange }, selectableDevices?.map((device) => (React__default["default"].createElement("option", { value: device.deviceId, key: device.deviceId }, device.label))))))))),
-        isStartView && (React__default["default"].createElement(uiReact.Flex, { justifyContent: "center" },
-            React__default["default"].createElement(uiReact.Button, { variation: "primary", type: "button", onClick: beginLivenessCheck }, instructionDisplayText.startScreenBeginCheckText)))));
+                    selectableDevices.length > 1 && (React__namespace["default"].createElement(uiReact.Flex, { className: LivenessClassNames.StartScreenCameraSelect },
+                    React__namespace["default"].createElement(uiReact.View, { className: LivenessClassNames.StartScreenCameraSelectContainer },
+                        React__namespace["default"].createElement(uiReact.Label, { htmlFor: "amplify-liveness-camera-select", className: `${LivenessClassNames.StartScreenCameraSelect}__label` }, "Camera:"),
+                        React__namespace["default"].createElement(uiReact.SelectField, { id: "amplify-liveness-camera-select", label: "Camera", labelHidden: true, value: selectedDeviceId, onChange: onCameraChange }, selectableDevices?.map((device) => (React__namespace["default"].createElement("option", { value: device.deviceId, key: device.deviceId }, device.label))))))))),
+        isStartView && (React__namespace["default"].createElement(uiReact.Flex, { justifyContent: "center" },
+            React__namespace["default"].createElement(uiReact.Button, { variation: "primary", type: "button", onClick: beginLivenessCheck }, instructionDisplayText.startScreenBeginCheckText)))));
 };
 
 const LandscapeErrorModal = (props) => {

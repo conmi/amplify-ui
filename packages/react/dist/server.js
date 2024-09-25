@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var ThemeStyle = require('./ThemeStyle-7d5abbc4.js');
+var ThemeStyle = require('./ThemeStyle-CgfvQJ7V.js');
 var React = require('react');
 var ui = require('@aws-amplify/ui');
 
@@ -56,23 +56,23 @@ const GlobalStyle = ({ styles, ...rest }) => {
 GlobalStyle.displayName = 'GlobalStyle';
 
 exports.ThemeStyle = ThemeStyle.ThemeStyle;
-Object.defineProperty(exports, 'createComponentClasses', {
+Object.defineProperty(exports, "createComponentClasses", {
     enumerable: true,
     get: function () { return ui.createComponentClasses; }
 });
-Object.defineProperty(exports, 'createTheme', {
+Object.defineProperty(exports, "createTheme", {
     enumerable: true,
     get: function () { return ui.createTheme; }
 });
-Object.defineProperty(exports, 'defaultDarkModeOverride', {
+Object.defineProperty(exports, "defaultDarkModeOverride", {
     enumerable: true,
     get: function () { return ui.defaultDarkModeOverride; }
 });
-Object.defineProperty(exports, 'defaultTheme', {
+Object.defineProperty(exports, "defaultTheme", {
     enumerable: true,
     get: function () { return ui.defaultTheme; }
 });
-Object.defineProperty(exports, 'defineComponentTheme', {
+Object.defineProperty(exports, "defineComponentTheme", {
     enumerable: true,
     get: function () { return ui.defineComponentTheme; }
 });

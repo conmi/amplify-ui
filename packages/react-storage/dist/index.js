@@ -10,8 +10,6 @@ var internal = require('@aws-amplify/ui-react/internal');
 var auth = require('aws-amplify/auth');
 var storage = require('aws-amplify/storage');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
 function _interopNamespace(e) {
     if (e && e.__esModule) return e;
     var n = Object.create(null);
@@ -30,7 +28,6 @@ function _interopNamespace(e) {
     return Object.freeze(n);
 }
 
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 
 var FileStatus;
@@ -176,12 +173,12 @@ const createFileFromDefault = (file) => isDefaultFile(file)
     ? { ...file, id: file.key, status: FileStatus.UPLOADED }
     : undefined;
 function useFileUploader(defaultFiles = []) {
-    const [{ files }, dispatch] = React__default["default"].useReducer(fileUploaderStateReducer, {
+    const [{ files }, dispatch] = React__namespace["default"].useReducer(fileUploaderStateReducer, {
         files: (Array.isArray(defaultFiles)
             ? defaultFiles.map(createFileFromDefault).filter((file) => !!file)
             : []),
     });
-    const dispatchers = React__default["default"].useMemo(() => ({
+    const dispatchers = React__namespace["default"].useMemo(() => ({
         addFiles: (params) => {
             dispatch(addFilesAction(params));
         },
@@ -424,16 +421,16 @@ function useUploadFiles({ accessLevel, files, isResumable, maxFileCount, onUploa
 }
 
 function Container$1({ children, className, }) {
-    return React__default["default"].createElement(uiReact.View, { className: className }, children);
+    return React__namespace["default"].createElement(uiReact.View, { className: className }, children);
 }
 
 function DropZone$1({ children, displayText, inDropZone, onDragEnter, onDragLeave, onDragOver, onDragStart, onDrop, testId, }) {
     const { dropFilesText } = displayText;
     const icons = internal.useIcons('storageManager');
-    return (React__default["default"].createElement(uiReact.View, { className: ui.classNames(inDropZone &&
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.classNames(inDropZone &&
             ui.classNameModifier(ui.ComponentClassName.FileUploaderDropZone, 'active'), ui.ComponentClassName.FileUploaderDropZone), "data-testid": testId, onDragStart: onDragStart, onDragEnter: onDragEnter, onDragLeave: onDragLeave, onDrop: onDrop, onDragOver: onDragOver },
-        React__default["default"].createElement(uiReact.View, { as: "span", "aria-hidden": true, className: ui.ComponentClassName.FileUploaderDropZoneIcon }, icons?.upload ?? React__default["default"].createElement(internal.IconUpload, null)),
-        React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderDropZoneText }, dropFilesText),
+        React__namespace["default"].createElement(uiReact.View, { as: "span", "aria-hidden": true, className: ui.ComponentClassName.FileUploaderDropZoneIcon }, icons?.upload ?? React__namespace["default"].createElement(internal.IconUpload, null)),
+        React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderDropZoneText }, dropFilesText),
         children));
 }
 
@@ -441,17 +438,17 @@ const FileStatusMessage$1 = ({ errorMessage, getPausedText, getUploadingText, pe
     const icons = internal.useIcons('storageManager');
     switch (status) {
         case FileStatus.UPLOADING: {
-            return (React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderFileStatus }, getUploadingText(percentage)));
+            return (React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderFileStatus }, getUploadingText(percentage)));
         }
         case FileStatus.PAUSED:
-            return (React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderFileStatus }, getPausedText(percentage)));
+            return (React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderFileStatus }, getPausedText(percentage)));
         case FileStatus.UPLOADED:
-            return (React__default["default"].createElement(uiReact.Text, { className: ui.classNames(ui.ComponentClassName.FileUploaderFileStatus, ui.classNameModifier(ui.ComponentClassName.FileUploaderFileStatus, 'success')) },
-                React__default["default"].createElement(uiReact.View, { as: "span", fontSize: "xl" }, icons?.success ?? React__default["default"].createElement(internal.IconCheck, null)),
+            return (React__namespace["default"].createElement(uiReact.Text, { className: ui.classNames(ui.ComponentClassName.FileUploaderFileStatus, ui.classNameModifier(ui.ComponentClassName.FileUploaderFileStatus, 'success')) },
+                React__namespace["default"].createElement(uiReact.View, { as: "span", fontSize: "xl" }, icons?.success ?? React__namespace["default"].createElement(internal.IconCheck, null)),
                 uploadSuccessfulText));
         case FileStatus.ERROR:
-            return (React__default["default"].createElement(uiReact.Text, { className: ui.classNames(ui.ComponentClassName.FileUploaderFileStatus, ui.classNameModifier(ui.ComponentClassName.FileUploaderFileStatus, 'error')) },
-                React__default["default"].createElement(uiReact.View, { as: "span", fontSize: "xl" }, icons?.error ?? React__default["default"].createElement(internal.IconError, null)),
+            return (React__namespace["default"].createElement(uiReact.Text, { className: ui.classNames(ui.ComponentClassName.FileUploaderFileStatus, ui.classNameModifier(ui.ComponentClassName.FileUploaderFileStatus, 'error')) },
+                React__namespace["default"].createElement(uiReact.View, { as: "span", fontSize: "xl" }, icons?.error ?? React__namespace["default"].createElement(internal.IconError, null)),
                 errorMessage));
         default:
             return null;
@@ -460,35 +457,35 @@ const FileStatusMessage$1 = ({ errorMessage, getPausedText, getUploadingText, pe
 
 const FileRemoveButton$1 = ({ altText, onClick, }) => {
     const icons = internal.useIcons('storageManager');
-    return (React__default["default"].createElement(uiReact.Button, { size: "small", onClick: onClick, testId: "storage-manager-remove-button" },
-        React__default["default"].createElement(uiReact.VisuallyHidden, null, altText),
-        React__default["default"].createElement(uiReact.View, { as: "span", "aria-hidden": true, fontSize: "medium" }, icons?.remove ?? React__default["default"].createElement(internal.IconClose, null))));
+    return (React__namespace["default"].createElement(uiReact.Button, { size: "small", onClick: onClick, testId: "storage-manager-remove-button" },
+        React__namespace["default"].createElement(uiReact.VisuallyHidden, null, altText),
+        React__namespace["default"].createElement(uiReact.View, { as: "span", "aria-hidden": true, fontSize: "medium" }, icons?.remove ?? React__namespace["default"].createElement(internal.IconClose, null))));
 };
 
 const UploadDetails$1 = ({ displayName, fileSize, }) => {
-    return (React__default["default"].createElement(React__default["default"].Fragment, null,
-        React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFileMain },
-            React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderFileName }, displayName)),
-        React__default["default"].createElement(uiReact.Text, { as: "span", className: ui.ComponentClassName.FileUploaderFileSize }, fileSize ? ui.humanFileSize(fileSize, true) : '')));
+    return (React__namespace["default"].createElement(React__namespace["default"].Fragment, null,
+        React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFileMain },
+            React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderFileName }, displayName)),
+        React__namespace["default"].createElement(uiReact.Text, { as: "span", className: ui.ComponentClassName.FileUploaderFileSize }, fileSize ? ui.humanFileSize(fileSize, true) : '')));
 };
 
 const FileThumbnail$1 = ({ fileName, isImage, url, }) => {
     const icons = internal.useIcons('storageManager');
-    const thumbnail = isImage ? (React__default["default"].createElement(uiReact.Image, { alt: fileName, src: url })) : (icons?.file ?? React__default["default"].createElement(internal.IconFile, null));
-    return (React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFileImage }, thumbnail));
+    const thumbnail = isImage ? (React__namespace["default"].createElement(uiReact.Image, { alt: fileName, src: url })) : (icons?.file ?? React__namespace["default"].createElement(internal.IconFile, null));
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFileImage }, thumbnail));
 };
 
 function FileControl$1({ onPause, onResume, displayName, errorMessage, isImage, isResumable, loaderIsDeterminate, onRemove, progress, showThumbnails = true, size, status, displayText, thumbnailUrl, }) {
     const { getPausedText, getUploadingText, uploadSuccessfulText, pauseButtonText, resumeButtonText, } = displayText;
-    return (React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFile },
-        React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFileWrapper },
-            showThumbnails ? (React__default["default"].createElement(FileThumbnail$1, { isImage: isImage, fileName: displayName, url: thumbnailUrl })) : null,
-            React__default["default"].createElement(UploadDetails$1, { displayName: displayName, fileSize: size }),
-            status === FileStatus.UPLOADING ? (React__default["default"].createElement(uiReact.Loader, { className: ui.ComponentClassName.FileUploaderLoader, variation: "linear", percentage: progress, isDeterminate: loaderIsDeterminate, isPercentageTextHidden: true })) : null,
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFile },
+        React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFileWrapper },
+            showThumbnails ? (React__namespace["default"].createElement(FileThumbnail$1, { isImage: isImage, fileName: displayName, url: thumbnailUrl })) : null,
+            React__namespace["default"].createElement(UploadDetails$1, { displayName: displayName, fileSize: size }),
+            status === FileStatus.UPLOADING ? (React__namespace["default"].createElement(uiReact.Loader, { className: ui.ComponentClassName.FileUploaderLoader, variation: "linear", percentage: progress, isDeterminate: loaderIsDeterminate, isPercentageTextHidden: true })) : null,
             isResumable &&
-                (status === FileStatus.UPLOADING || status === FileStatus.PAUSED) ? (status === FileStatus.PAUSED ? (React__default["default"].createElement(uiReact.Button, { onClick: onResume, size: "small", variation: "link" }, resumeButtonText)) : (React__default["default"].createElement(uiReact.Button, { onClick: onPause, size: "small", variation: "link" }, pauseButtonText))) : null,
-            React__default["default"].createElement(FileRemoveButton$1, { altText: `Remove file ${displayName}`, onClick: onRemove })),
-        React__default["default"].createElement(FileStatusMessage$1, { uploadSuccessfulText: uploadSuccessfulText, getUploadingText: getUploadingText, getPausedText: getPausedText, status: status, errorMessage: errorMessage, percentage: progress })));
+                (status === FileStatus.UPLOADING || status === FileStatus.PAUSED) ? (status === FileStatus.PAUSED ? (React__namespace["default"].createElement(uiReact.Button, { onClick: onResume, size: "small", variation: "link" }, resumeButtonText)) : (React__namespace["default"].createElement(uiReact.Button, { onClick: onPause, size: "small", variation: "link" }, pauseButtonText))) : null,
+            React__namespace["default"].createElement(FileRemoveButton$1, { altText: `Remove file ${displayName}`, onClick: onRemove })),
+        React__namespace["default"].createElement(FileStatusMessage$1, { uploadSuccessfulText: uploadSuccessfulText, getUploadingText: getUploadingText, getPausedText: getPausedText, status: status, errorMessage: errorMessage, percentage: progress })));
 }
 
 function FileList$1({ displayText, files, hasMaxFilesError, isResumable, onCancelUpload, onDeleteUpload, onResume, onPause, showThumbnails, maxFileCount, }) {
@@ -497,7 +494,7 @@ function FileList$1({ displayText, files, hasMaxFilesError, isResumable, onCance
     }
     const { getMaxFilesErrorText } = displayText;
     const headingMaxFiles = getMaxFilesErrorText(maxFileCount);
-    return (React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFileList },
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderFileList },
         files.map((storageFile) => {
             const { file, status, progress, error, key, isImage, id, uploadTask } = storageFile;
             const thumbnailUrl = file && isImage ? URL.createObjectURL(file) : '';
@@ -523,14 +520,14 @@ function FileList$1({ displayText, files, hasMaxFilesError, isResumable, onCance
                     onResume({ id, uploadTask });
                 }
             };
-            return (React__default["default"].createElement(FileControl$1, { displayName: key, errorMessage: error, displayText: displayText, isImage: isImage, isUploading: isUploading, isResumable: isResumable, key: id, loaderIsDeterminate: loaderIsDeterminate, onRemove: onRemove, onPause: handlePauseUpload, onResume: handleResumeUpload, progress: progress, showThumbnails: showThumbnails, size: file?.size, status: status, thumbnailUrl: thumbnailUrl }));
+            return (React__namespace["default"].createElement(FileControl$1, { displayName: key, errorMessage: error, displayText: displayText, isImage: isImage, isUploading: isUploading, isResumable: isResumable, key: id, loaderIsDeterminate: loaderIsDeterminate, onRemove: onRemove, onPause: handlePauseUpload, onResume: handleResumeUpload, progress: progress, showThumbnails: showThumbnails, size: file?.size, status: status, thumbnailUrl: thumbnailUrl }));
         }),
-        hasMaxFilesError && (React__default["default"].createElement(uiReact.Alert, { variation: "error", heading: headingMaxFiles }))));
+        hasMaxFilesError && (React__namespace["default"].createElement(uiReact.Alert, { variation: "error", heading: headingMaxFiles }))));
 }
 
 function FileListHeader$1({ allUploadsSuccessful, displayText, fileCount, remainingFilesCount, selectedFilesCount = 0, }) {
     const { getFilesUploadedText, getRemainingFilesText, getSelectedFilesText } = displayText;
-    return (React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderPreviewerText }, selectedFilesCount
+    return (React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.FileUploaderPreviewerText }, selectedFilesCount
         ? getSelectedFilesText(selectedFilesCount)
         : allUploadsSuccessful
             ? getFilesUploadedText(fileCount)
@@ -539,14 +536,14 @@ function FileListHeader$1({ allUploadsSuccessful, displayText, fileCount, remain
 
 function FileListFooter$1({ displayText, remainingFilesCount, onClearAll, onUploadAll, }) {
     const { clearAllButtonText, getUploadButtonText } = displayText;
-    return (React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderPreviewerFooter },
-        React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderPreviewerActions },
-            React__default["default"].createElement(uiReact.Button, { size: "small", variation: "link", onClick: onClearAll }, clearAllButtonText),
-            React__default["default"].createElement(uiReact.Button, { size: "small", variation: "primary", onClick: onUploadAll }, getUploadButtonText(remainingFilesCount)))));
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderPreviewerFooter },
+        React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.FileUploaderPreviewerActions },
+            React__namespace["default"].createElement(uiReact.Button, { size: "small", variation: "link", onClick: onClearAll }, clearAllButtonText),
+            React__namespace["default"].createElement(uiReact.Button, { size: "small", variation: "primary", onClick: onUploadAll }, getUploadButtonText(remainingFilesCount)))));
 }
 
 function FilePicker$1({ children, className = ui.ComponentClassName.FileUploaderFilePicker, size = 'small', ...props }) {
-    return (React__default["default"].createElement(uiReact.Button, { ...props, className: className, size: size }, children));
+    return (React__namespace["default"].createElement(uiReact.Button, { ...props, className: className, size: size }, children));
 }
 
 const VERSION = '3.3.4';
@@ -762,16 +759,16 @@ const StorageImage = ({ accessLevel, className, fallbackSrc, identityId, imgKey,
 };
 
 function Container({ children, className, }) {
-    return React__default["default"].createElement(uiReact.View, { className: className }, children);
+    return React__namespace["default"].createElement(uiReact.View, { className: className }, children);
 }
 
 function DropZone({ children, displayText, inDropZone, onDragEnter, onDragLeave, onDragOver, onDragStart, onDrop, testId, }) {
     const { dropFilesText } = displayText;
     const icons = internal.useIcons('storageManager');
-    return (React__default["default"].createElement(uiReact.View, { className: ui.classNames(inDropZone &&
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.classNames(inDropZone &&
             ui.classNameModifier(ui.ComponentClassName.StorageManagerDropZone, 'active'), ui.ComponentClassName.StorageManagerDropZone), "data-testid": testId, onDragStart: onDragStart, onDragEnter: onDragEnter, onDragLeave: onDragLeave, onDrop: onDrop, onDragOver: onDragOver },
-        React__default["default"].createElement(uiReact.View, { as: "span", "aria-hidden": true, className: ui.ComponentClassName.StorageManagerDropZoneIcon }, icons?.upload ?? React__default["default"].createElement(internal.IconUpload, null)),
-        React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerDropZoneText }, dropFilesText),
+        React__namespace["default"].createElement(uiReact.View, { as: "span", "aria-hidden": true, className: ui.ComponentClassName.StorageManagerDropZoneIcon }, icons?.upload ?? React__namespace["default"].createElement(internal.IconUpload, null)),
+        React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerDropZoneText }, dropFilesText),
         children));
 }
 
@@ -779,17 +776,17 @@ const FileStatusMessage = ({ errorMessage, getPausedText, getUploadingText, perc
     const icons = internal.useIcons('storageManager');
     switch (status) {
         case FileStatus.UPLOADING: {
-            return (React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerFileStatus }, getUploadingText(percentage)));
+            return (React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerFileStatus }, getUploadingText(percentage)));
         }
         case FileStatus.PAUSED:
-            return (React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerFileStatus }, getPausedText(percentage)));
+            return (React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerFileStatus }, getPausedText(percentage)));
         case FileStatus.UPLOADED:
-            return (React__default["default"].createElement(uiReact.Text, { className: ui.classNames(ui.ComponentClassName.StorageManagerFileStatus, ui.classNameModifier(ui.ComponentClassName.StorageManagerFileStatus, 'success')) },
-                React__default["default"].createElement(uiReact.View, { as: "span", fontSize: "xl" }, icons?.success ?? React__default["default"].createElement(internal.IconCheck, null)),
+            return (React__namespace["default"].createElement(uiReact.Text, { className: ui.classNames(ui.ComponentClassName.StorageManagerFileStatus, ui.classNameModifier(ui.ComponentClassName.StorageManagerFileStatus, 'success')) },
+                React__namespace["default"].createElement(uiReact.View, { as: "span", fontSize: "xl" }, icons?.success ?? React__namespace["default"].createElement(internal.IconCheck, null)),
                 uploadSuccessfulText));
         case FileStatus.ERROR:
-            return (React__default["default"].createElement(uiReact.Text, { className: ui.classNames(ui.ComponentClassName.StorageManagerFileStatus, ui.classNameModifier(ui.ComponentClassName.StorageManagerFileStatus, 'error')) },
-                React__default["default"].createElement(uiReact.View, { as: "span", fontSize: "xl" }, icons?.error ?? React__default["default"].createElement(internal.IconError, null)),
+            return (React__namespace["default"].createElement(uiReact.Text, { className: ui.classNames(ui.ComponentClassName.StorageManagerFileStatus, ui.classNameModifier(ui.ComponentClassName.StorageManagerFileStatus, 'error')) },
+                React__namespace["default"].createElement(uiReact.View, { as: "span", fontSize: "xl" }, icons?.error ?? React__namespace["default"].createElement(internal.IconError, null)),
                 errorMessage));
         default:
             return null;
@@ -798,35 +795,35 @@ const FileStatusMessage = ({ errorMessage, getPausedText, getUploadingText, perc
 
 const FileRemoveButton = ({ altText, onClick, }) => {
     const icons = internal.useIcons('storageManager');
-    return (React__default["default"].createElement(uiReact.Button, { size: "small", onClick: onClick, testId: "storage-manager-remove-button" },
-        React__default["default"].createElement(uiReact.VisuallyHidden, null, altText),
-        React__default["default"].createElement(uiReact.View, { as: "span", "aria-hidden": true, fontSize: "medium" }, icons?.remove ?? React__default["default"].createElement(internal.IconClose, null))));
+    return (React__namespace["default"].createElement(uiReact.Button, { size: "small", onClick: onClick, testId: "storage-manager-remove-button" },
+        React__namespace["default"].createElement(uiReact.VisuallyHidden, null, altText),
+        React__namespace["default"].createElement(uiReact.View, { as: "span", "aria-hidden": true, fontSize: "medium" }, icons?.remove ?? React__namespace["default"].createElement(internal.IconClose, null))));
 };
 
 const UploadDetails = ({ displayName, fileSize, }) => {
-    return (React__default["default"].createElement(React__default["default"].Fragment, null,
-        React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFileMain },
-            React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerFileName }, displayName)),
-        React__default["default"].createElement(uiReact.Text, { as: "span", className: ui.ComponentClassName.StorageManagerFileSize }, fileSize ? ui.humanFileSize(fileSize, true) : '')));
+    return (React__namespace["default"].createElement(React__namespace["default"].Fragment, null,
+        React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFileMain },
+            React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerFileName }, displayName)),
+        React__namespace["default"].createElement(uiReact.Text, { as: "span", className: ui.ComponentClassName.StorageManagerFileSize }, fileSize ? ui.humanFileSize(fileSize, true) : '')));
 };
 
 const FileThumbnail = ({ fileName, isImage, url, }) => {
     const icons = internal.useIcons('storageManager');
-    const thumbnail = isImage ? (React__default["default"].createElement(uiReact.Image, { alt: fileName, src: url })) : (icons?.file ?? React__default["default"].createElement(internal.IconFile, null));
-    return (React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFileImage }, thumbnail));
+    const thumbnail = isImage ? (React__namespace["default"].createElement(uiReact.Image, { alt: fileName, src: url })) : (icons?.file ?? React__namespace["default"].createElement(internal.IconFile, null));
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFileImage }, thumbnail));
 };
 
 function FileControl({ onPause, onResume, displayName, errorMessage, isImage, isResumable, loaderIsDeterminate, onRemove, progress, showThumbnails = true, size, status, displayText, thumbnailUrl, }) {
     const { getPausedText, getUploadingText, uploadSuccessfulText, pauseButtonText, resumeButtonText, } = displayText;
-    return (React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFile },
-        React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFileWrapper },
-            showThumbnails ? (React__default["default"].createElement(FileThumbnail, { isImage: isImage, fileName: displayName, url: thumbnailUrl })) : null,
-            React__default["default"].createElement(UploadDetails, { displayName: displayName, fileSize: size }),
-            status === FileStatus.UPLOADING ? (React__default["default"].createElement(uiReact.Loader, { className: ui.ComponentClassName.StorageManagerLoader, variation: "linear", percentage: progress, isDeterminate: loaderIsDeterminate, isPercentageTextHidden: true })) : null,
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFile },
+        React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFileWrapper },
+            showThumbnails ? (React__namespace["default"].createElement(FileThumbnail, { isImage: isImage, fileName: displayName, url: thumbnailUrl })) : null,
+            React__namespace["default"].createElement(UploadDetails, { displayName: displayName, fileSize: size }),
+            status === FileStatus.UPLOADING ? (React__namespace["default"].createElement(uiReact.Loader, { className: ui.ComponentClassName.StorageManagerLoader, variation: "linear", percentage: progress, isDeterminate: loaderIsDeterminate, isPercentageTextHidden: true })) : null,
             isResumable &&
-                (status === FileStatus.UPLOADING || status === FileStatus.PAUSED) ? (status === FileStatus.PAUSED ? (React__default["default"].createElement(uiReact.Button, { onClick: onResume, size: "small", variation: "link" }, resumeButtonText)) : (React__default["default"].createElement(uiReact.Button, { onClick: onPause, size: "small", variation: "link" }, pauseButtonText))) : null,
-            React__default["default"].createElement(FileRemoveButton, { altText: `Remove file ${displayName}`, onClick: onRemove })),
-        React__default["default"].createElement(FileStatusMessage, { uploadSuccessfulText: uploadSuccessfulText, getUploadingText: getUploadingText, getPausedText: getPausedText, status: status, errorMessage: errorMessage, percentage: progress })));
+                (status === FileStatus.UPLOADING || status === FileStatus.PAUSED) ? (status === FileStatus.PAUSED ? (React__namespace["default"].createElement(uiReact.Button, { onClick: onResume, size: "small", variation: "link" }, resumeButtonText)) : (React__namespace["default"].createElement(uiReact.Button, { onClick: onPause, size: "small", variation: "link" }, pauseButtonText))) : null,
+            React__namespace["default"].createElement(FileRemoveButton, { altText: `Remove file ${displayName}`, onClick: onRemove })),
+        React__namespace["default"].createElement(FileStatusMessage, { uploadSuccessfulText: uploadSuccessfulText, getUploadingText: getUploadingText, getPausedText: getPausedText, status: status, errorMessage: errorMessage, percentage: progress })));
 }
 
 function FileList({ displayText, files, hasMaxFilesError, isResumable, onCancelUpload, onDeleteUpload, onResume, onPause, showThumbnails, maxFileCount, }) {
@@ -835,7 +832,7 @@ function FileList({ displayText, files, hasMaxFilesError, isResumable, onCancelU
     }
     const { getMaxFilesErrorText } = displayText;
     const headingMaxFiles = getMaxFilesErrorText(maxFileCount);
-    return (React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFileList },
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerFileList },
         files.map((storageFile) => {
             const { file, status, progress, error, key, isImage, id, uploadTask } = storageFile;
             const thumbnailUrl = file && isImage ? URL.createObjectURL(file) : '';
@@ -861,14 +858,14 @@ function FileList({ displayText, files, hasMaxFilesError, isResumable, onCancelU
                     onResume({ id, uploadTask });
                 }
             };
-            return (React__default["default"].createElement(FileControl, { displayName: key, errorMessage: error, displayText: displayText, isImage: isImage, isUploading: isUploading, isResumable: isResumable, key: id, loaderIsDeterminate: loaderIsDeterminate, onRemove: onRemove, onPause: handlePauseUpload, onResume: handleResumeUpload, progress: progress, showThumbnails: showThumbnails, size: file?.size, status: status, thumbnailUrl: thumbnailUrl }));
+            return (React__namespace["default"].createElement(FileControl, { displayName: key, errorMessage: error, displayText: displayText, isImage: isImage, isUploading: isUploading, isResumable: isResumable, key: id, loaderIsDeterminate: loaderIsDeterminate, onRemove: onRemove, onPause: handlePauseUpload, onResume: handleResumeUpload, progress: progress, showThumbnails: showThumbnails, size: file?.size, status: status, thumbnailUrl: thumbnailUrl }));
         }),
-        hasMaxFilesError && (React__default["default"].createElement(uiReact.Alert, { variation: "error", heading: headingMaxFiles }))));
+        hasMaxFilesError && (React__namespace["default"].createElement(uiReact.Alert, { variation: "error", heading: headingMaxFiles }))));
 }
 
 function FileListHeader({ allUploadsSuccessful, displayText, fileCount, remainingFilesCount, selectedFilesCount = 0, }) {
     const { getFilesUploadedText, getRemainingFilesText, getSelectedFilesText } = displayText;
-    return (React__default["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerPreviewerText }, selectedFilesCount
+    return (React__namespace["default"].createElement(uiReact.Text, { className: ui.ComponentClassName.StorageManagerPreviewerText }, selectedFilesCount
         ? getSelectedFilesText(selectedFilesCount)
         : allUploadsSuccessful
             ? getFilesUploadedText(fileCount)
@@ -877,14 +874,14 @@ function FileListHeader({ allUploadsSuccessful, displayText, fileCount, remainin
 
 function FileListFooter({ displayText, remainingFilesCount, onClearAll, onUploadAll, }) {
     const { clearAllButtonText, getUploadButtonText } = displayText;
-    return (React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerPreviewerFooter },
-        React__default["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerPreviewerActions },
-            React__default["default"].createElement(uiReact.Button, { size: "small", variation: "link", onClick: onClearAll }, clearAllButtonText),
-            React__default["default"].createElement(uiReact.Button, { size: "small", variation: "primary", onClick: onUploadAll }, getUploadButtonText(remainingFilesCount)))));
+    return (React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerPreviewerFooter },
+        React__namespace["default"].createElement(uiReact.View, { className: ui.ComponentClassName.StorageManagerPreviewerActions },
+            React__namespace["default"].createElement(uiReact.Button, { size: "small", variation: "link", onClick: onClearAll }, clearAllButtonText),
+            React__namespace["default"].createElement(uiReact.Button, { size: "small", variation: "primary", onClick: onUploadAll }, getUploadButtonText(remainingFilesCount)))));
 }
 
 function FilePicker({ children, className = ui.ComponentClassName.StorageManagerFilePicker, size = 'small', ...props }) {
-    return (React__default["default"].createElement(uiReact.Button, { ...props, className: className, size: size }, children));
+    return (React__namespace["default"].createElement(uiReact.Button, { ...props, className: className, size: size }, children));
 }
 
 const logger = ui.getLogger('Storage');

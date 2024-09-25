@@ -9,8 +9,6 @@ var ui = require('@aws-amplify/ui');
 var uiReact = require('@aws-amplify/ui-react');
 var internal = require('@aws-amplify/ui-react/internal');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
 function _interopNamespace(e) {
     if (e && e.__esModule) return e;
     var n = Object.create(null);
@@ -29,7 +27,6 @@ function _interopNamespace(e) {
     return Object.freeze(n);
 }
 
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 
 const DEFAULT_ICON_PATHS = {
@@ -54,7 +51,7 @@ const BaseIconElement = elements.defineBaseElement({
 });
 const getIconProps = ({ variant, ...props }) => {
     const pathData = variant ? DEFAULT_ICON_PATHS[variant] : undefined;
-    const children = pathData ? (React__default["default"].createElement("path", { d: pathData, fill: "currentColor" })) : undefined;
+    const children = pathData ? (React__namespace["default"].createElement("path", { d: pathData, fill: "currentColor" })) : undefined;
     return {
         ...DEFAULT_ICON_ATTRIBUTES,
         ...props,
@@ -120,38 +117,38 @@ const AIConversationElements = {
     View: ViewElement,
 };
 
-const ActionsContext = React__default["default"].createContext(undefined);
+const ActionsContext = React__namespace["default"].createContext(undefined);
 const ActionsProvider = ({ children, actions, }) => {
-    return (React__default["default"].createElement(ActionsContext.Provider, { value: actions }, children));
+    return (React__namespace["default"].createElement(ActionsContext.Provider, { value: actions }, children));
 };
 
-const AvatarsContext = React__default["default"].createContext(undefined);
+const AvatarsContext = React__namespace["default"].createContext(undefined);
 const AvatarsProvider = ({ children, avatars, }) => {
-    return (React__default["default"].createElement(AvatarsContext.Provider, { value: avatars }, children));
+    return (React__namespace["default"].createElement(AvatarsContext.Provider, { value: avatars }, children));
 };
 
-const ConversationInputContext = React__default["default"].createContext({});
+const ConversationInputContext = React__namespace["default"].createContext({});
 const ConversationInputContextProvider = ({ children, }) => {
-    const [input, setInput] = React__default["default"].useState();
-    const providerValue = React__default["default"].useMemo(() => ({ input, setInput }), [input, setInput]);
-    return (React__default["default"].createElement(ConversationInputContext.Provider, { value: providerValue }, children));
+    const [input, setInput] = React__namespace["default"].useState();
+    const providerValue = React__namespace["default"].useMemo(() => ({ input, setInput }), [input, setInput]);
+    return (React__namespace["default"].createElement(ConversationInputContext.Provider, { value: providerValue }, children));
 };
 
-const MessagesContext = React__default["default"].createContext(undefined);
+const MessagesContext = React__namespace["default"].createContext(undefined);
 // role of the user sending the message, assistant or user
-const RoleContext = React__default["default"].createContext(undefined);
+const RoleContext = React__namespace["default"].createContext(undefined);
 const MessagesProvider = ({ children, messages, }) => {
-    return (React__default["default"].createElement(MessagesContext.Provider, { value: messages }, children));
+    return (React__namespace["default"].createElement(MessagesContext.Provider, { value: messages }, children));
 };
 
-const SuggestedPromptsContext = React__default["default"].createContext(undefined);
+const SuggestedPromptsContext = React__namespace["default"].createContext(undefined);
 const SuggestedPromptProvider = ({ children, suggestedPrompts, }) => {
-    return (React__default["default"].createElement(SuggestedPromptsContext.Provider, { value: suggestedPrompts }, children));
+    return (React__namespace["default"].createElement(SuggestedPromptsContext.Provider, { value: suggestedPrompts }, children));
 };
 
-const MessageVariantContext = React__default["default"].createContext(undefined);
+const MessageVariantContext = React__namespace["default"].createContext(undefined);
 const MessageVariantProvider = ({ children, variant, }) => {
-    return (React__default["default"].createElement(MessageVariantContext.Provider, { value: variant }, children));
+    return (React__namespace["default"].createElement(MessageVariantContext.Provider, { value: variant }, children));
 };
 
 function formatDate(date) {
@@ -201,18 +198,18 @@ const { ConversationDisplayTextContext, ConversationDisplayTextProvider, useConv
     defaultValue: defaultAIConversationDisplayTextEn,
 });
 
-const ControlsContext = React__default["default"].createContext(undefined);
+const ControlsContext = React__namespace["default"].createContext(undefined);
 const ControlsProvider = ({ children, controls, }) => {
-    return (React__default["default"].createElement(ControlsContext.Provider, { value: controls }, children));
+    return (React__namespace["default"].createElement(ControlsContext.Provider, { value: controls }, children));
 };
 
-const LoadingContext = React__default["default"].createContext(undefined);
+const LoadingContext = React__namespace["default"].createContext(undefined);
 const LoadingContextProvider = ({ children, isLoading, }) => {
-    return (React__default["default"].createElement(LoadingContext.Provider, { value: isLoading }, children));
+    return (React__namespace["default"].createElement(LoadingContext.Provider, { value: isLoading }, children));
 };
 
 const RESPONSE_COMPONENT_PREFIX = 'AMPLIFY_UI_';
-const ResponseComponentsContext = React__default["default"].createContext(undefined);
+const ResponseComponentsContext = React__namespace["default"].createContext(undefined);
 const prependResponseComponents = (responseComponents) => {
     if (!responseComponents)
         return responseComponents;
@@ -220,8 +217,8 @@ const prependResponseComponents = (responseComponents) => {
         prev), {});
 };
 const ResponseComponentsProvider = ({ children, responseComponents, }) => {
-    const _responseComponents = React__default["default"].useMemo(() => prependResponseComponents(responseComponents), [responseComponents]);
-    return (React__default["default"].createElement(ResponseComponentsContext.Provider, { value: _responseComponents }, children));
+    const _responseComponents = React__namespace["default"].useMemo(() => prependResponseComponents(responseComponents), [responseComponents]);
+    return (React__namespace["default"].createElement(ResponseComponentsContext.Provider, { value: _responseComponents }, children));
 };
 const convertResponseComponentsToToolConfiguration = (responseComponents) => {
     if (!responseComponents) {
@@ -251,9 +248,9 @@ const convertResponseComponentsToToolConfiguration = (responseComponents) => {
     return { tools };
 };
 
-const SendMessageContext = React__default["default"].createContext(undefined);
+const SendMessageContext = React__namespace["default"].createContext(undefined);
 const SendMessageContextProvider = ({ children, handleSendMessage, }) => {
-    return (React__default["default"].createElement(SendMessageContext.Provider, { value: handleSendMessage }, children));
+    return (React__namespace["default"].createElement(SendMessageContext.Provider, { value: handleSendMessage }, children));
 };
 
 const { Button: Button$5, Span: Span$3, View: View$7 } = AIConversationElements;
@@ -265,16 +262,16 @@ const ActionIcon = elements.withBaseElementProps(Span$3, {
 const ActionButtonBase = elements.withBaseElementProps(Button$5, {
     className: `${ACTIONS_BAR_BLOCK}__button`,
 });
-const ActionButton = React__default["default"].forwardRef(function ActionButton(props, ref) {
-    return React__default["default"].createElement(ActionButtonBase, { ...props, ref: ref });
+const ActionButton = React__namespace["default"].forwardRef(function ActionButton(props, ref) {
+    return React__namespace["default"].createElement(ActionButtonBase, { ...props, ref: ref });
 });
 const Container$4 = elements.withBaseElementProps(View$7, {
     className: `${ACTIONS_BAR_BLOCK}__container`,
 });
 const ActionsBarControl = ({ message, focusable, }) => {
-    const actions = React__default["default"].useContext(ActionsContext);
-    return (React__default["default"].createElement(Container$4, null, actions?.map((action, index) => (React__default["default"].createElement(ActionButton, { "aria-label": action.displayName, key: index, onClick: () => action.handler(message), tabIndex: focusable ? 0 : -1 },
-        React__default["default"].createElement(ActionIcon, { "data-testid": `action-icon-${action.displayName}` }, action.icon))))));
+    const actions = React__namespace["default"].useContext(ActionsContext);
+    return (React__namespace["default"].createElement(Container$4, null, actions?.map((action, index) => (React__namespace["default"].createElement(ActionButton, { "aria-label": action.displayName, key: index, onClick: () => action.handler(message), tabIndex: focusable ? 0 : -1 },
+        React__namespace["default"].createElement(ActionIcon, { "data-testid": `action-icon-${action.displayName}` }, action.icon))))));
 };
 ActionsBarControl.Button = ActionButton;
 ActionsBarControl.Container = Container$4;
@@ -285,9 +282,9 @@ const AVATAR_BLOCK = 'ai-avatar';
 const DEFAULT_USER_ICON = elements.withBaseElementProps(Icon$5, {
     variant: 'user-avatar',
 });
-const DEFAULT_AI_ICON = () => (React__default["default"].createElement("svg", { width: "28", height: "28", viewBox: "0 0 28 28", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-    React__default["default"].createElement("g", { id: "raven-logo" },
-        React__default["default"].createElement("path", { id: "Subtract", fillRule: "evenodd", clipRule: "evenodd", d: "M16 1.29833C14.7624 0.583803 13.2376 0.583804 12 1.29833L4.00006 5.91711C2.76246 6.63165 2.00006 7.95216 2.00006 9.38122V18.6188C2.00006 20.0478 2.76246 21.3684 4.00006 22.0829L12 26.7017C13.2376 27.4162 14.7624 27.4162 16 26.7017L24 22.0829C25.2376 21.3684 26 20.0478 26 18.6188V9.38122C26 7.95215 25.2376 6.63164 24 5.91711L16 1.29833ZM14.9379 6.37317C14.6157 5.50255 13.3843 5.50255 13.0622 6.37317L11.4151 10.8243C11.3138 11.098 11.098 11.3138 10.8243 11.4151L6.37317 13.0621C5.50256 13.3843 5.50256 14.6157 6.37317 14.9378L10.8243 16.5849C11.098 16.6862 11.3138 16.902 11.4151 17.1757L13.0622 21.6268C13.3843 22.4974 14.6157 22.4974 14.9379 21.6268L16.5849 17.1757C16.6862 16.902 16.902 16.6862 17.1757 16.5849L21.6268 14.9378C22.4974 14.6157 22.4974 13.3843 21.6268 13.0621L17.1757 11.4151C16.902 11.3138 16.6862 11.098 16.5849 10.8243L14.9379 6.37317Z", fill: "#0D1A26" }))));
+const DEFAULT_AI_ICON = () => (React__namespace["default"].createElement("svg", { width: "28", height: "28", viewBox: "0 0 28 28", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+    React__namespace["default"].createElement("g", { id: "raven-logo" },
+        React__namespace["default"].createElement("path", { id: "Subtract", fillRule: "evenodd", clipRule: "evenodd", d: "M16 1.29833C14.7624 0.583803 13.2376 0.583804 12 1.29833L4.00006 5.91711C2.76246 6.63165 2.00006 7.95216 2.00006 9.38122V18.6188C2.00006 20.0478 2.76246 21.3684 4.00006 22.0829L12 26.7017C13.2376 27.4162 14.7624 27.4162 16 26.7017L24 22.0829C25.2376 21.3684 26 20.0478 26 18.6188V9.38122C26 7.95215 25.2376 6.63164 24 5.91711L16 1.29833ZM14.9379 6.37317C14.6157 5.50255 13.3843 5.50255 13.0622 6.37317L11.4151 10.8243C11.3138 11.098 11.098 11.3138 10.8243 11.4151L6.37317 13.0621C5.50256 13.3843 5.50256 14.6157 6.37317 14.9378L10.8243 16.5849C11.098 16.6862 11.3138 16.902 11.4151 17.1757L13.0622 21.6268C13.3843 22.4974 14.6157 22.4974 14.9379 21.6268L16.5849 17.1757C16.6862 16.902 16.902 16.6862 17.1757 16.5849L21.6268 14.9378C22.4974 14.6157 22.4974 13.3843 21.6268 13.0621L17.1757 11.4151C16.902 11.3138 16.6862 11.098 16.5849 10.8243L14.9379 6.37317Z", fill: "#0D1A26" }))));
 const AvatarDisplayName = elements.withBaseElementProps(Text$4, {
     className: `${AVATAR_BLOCK}__display-name`,
 });
@@ -299,14 +296,14 @@ const Container$3 = elements.withBaseElementProps(View$6, {
     className: `${AVATAR_BLOCK}__container`,
 });
 const AvatarControl = () => {
-    const avatars = React__default["default"].useContext(AvatarsContext);
-    const role = React__default["default"].useContext(RoleContext);
+    const avatars = React__namespace["default"].useContext(AvatarsContext);
+    const role = React__namespace["default"].useContext(RoleContext);
     const avatar = role === 'assistant' ? avatars?.ai : avatars?.user;
-    const defaultIcon = role === 'assistant' ? React__default["default"].createElement(DEFAULT_AI_ICON, null) : React__default["default"].createElement(DEFAULT_USER_ICON, null);
+    const defaultIcon = role === 'assistant' ? React__namespace["default"].createElement(DEFAULT_AI_ICON, null) : React__namespace["default"].createElement(DEFAULT_USER_ICON, null);
     const defaultDisplayName = role === 'user' ? 'User' : 'Assistant';
-    return (React__default["default"].createElement(Container$3, { "data-testid": 'avatar' },
-        React__default["default"].createElement(AvatarIcon, { "data-testid": `avatar-icon-${role}` }, avatar?.avatar ?? defaultIcon),
-        React__default["default"].createElement(AvatarDisplayName, null, avatar?.username ?? defaultDisplayName)));
+    return (React__namespace["default"].createElement(Container$3, { "data-testid": 'avatar' },
+        React__namespace["default"].createElement(AvatarIcon, { "data-testid": `avatar-icon-${role}` }, avatar?.avatar ?? defaultIcon),
+        React__namespace["default"].createElement(AvatarDisplayName, null, avatar?.username ?? defaultDisplayName)));
 };
 AvatarControl.Container = Container$3;
 AvatarControl.DisplayName = AvatarDisplayName;
@@ -317,8 +314,8 @@ const HEADER_BLOCK = 'ai-header';
 const HeaderTextBase = elements.withBaseElementProps(Text$3, {
     className: `${HEADER_BLOCK}__text`,
 });
-const HeaderText$1 = React__default["default"].forwardRef(function HeaderText(props, ref) {
-    return React__default["default"].createElement(HeaderTextBase, { ...props, ref: ref });
+const HeaderText$1 = React__namespace["default"].forwardRef(function HeaderText(props, ref) {
+    return React__namespace["default"].createElement(HeaderTextBase, { ...props, ref: ref });
 });
 const CloseIcon = elements.withBaseElementProps(Icon$4, {
     className: `${HEADER_BLOCK}__icon`,
@@ -327,16 +324,16 @@ const CloseIcon = elements.withBaseElementProps(Icon$4, {
 const CloseButtonBase = elements.withBaseElementProps(Button$4, {
     className: `${HEADER_BLOCK}__button`,
 });
-const CloseButton = React__default["default"].forwardRef(function CloseButton(props, ref) {
-    return React__default["default"].createElement(CloseButtonBase, { ...props, ref: ref });
+const CloseButton = React__namespace["default"].forwardRef(function CloseButton(props, ref) {
+    return React__namespace["default"].createElement(CloseButtonBase, { ...props, ref: ref });
 });
 const Container$2 = elements.withBaseElementProps(View$5, {
     className: `${HEADER_BLOCK}__container`,
 });
-const HeaderControl = () => (React__default["default"].createElement(Container$2, null,
-    React__default["default"].createElement(HeaderText$1, null, "Raven Chat"),
-    React__default["default"].createElement(CloseButton, null,
-        React__default["default"].createElement(CloseIcon, null))));
+const HeaderControl = () => (React__namespace["default"].createElement(Container$2, null,
+    React__namespace["default"].createElement(HeaderText$1, null, "Raven Chat"),
+    React__namespace["default"].createElement(CloseButton, null,
+        React__namespace["default"].createElement(CloseIcon, null))));
 HeaderControl.Container = Container$2;
 HeaderControl.Text = HeaderText$1;
 HeaderControl.Button = CloseButton;
@@ -361,8 +358,8 @@ const AttachFileButton = elements.withBaseElementProps(Button$3, {
     variant: 'attach',
 });
 const AttachFileControl = () => {
-    const hiddenInput = React__default["default"].useRef(null);
-    const { setInput } = React__default["default"].useContext(ConversationInputContext);
+    const hiddenInput = React__namespace["default"].useRef(null);
+    const { setInput } = React__namespace["default"].useContext(ConversationInputContext);
     function handleButtonClick() {
         if (hiddenInput.current) {
             hiddenInput.current.click();
@@ -380,11 +377,11 @@ const AttachFileControl = () => {
             });
         }
     }
-    return (React__default["default"].createElement(AttachFileContainer, null,
-        React__default["default"].createElement(AttachFileButton, { onClick: handleButtonClick },
-            React__default["default"].createElement(AttachFileIcon, null)),
-        React__default["default"].createElement(VisuallyHidden$1, null,
-            React__default["default"].createElement("input", { accept: ".jpeg,.png,.webp,.gif", "data-testid": "hidden-file-input", onChange: handleFileChange, ref: hiddenInput, type: "file", multiple: true }))));
+    return (React__namespace["default"].createElement(AttachFileContainer, null,
+        React__namespace["default"].createElement(AttachFileButton, { onClick: handleButtonClick },
+            React__namespace["default"].createElement(AttachFileIcon, null)),
+        React__namespace["default"].createElement(VisuallyHidden$1, null,
+            React__namespace["default"].createElement("input", { accept: ".jpeg,.png,.webp,.gif", "data-testid": "hidden-file-input", onChange: handleFileChange, ref: hiddenInput, type: "file", multiple: true }))));
 };
 AttachFileControl.Icon = AttachFileIcon;
 AttachFileControl.Button = AttachFileButton;
@@ -406,8 +403,8 @@ const RemoveButton = elements.withBaseElementProps(Button$2, {
     type: 'button',
 });
 const RemoveButtonControl = ({ onRemove }) => {
-    return (React__default["default"].createElement(RemoveButton, { onClick: onRemove },
-        React__default["default"].createElement(RemoveIcon, null)));
+    return (React__namespace["default"].createElement(RemoveButton, { onClick: onRemove },
+        React__namespace["default"].createElement(RemoveIcon, null)));
 };
 RemoveButtonControl.Icon = RemoveIcon;
 RemoveButtonControl.Button = RemoveButton;
@@ -430,10 +427,10 @@ const TextContainer = elements.withBaseElementProps(View$3, {
     className: `${IMAGE_TEXT_BLOCK}__container`,
 });
 const TextControl = ({ fileName, fileSize }) => {
-    return (React__default["default"].createElement(TextContainer, null,
-        React__default["default"].createElement(FileNameText, null, fileName),
-        React__default["default"].createElement(Separator$1, null),
-        React__default["default"].createElement(FileSizeText, null, fileSize)));
+    return (React__namespace["default"].createElement(TextContainer, null,
+        React__namespace["default"].createElement(FileNameText, null, fileName),
+        React__namespace["default"].createElement(Separator$1, null),
+        React__namespace["default"].createElement(FileSizeText, null, fileSize)));
 };
 TextControl.Container = TextContainer;
 TextControl.FileName = FileNameText;
@@ -443,10 +440,10 @@ const Container$1 = elements.withBaseElementProps(ListItem, {
     className: `${IMAGE_ITEM_BLOCK}__list-item`,
 });
 const AttachmentControl = ({ image, onRemove }) => {
-    return (React__default["default"].createElement(Container$1, null,
-        React__default["default"].createElement(ImageIcon, null),
-        React__default["default"].createElement(TextControl, { fileName: image.name, fileSize: image.size }),
-        React__default["default"].createElement(RemoveButtonControl, { onRemove: onRemove })));
+    return (React__namespace["default"].createElement(Container$1, null,
+        React__namespace["default"].createElement(ImageIcon, null),
+        React__namespace["default"].createElement(TextControl, { fileName: image.name, fileSize: image.size }),
+        React__namespace["default"].createElement(RemoveButtonControl, { onRemove: onRemove })));
 };
 AttachmentControl.Container = Container$1;
 AttachmentControl.ImageIcon = ImageIcon;
@@ -456,8 +453,8 @@ const UnorderedList = elements.withBaseElementProps(ListElement, {
     className: `${IMAGE_LIST_BLOCK}__unordered-list`,
 });
 const AttachmentListControl = () => {
-    const { input, setInput } = React__default["default"].useContext(ConversationInputContext);
-    return (React__default["default"].createElement(UnorderedList, null, input?.files?.map((file, index) => {
+    const { input, setInput } = React__namespace["default"].useContext(ConversationInputContext);
+    return (React__namespace["default"].createElement(UnorderedList, null, input?.files?.map((file, index) => {
         const onRemove = () => {
             if (setInput) {
                 setInput((prevInput) => ({
@@ -466,7 +463,7 @@ const AttachmentListControl = () => {
                 }));
             }
         };
-        return (React__default["default"].createElement(AttachmentControl, { key: index, image: file, onRemove: onRemove }));
+        return (React__namespace["default"].createElement(AttachmentControl, { key: index, image: file, onRemove: onRemove }));
     })));
 };
 AttachmentListControl.List = UnorderedList;
@@ -482,11 +479,11 @@ const SendButtonBase = elements.withBaseElementProps(Button$1, {
     'aria-label': 'Send message',
     className: `${FIELD_BLOCK}__button ${FIELD_BLOCK}__button--send`,
 });
-const SendButton = React__default["default"].forwardRef(function SendButton(props, ref) {
-    const { input } = React__default["default"].useContext(ConversationInputContext);
-    const isLoading = React__default["default"].useContext(LoadingContext);
+const SendButton = React__namespace["default"].forwardRef(function SendButton(props, ref) {
+    const { input } = React__namespace["default"].useContext(ConversationInputContext);
+    const isLoading = React__namespace["default"].useContext(LoadingContext);
     const hasInput = !!input?.text || !!input?.files?.length;
-    return (React__default["default"].createElement(SendButtonBase, { ...props, 
+    return (React__namespace["default"].createElement(SendButtonBase, { ...props, 
         // we intentionally || in the case where isLoading is false we should use the value of hasInput
         // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
         disabled: isLoading || !hasInput, type: "submit", ref: ref, "data-testid": "send-button" }));
@@ -505,7 +502,7 @@ const Label = elements.withBaseElementProps(LabelElement, {
     htmlFor: 'text-input',
 });
 const useHandleResize = (textAreaRef) => {
-    React__default["default"].useEffect(() => {
+    React__namespace["default"].useEffect(() => {
         const { current } = textAreaRef;
         const handleResize = () => {
             if (current) {
@@ -524,18 +521,18 @@ const useHandleResize = (textAreaRef) => {
         };
     }, [textAreaRef]);
 };
-const TextInput = React__default["default"].forwardRef(function TextInput(props, ref) {
-    const { setInput } = React__default["default"].useContext(ConversationInputContext);
-    const messages = React__default["default"].useContext(MessagesContext);
-    const textAreaRef = React__default["default"].useRef(null);
+const TextInput = React__namespace["default"].forwardRef(function TextInput(props, ref) {
+    const { setInput } = React__namespace["default"].useContext(ConversationInputContext);
+    const messages = React__namespace["default"].useContext(MessagesContext);
+    const textAreaRef = React__namespace["default"].useRef(null);
     useHandleResize(textAreaRef);
     const isFirstMessage = !messages || messages.length === 0;
-    React__default["default"].useEffect(() => {
+    React__namespace["default"].useEffect(() => {
         if (textAreaRef && textAreaRef.current) {
             textAreaRef.current.focus();
         }
     }, [textAreaRef]);
-    return (React__default["default"].createElement(TextAreaBase, { ...props, "data-testid": "text-input", id: "text-input", onChange: (e) => props.onChange ??
+    return (React__namespace["default"].createElement(TextAreaBase, { ...props, "data-testid": "text-input", id: "text-input", onChange: (e) => props.onChange ??
             (setInput &&
                 setInput((prevInput) => ({ ...prevInput, text: e.target.value }))), placeholder: props.placeholder ?? isFirstMessage
             ? 'Ask anything...'
@@ -553,11 +550,11 @@ const InputContainer = elements.withBaseElementProps(View$2, {
     className: `${FIELD_BLOCK}__input-container`,
 });
 const FieldControl = () => {
-    const { input, setInput } = React__default["default"].useContext(ConversationInputContext);
-    const handleSendMessage = React__default["default"].useContext(SendMessageContext);
-    const ref = React__default["default"].useRef(null);
-    const responseComponents = React__default["default"].useContext(ResponseComponentsContext);
-    const controls = React__default["default"].useContext(ControlsContext);
+    const { input, setInput } = React__namespace["default"].useContext(ConversationInputContext);
+    const handleSendMessage = React__namespace["default"].useContext(SendMessageContext);
+    const ref = React__namespace["default"].useRef(null);
+    const responseComponents = React__namespace["default"].useContext(ResponseComponentsContext);
+    const controls = React__namespace["default"].useContext(ControlsContext);
     const submitMessage = async () => {
         ref.current?.reset();
         const submittedContent = [];
@@ -603,17 +600,17 @@ const FieldControl = () => {
         }
     };
     if (controls?.Form) {
-        return (React__default["default"].createElement(controls.Form, { handleSubmit: handleSubmit, input: input, setInput: setInput }));
+        return (React__namespace["default"].createElement(controls.Form, { handleSubmit: handleSubmit, input: input, setInput: setInput }));
     }
-    return (React__default["default"].createElement("form", { className: `${FIELD_BLOCK}__form`, onSubmit: handleSubmit, method: "post", ref: ref },
-        React__default["default"].createElement(AttachFileControl, null),
-        React__default["default"].createElement(InputContainer, null,
-            React__default["default"].createElement(VisuallyHidden, null,
-                React__default["default"].createElement(Label, null)),
-            React__default["default"].createElement(TextInput, { onKeyDown: handleOnKeyDown }),
-            React__default["default"].createElement(AttachmentListControl, null)),
-        React__default["default"].createElement(SendButton, null,
-            React__default["default"].createElement(SendIcon, null))));
+    return (React__namespace["default"].createElement("form", { className: `${FIELD_BLOCK}__form`, onSubmit: handleSubmit, method: "post", ref: ref },
+        React__namespace["default"].createElement(AttachFileControl, null),
+        React__namespace["default"].createElement(InputContainer, null,
+            React__namespace["default"].createElement(VisuallyHidden, null,
+                React__namespace["default"].createElement(Label, null)),
+            React__namespace["default"].createElement(TextInput, { onKeyDown: handleOnKeyDown }),
+            React__namespace["default"].createElement(AttachmentListControl, null)),
+        React__namespace["default"].createElement(SendButton, null,
+            React__namespace["default"].createElement(SendIcon, null))));
 };
 FieldControl.AttachFile = AttachFileControl;
 FieldControl.InputContainer = InputContainer;
@@ -628,26 +625,26 @@ const MESSAGE_BLOCK = 'ai-message';
 const MediaContentBase = elements.withBaseElementProps(Image, {
     alt: 'Image attachment',
 });
-const MediaContent = React__default["default"].forwardRef(function MediaContent(props, ref) {
-    const variant = React__default["default"].useContext(MessageVariantContext);
-    const role = React__default["default"].useContext(RoleContext);
-    return (React__default["default"].createElement(MediaContentBase, { ref: ref, className: `${MESSAGE_BLOCK}__image ${MESSAGE_BLOCK}__image--${variant} ${MESSAGE_BLOCK}__image--${role}`, ...props }));
+const MediaContent = React__namespace["default"].forwardRef(function MediaContent(props, ref) {
+    const variant = React__namespace["default"].useContext(MessageVariantContext);
+    const role = React__namespace["default"].useContext(RoleContext);
+    return (React__namespace["default"].createElement(MediaContentBase, { ref: ref, className: `${MESSAGE_BLOCK}__image ${MESSAGE_BLOCK}__image--${variant} ${MESSAGE_BLOCK}__image--${role}`, ...props }));
 });
-const TextContent = React__default["default"].forwardRef(function TextContent(props, ref) {
-    return React__default["default"].createElement(Text$1, { ref: ref, className: `${MESSAGE_BLOCK}__text`, ...props });
+const TextContent = React__namespace["default"].forwardRef(function TextContent(props, ref) {
+    return React__namespace["default"].createElement(Text$1, { ref: ref, className: `${MESSAGE_BLOCK}__text`, ...props });
 });
-const ContentContainer = React__default["default"].forwardRef(function ContentContainer(props, ref) {
-    const variant = React__default["default"].useContext(MessageVariantContext);
-    return (React__default["default"].createElement(View$1, { "data-testid": 'content', className: `${MESSAGE_BLOCK}__content ${MESSAGE_BLOCK}__content--${variant}`, ref: ref, ...props }));
+const ContentContainer = React__namespace["default"].forwardRef(function ContentContainer(props, ref) {
+    const variant = React__namespace["default"].useContext(MessageVariantContext);
+    return (React__namespace["default"].createElement(View$1, { "data-testid": 'content', className: `${MESSAGE_BLOCK}__content ${MESSAGE_BLOCK}__content--${variant}`, ref: ref, ...props }));
 });
 const MessageControl = ({ message }) => {
-    const responseComponents = React__default["default"].useContext(ResponseComponentsContext);
-    return (React__default["default"].createElement(ContentContainer, null, message.content.map((content, index) => {
+    const responseComponents = React__namespace["default"].useContext(ResponseComponentsContext);
+    return (React__namespace["default"].createElement(ContentContainer, null, message.content.map((content, index) => {
         if (content.text) {
-            return (React__default["default"].createElement(TextContent, { "data-testid": 'text-content', key: index }, content.text));
+            return (React__namespace["default"].createElement(TextContent, { "data-testid": 'text-content', key: index }, content.text));
         }
         else if (content.image) {
-            return (React__default["default"].createElement(MediaContent, { "data-testid": 'image-content', key: index, src: convertBufferToBase64(content.image?.source.bytes, content.image?.format) }));
+            return (React__namespace["default"].createElement(MediaContent, { "data-testid": 'image-content', key: index, src: convertBufferToBase64(content.image?.source.bytes, content.image?.format) }));
         }
         else if (content.toolUse) {
             // For now tool use is limited to custom response components
@@ -660,7 +657,7 @@ const MessageControl = ({ message }) => {
             else {
                 const response = responseComponents[name];
                 const CustomComponent = response.component;
-                return React__default["default"].createElement(CustomComponent, { ...input, key: index });
+                return React__namespace["default"].createElement(CustomComponent, { ...input, key: index });
             }
         }
     })));
@@ -676,27 +673,27 @@ const Separator = elements.withBaseElementProps(Span, {
 const Timestamp = elements.withBaseElementProps(Text$1, {
     className: `${MESSAGE_BLOCK}__timestamp`,
 });
-const HeaderContainer = React__default["default"].forwardRef(function HeaderContainer(props, ref) {
-    const variant = React__default["default"].useContext(MessageVariantContext);
-    return (React__default["default"].createElement(View$1, { ref: ref, className: `${MESSAGE_BLOCK}__header__container ${MESSAGE_BLOCK}__header__container--${variant}`, ...props }));
+const HeaderContainer = React__namespace["default"].forwardRef(function HeaderContainer(props, ref) {
+    const variant = React__namespace["default"].useContext(MessageVariantContext);
+    return (React__namespace["default"].createElement(View$1, { ref: ref, className: `${MESSAGE_BLOCK}__header__container ${MESSAGE_BLOCK}__header__container--${variant}`, ...props }));
 });
-const MessageContainer = React__default["default"].forwardRef(function MessageContainer(props, ref) {
-    const variant = React__default["default"].useContext(MessageVariantContext);
-    const role = React__default["default"].useContext(RoleContext);
-    return (React__default["default"].createElement(View$1, { ref: ref, className: `${MESSAGE_BLOCK} ${MESSAGE_BLOCK}--${variant} ${MESSAGE_BLOCK}--${role}`, ...props }));
+const MessageContainer = React__namespace["default"].forwardRef(function MessageContainer(props, ref) {
+    const variant = React__namespace["default"].useContext(MessageVariantContext);
+    const role = React__namespace["default"].useContext(RoleContext);
+    return (React__namespace["default"].createElement(View$1, { ref: ref, className: `${MESSAGE_BLOCK} ${MESSAGE_BLOCK}--${variant} ${MESSAGE_BLOCK}--${role}`, ...props }));
 });
-const Layout = React__default["default"].forwardRef(function Layout(props, ref) {
-    const variant = React__default["default"].useContext(MessageVariantContext);
-    return (React__default["default"].createElement(View$1, { ref: ref, className: `${MESSAGES_BLOCK}__container ${MESSAGES_BLOCK}__container--${variant}`, "aria-live": 'assertive', ...props }));
+const Layout = React__namespace["default"].forwardRef(function Layout(props, ref) {
+    const variant = React__namespace["default"].useContext(MessageVariantContext);
+    return (React__namespace["default"].createElement(View$1, { ref: ref, className: `${MESSAGES_BLOCK}__container ${MESSAGES_BLOCK}__container--${variant}`, "aria-live": 'assertive', ...props }));
 });
 const MessagesControl = ({ renderMessage }) => {
-    const messages = React__default["default"].useContext(MessagesContext);
-    const controls = React__default["default"].useContext(ControlsContext);
+    const messages = React__namespace["default"].useContext(MessagesContext);
+    const controls = React__namespace["default"].useContext(ControlsContext);
     const { getMessageTimestampText } = useConversationDisplayText();
-    const messagesRef = React__default["default"].useRef([]);
-    const [focusedItemIndex, setFocusedItemIndex] = React__default["default"].useState(messages ? messages.length - 1 : 0);
+    const messagesRef = React__namespace["default"].useRef([]);
+    const [focusedItemIndex, setFocusedItemIndex] = React__namespace["default"].useState(messages ? messages.length - 1 : 0);
     const handleFocus = (index) => setFocusedItemIndex(index);
-    const onKeyDown = React__default["default"].useCallback((index, { key }) => {
+    const onKeyDown = React__namespace["default"].useCallback((index, { key }) => {
         let newIndex;
         switch (key) {
             case 'ArrowUp':
@@ -723,20 +720,20 @@ const MessagesControl = ({ renderMessage }) => {
         return;
     }, [messages]);
     if (controls?.MessageList) {
-        return React__default["default"].createElement(controls.MessageList, { messages: messages });
+        return React__namespace["default"].createElement(controls.MessageList, { messages: messages });
     }
     const messagesWithRenderableContent = messages?.filter((message) => message.content.some((content) => content.image ??
         content.text ??
         content.toolUse?.name.startsWith(RESPONSE_COMPONENT_PREFIX))) ?? [];
-    return (React__default["default"].createElement(Layout, null, messagesWithRenderableContent?.map((message, index) => {
-        return renderMessage ? (renderMessage(message)) : (React__default["default"].createElement(RoleContext.Provider, { value: message.role, key: `message-${index}` },
-            React__default["default"].createElement(MessageContainer, { "data-testid": `message`, key: `message-${index}`, tabIndex: focusedItemIndex === index ? 0 : -1, onFocus: () => handleFocus(index), onKeyDown: (event) => onKeyDown(index, event), ref: (el) => (messagesRef.current[index] = el) },
-                React__default["default"].createElement(HeaderContainer, null,
-                    React__default["default"].createElement(AvatarControl, null),
-                    React__default["default"].createElement(Separator, null),
-                    React__default["default"].createElement(Timestamp, null, getMessageTimestampText(new Date(message.createdAt)))),
-                React__default["default"].createElement(MessageControl, { message: message }),
-                message.role === 'assistant' ? (React__default["default"].createElement(ActionsBarControl, { message: message, focusable: focusedItemIndex === index })) : null)));
+    return (React__namespace["default"].createElement(Layout, null, messagesWithRenderableContent?.map((message, index) => {
+        return renderMessage ? (renderMessage(message)) : (React__namespace["default"].createElement(RoleContext.Provider, { value: message.role, key: `message-${index}` },
+            React__namespace["default"].createElement(MessageContainer, { "data-testid": `message`, key: `message-${index}`, tabIndex: focusedItemIndex === index ? 0 : -1, onFocus: () => handleFocus(index), onKeyDown: (event) => onKeyDown(index, event), ref: (el) => (messagesRef.current[index] = el) },
+                React__namespace["default"].createElement(HeaderContainer, null,
+                    React__namespace["default"].createElement(AvatarControl, null),
+                    React__namespace["default"].createElement(Separator, null),
+                    React__namespace["default"].createElement(Timestamp, null, getMessageTimestampText(new Date(message.createdAt)))),
+                React__namespace["default"].createElement(MessageControl, { message: message }),
+                message.role === 'assistant' ? (React__namespace["default"].createElement(ActionsBarControl, { message: message, focusable: focusedItemIndex === index })) : null)));
     })));
 };
 MessagesControl.ActionsBar = ActionsBarControl;
@@ -756,13 +753,13 @@ const PromptCard = elements.withBaseElementProps(Button, {
     type: 'button',
 });
 const AIIconProps = () => ({
-    children: (React__default["default"].createElement(React__default["default"].Fragment, null,
-        React__default["default"].createElement("path", { d: "M17.5 1.64858C19.047 0.755412 20.953 0.755412 22.5 1.64858L34.6428 8.65923C36.1898 9.55239 37.1428 11.203 37.1428 12.9894V27.0107C37.1428 28.797 36.1898 30.4476 34.6428 31.3408L22.5 38.3514C20.953 39.2446 19.047 39.2446 17.5 38.3514L5.35718 31.3408C3.81017 30.4476 2.85718 28.797 2.85718 27.0107V12.9894C2.85718 11.203 3.81017 9.55239 5.35718 8.65923L17.5 1.64858Z", fill: "white" }),
-        React__default["default"].createElement("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M22.5 1.64851C20.953 0.755347 19.047 0.755347 17.5 1.64851L5.35718 8.65916C3.81017 9.55233 2.85718 11.203 2.85718 12.9893V27.0106C2.85718 28.7969 3.81017 30.4476 5.35718 31.3407L17.5 38.3514C19.047 39.2445 20.953 39.2445 22.5 38.3514L34.6428 31.3407C36.1898 30.4476 37.1428 28.7969 37.1428 27.0106V12.9893C37.1428 11.203 36.1898 9.55233 34.6428 8.65916L22.5 1.64851ZM20.9378 8.01826C20.6156 7.14764 19.3843 7.14764 19.0621 8.01825L16.2388 15.648C16.1375 15.9217 15.9217 16.1375 15.648 16.2388L8.01826 19.0621C7.14765 19.3842 7.14765 20.6156 8.01826 20.9378L15.648 23.7611C15.9217 23.8623 16.1375 24.0782 16.2388 24.3519L19.0621 31.9816C19.3843 32.8522 20.6156 32.8522 20.9378 31.9816L23.7611 24.3519C23.8624 24.0782 24.0782 23.8623 24.3519 23.7611L31.9816 20.9378C32.8523 20.6156 32.8523 19.3842 31.9816 19.0621L24.3519 16.2388C24.0782 16.1375 23.8624 15.9217 23.7611 15.648L20.9378 8.01826Z", fill: "url(#paint0_linear_395_1815)" }),
-        React__default["default"].createElement("defs", null,
-            React__default["default"].createElement("linearGradient", { id: "paint0_linear_395_1815", x1: "20", y1: "0.978638", x2: "20", y2: "39.0213", gradientUnits: "userSpaceOnUse" },
-                React__default["default"].createElement("stop", { stopColor: "#7DD6E8" }),
-                React__default["default"].createElement("stop", { offset: "1", stopColor: "#BF40BF" }))))),
+    children: (React__namespace["default"].createElement(React__namespace["default"].Fragment, null,
+        React__namespace["default"].createElement("path", { d: "M17.5 1.64858C19.047 0.755412 20.953 0.755412 22.5 1.64858L34.6428 8.65923C36.1898 9.55239 37.1428 11.203 37.1428 12.9894V27.0107C37.1428 28.797 36.1898 30.4476 34.6428 31.3408L22.5 38.3514C20.953 39.2446 19.047 39.2446 17.5 38.3514L5.35718 31.3408C3.81017 30.4476 2.85718 28.797 2.85718 27.0107V12.9894C2.85718 11.203 3.81017 9.55239 5.35718 8.65923L17.5 1.64858Z", fill: "white" }),
+        React__namespace["default"].createElement("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M22.5 1.64851C20.953 0.755347 19.047 0.755347 17.5 1.64851L5.35718 8.65916C3.81017 9.55233 2.85718 11.203 2.85718 12.9893V27.0106C2.85718 28.7969 3.81017 30.4476 5.35718 31.3407L17.5 38.3514C19.047 39.2445 20.953 39.2445 22.5 38.3514L34.6428 31.3407C36.1898 30.4476 37.1428 28.7969 37.1428 27.0106V12.9893C37.1428 11.203 36.1898 9.55233 34.6428 8.65916L22.5 1.64851ZM20.9378 8.01826C20.6156 7.14764 19.3843 7.14764 19.0621 8.01825L16.2388 15.648C16.1375 15.9217 15.9217 16.1375 15.648 16.2388L8.01826 19.0621C7.14765 19.3842 7.14765 20.6156 8.01826 20.9378L15.648 23.7611C15.9217 23.8623 16.1375 24.0782 16.2388 24.3519L19.0621 31.9816C19.3843 32.8522 20.6156 32.8522 20.9378 31.9816L23.7611 24.3519C23.8624 24.0782 24.0782 23.8623 24.3519 23.7611L31.9816 20.9378C32.8523 20.6156 32.8523 19.3842 31.9816 19.0621L24.3519 16.2388C24.0782 16.1375 23.8624 15.9217 23.7611 15.648L20.9378 8.01826Z", fill: "url(#paint0_linear_395_1815)" }),
+        React__namespace["default"].createElement("defs", null,
+            React__namespace["default"].createElement("linearGradient", { id: "paint0_linear_395_1815", x1: "20", y1: "0.978638", x2: "20", y2: "39.0213", gradientUnits: "userSpaceOnUse" },
+                React__namespace["default"].createElement("stop", { stopColor: "#7DD6E8" }),
+                React__namespace["default"].createElement("stop", { offset: "1", stopColor: "#BF40BF" }))))),
     className: `${PROMPT_CONTROL}__icon`,
     width: '40',
     height: '40',
@@ -777,41 +774,41 @@ const HeaderText = elements.withBaseElementProps(Heading, {
 const PromptGroupBase = elements.withBaseElementProps(View, {
     className: `${PROMPT_CONTROL}__buttongroup`,
 });
-const PromptGroup = React__default["default"].forwardRef(function ButtonGroup(props, ref) {
-    const suggestedPromptsArray = React__default["default"].useContext(SuggestedPromptsContext);
-    const { setInput } = React__default["default"].useContext(ConversationInputContext);
+const PromptGroup = React__namespace["default"].forwardRef(function ButtonGroup(props, ref) {
+    const suggestedPromptsArray = React__namespace["default"].useContext(SuggestedPromptsContext);
+    const { setInput } = React__namespace["default"].useContext(ConversationInputContext);
     if (!suggestedPromptsArray) {
         return;
     }
-    return (React__default["default"].createElement(PromptGroupBase, { ...props, ref: ref }, suggestedPromptsArray.map((prompt, index) => {
-        return (React__default["default"].createElement(PromptCard, { key: index, "aria-label": prompt.inputText, onClick: () => setInput &&
+    return (React__namespace["default"].createElement(PromptGroupBase, { ...props, ref: ref }, suggestedPromptsArray.map((prompt, index) => {
+        return (React__namespace["default"].createElement(PromptCard, { key: index, "aria-label": prompt.inputText, onClick: () => setInput &&
                 setInput((prevInput) => ({
                     ...prevInput,
                     text: prompt.inputText,
                 })) },
-            React__default["default"].createElement(Text, { className: ui.classNames(`${PROMPT_CARD}__header`, `${PROMPT_CARD}__text`) }, prompt.header),
-            React__default["default"].createElement(Text, { className: `${PROMPT_CARD}__text` }, prompt.inputText)));
+            React__namespace["default"].createElement(Text, { className: ui.classNames(`${PROMPT_CARD}__header`, `${PROMPT_CARD}__text`) }, prompt.header),
+            React__namespace["default"].createElement(Text, { className: `${PROMPT_CARD}__text` }, prompt.inputText)));
     })));
 });
 const Container = elements.withBaseElementProps(View, {
     className: `${PROMPT_BLOCK}__container`,
 });
 const PromptControl = () => {
-    const suggestedPromptsArray = React__default["default"].useContext(SuggestedPromptsContext);
-    const controls = React__default["default"].useContext(ControlsContext);
-    const { setInput } = React__default["default"].useContext(ConversationInputContext);
+    const suggestedPromptsArray = React__namespace["default"].useContext(SuggestedPromptsContext);
+    const controls = React__namespace["default"].useContext(ControlsContext);
+    const { setInput } = React__namespace["default"].useContext(ConversationInputContext);
     if (controls?.PromptList) {
-        return (React__default["default"].createElement(controls.PromptList, { setInput: setInput, suggestedPrompts: suggestedPromptsArray }));
+        return (React__namespace["default"].createElement(controls.PromptList, { setInput: setInput, suggestedPrompts: suggestedPromptsArray }));
     }
-    return (React__default["default"].createElement(Container, null,
-        React__default["default"].createElement(AIIcon, null),
-        React__default["default"].createElement(HeaderText, null, "How can I help you today?"),
-        React__default["default"].createElement(PromptGroup, null)));
+    return (React__namespace["default"].createElement(Container, null,
+        React__namespace["default"].createElement(AIIcon, null),
+        React__namespace["default"].createElement(HeaderText, null, "How can I help you today?"),
+        React__namespace["default"].createElement(PromptGroup, null)));
 };
 const AutoHidablePromptControl = () => {
-    const messages = React__default["default"].useContext(MessagesContext);
+    const messages = React__namespace["default"].useContext(MessagesContext);
     if (!messages || messages.length === 0) {
-        return React__default["default"].createElement(PromptControl, null);
+        return React__namespace["default"].createElement(PromptControl, null);
     }
 };
 PromptControl.Container = Container;
@@ -821,13 +818,13 @@ PromptControl.PromptGroup = PromptGroup;
 PromptControl.PromptCard = PromptCard;
 
 function Conversation() {
-    return (React__default["default"].createElement(ViewElement, null,
-        React__default["default"].createElement(HeaderControl, null),
-        React__default["default"].createElement(ViewElement, null,
-            React__default["default"].createElement(AutoHidablePromptControl, null),
-            React__default["default"].createElement(MessagesControl, null)),
-        React__default["default"].createElement(ViewElement, null,
-            React__default["default"].createElement(FieldControl, null))));
+    return (React__namespace["default"].createElement(ViewElement, null,
+        React__namespace["default"].createElement(HeaderControl, null),
+        React__namespace["default"].createElement(ViewElement, null,
+            React__namespace["default"].createElement(AutoHidablePromptControl, null),
+            React__namespace["default"].createElement(MessagesControl, null)),
+        React__namespace["default"].createElement(ViewElement, null,
+            React__namespace["default"].createElement(FieldControl, null))));
 }
 
 function createProvider({ elements: elements$1, actions, suggestedPrompts, responseComponents, variant, controls, displayText, }) {
@@ -836,18 +833,18 @@ function createProvider({ elements: elements$1, actions, suggestedPrompts, respo
             ...defaultAIConversationDisplayTextEn,
             ...displayText,
         };
-        return (React__default["default"].createElement(elements.ElementsProvider, { elements: elements$1 },
-            React__default["default"].createElement(ControlsProvider, { controls: controls },
-                React__default["default"].createElement(SuggestedPromptProvider, { suggestedPrompts: suggestedPrompts },
-                    React__default["default"].createElement(ResponseComponentsProvider, { responseComponents: responseComponents },
-                        React__default["default"].createElement(ConversationDisplayTextProvider, { ..._displayText },
-                            React__default["default"].createElement(ConversationInputContextProvider, null,
-                                React__default["default"].createElement(SendMessageContextProvider, { handleSendMessage: handleSendMessage },
-                                    React__default["default"].createElement(AvatarsProvider, { avatars: avatars },
-                                        React__default["default"].createElement(ActionsProvider, { actions: actions },
-                                            React__default["default"].createElement(MessageVariantProvider, { variant: variant },
-                                                React__default["default"].createElement(MessagesProvider, { messages: messages },
-                                                    React__default["default"].createElement(LoadingContextProvider, { isLoading: isLoading }, children)))))))))))));
+        return (React__namespace["default"].createElement(elements.ElementsProvider, { elements: elements$1 },
+            React__namespace["default"].createElement(ControlsProvider, { controls: controls },
+                React__namespace["default"].createElement(SuggestedPromptProvider, { suggestedPrompts: suggestedPrompts },
+                    React__namespace["default"].createElement(ResponseComponentsProvider, { responseComponents: responseComponents },
+                        React__namespace["default"].createElement(ConversationDisplayTextProvider, { ..._displayText },
+                            React__namespace["default"].createElement(ConversationInputContextProvider, null,
+                                React__namespace["default"].createElement(SendMessageContextProvider, { handleSendMessage: handleSendMessage },
+                                    React__namespace["default"].createElement(AvatarsProvider, { avatars: avatars },
+                                        React__namespace["default"].createElement(ActionsProvider, { actions: actions },
+                                            React__namespace["default"].createElement(MessageVariantProvider, { variant: variant },
+                                                React__namespace["default"].createElement(MessagesProvider, { messages: messages },
+                                                    React__namespace["default"].createElement(LoadingContextProvider, { isLoading: isLoading }, children)))))))))))));
     };
 }
 
@@ -867,8 +864,8 @@ function createAIConversation(input = {}) {
     });
     function AIConversation(props) {
         const { messages, avatars, handleSendMessage, isLoading } = props;
-        return (React__default["default"].createElement(Provider, { messages: messages, avatars: avatars, handleSendMessage: handleSendMessage, isLoading: isLoading },
-            React__default["default"].createElement(Conversation, null)));
+        return (React__namespace["default"].createElement(Provider, { messages: messages, avatars: avatars, handleSendMessage: handleSendMessage, isLoading: isLoading },
+            React__namespace["default"].createElement(Conversation, null)));
     }
     const Controls = {
         ActionsBar: ActionsBarControl,
@@ -1074,10 +1071,10 @@ const AIConversation = Object.assign(AIConversationBase, {
     Form,
 });
 
-const AIContext = React__default["default"].createContext(undefined);
+const AIContext = React__namespace["default"].createContext(undefined);
 const useAIContext = () => {
-    const context = React__default["default"].useContext(AIContext);
-    const [routeToConversationsMap, setRouteToConversationsMap] = React__default["default"].useState({});
+    const context = React__namespace["default"].useContext(AIContext);
+    const [routeToConversationsMap, setRouteToConversationsMap] = React__namespace["default"].useState({});
     if (context) {
         return context;
     }
@@ -1088,7 +1085,7 @@ const useAIContext = () => {
  */
 const AIContextProvider = ({ children, }) => {
     const context = useAIContext();
-    return React__default["default"].createElement(AIContext.Provider, { value: context }, children);
+    return React__namespace["default"].createElement(AIContext.Provider, { value: context }, children);
 };
 
 function createUseAIGeneration(client) {
@@ -1127,13 +1124,13 @@ function createUseAIConversation(client) {
         const messagesFromAIContext = input.id
             ? routeToConversationsMap[routeName]?.[input.id]
             : undefined;
-        const [localMessages, setLocalMessages] = React__default["default"].useState(messagesFromAIContext ?? []);
-        const [conversation, setConversation] = React__default["default"].useState(undefined);
-        const [waitingForAIResponse, setWaitingForAIResponse] = React__default["default"].useState(false);
-        const [errorMessage, setErrorMessage] = React__default["default"].useState();
-        const [hasError, setHasError] = React__default["default"].useState(false);
+        const [localMessages, setLocalMessages] = React__namespace["default"].useState(messagesFromAIContext ?? []);
+        const [conversation, setConversation] = React__namespace["default"].useState(undefined);
+        const [waitingForAIResponse, setWaitingForAIResponse] = React__namespace["default"].useState(false);
+        const [errorMessage, setErrorMessage] = React__namespace["default"].useState();
+        const [hasError, setHasError] = React__namespace["default"].useState(false);
         // On hook initialization get conversation and load all messages
-        React__default["default"].useEffect(() => {
+        React__namespace["default"].useEffect(() => {
             async function initialize() {
                 const { data: conversation } = input.id
                     ? await clientRoute.get({ id: input.id })
@@ -1159,11 +1156,11 @@ function createUseAIConversation(client) {
             initialize();
         }, [clientRoute, input.id, routeName, setRouteToConversationsMap]);
         // Update messages to match what is in AIContext if they aren't equal
-        React__default["default"].useEffect(() => {
+        React__namespace["default"].useEffect(() => {
             if (!!messagesFromAIContext && messagesFromAIContext !== localMessages)
                 setLocalMessages(messagesFromAIContext);
         }, [messagesFromAIContext, localMessages]);
-        const sendMessage = React__default["default"].useCallback((input) => {
+        const sendMessage = React__namespace["default"].useCallback((input) => {
             const { content, aiContext, toolConfiguration } = input;
             conversation
                 ?.sendMessage({ content, aiContext, toolConfiguration })
@@ -1193,7 +1190,7 @@ function createUseAIConversation(client) {
                 setErrorMessage(`error sending message ${reason}`);
             });
         }, [conversation, routeName, setRouteToConversationsMap]);
-        const subscribe = React__default["default"].useCallback((handleStoreChange) => {
+        const subscribe = React__namespace["default"].useCallback((handleStoreChange) => {
             const subscription = conversation &&
                 conversation.onMessage((message) => {
                     if (input.onResponse)
@@ -1220,10 +1217,10 @@ function createUseAIConversation(client) {
                 subscription?.unsubscribe();
             };
         }, [conversation, routeName, setRouteToConversationsMap, input]);
-        const getSnapshot = React__default["default"].useCallback(() => localMessages, [localMessages]);
+        const getSnapshot = React__namespace["default"].useCallback(() => localMessages, [localMessages]);
         // Using useSyncExternalStore to subscribe to external data updates
         // Have to provide third optional argument in next - https://github.com/vercel/next.js/issues/54685
-        const messagesFromStore = React__default["default"].useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
+        const messagesFromStore = React__namespace["default"].useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
         return [
             {
                 data: { messages: messagesFromStore },

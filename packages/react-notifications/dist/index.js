@@ -11,7 +11,7 @@ var utils = require('aws-amplify/utils');
 var internal = require('@aws-amplify/ui-react/internal');
 var tinycolor = require('tinycolor2');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
 function _interopNamespace(e) {
     if (e && e.__esModule) return e;
@@ -32,8 +32,7 @@ function _interopNamespace(e) {
 }
 
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-var tinycolor__default = /*#__PURE__*/_interopDefaultLegacy(tinycolor);
+var tinycolor__default = /*#__PURE__*/_interopDefault(tinycolor);
 
 var ImagePrefetchStatus;
 (function (ImagePrefetchStatus) {
@@ -248,27 +247,27 @@ function BannerMessage(props) {
     }
     const { alignment = 'right', position = 'top' } = props;
     const isCenterMiddle = alignment === 'center' && position === 'middle';
-    return (React__default["default"].createElement(uiReact.Flex, { className: ui.classNames(BLOCK_CLASS$2, {
+    return (React__namespace["default"].createElement(uiReact.Flex, { className: ui.classNames(BLOCK_CLASS$2, {
             [`${BLOCK_CLASS$2}--${position}`]: !isCenterMiddle,
             [`${BLOCK_CLASS$2}--${alignment}`]: !isCenterMiddle,
             [`${BLOCK_CLASS$2}--center-middle`]: isCenterMiddle,
             [`${BLOCK_CLASS$2}--full-width`]: shouldBeFullWidth,
         }), role: "dialog", testId: `inappmessaging-${position}banner-dialog` },
-        React__default["default"].createElement(MessageLayout, { ...props, ...messageProps, orientation: "horizontal", buttonSize: "small", styles: styles })));
+        React__namespace["default"].createElement(MessageLayout, { ...props, ...messageProps, orientation: "horizontal", buttonSize: "small", styles: styles })));
 }
 
 const BACKDROP_TEST_ID = 'inappmessaging-backdrop';
 function Backdrop({ onClick, ...rest }) {
-    return (React__default["default"].createElement(uiReact.View, { className: "amplify-inappmessaging-backdrop", "data-testid": BACKDROP_TEST_ID, onClick: onClick, ...rest }));
+    return (React__namespace["default"].createElement(uiReact.View, { className: "amplify-inappmessaging-backdrop", "data-testid": BACKDROP_TEST_ID, onClick: onClick, ...rest }));
 }
 
 function withBackdrop(Content, options = {}) {
     return function ContentWithBackdrop(props) {
-        return (React__default["default"].createElement(React__default["default"].Fragment, null,
-            React__default["default"].createElement(Backdrop, { ...options }),
-            React__default["default"].createElement(uiReact.Flex, { className: "amplify-inappmessaging-backdrop-content-container" },
-                React__default["default"].createElement(uiReact.View, { className: "amplify-inappmessaging-backdrop-content" },
-                    React__default["default"].createElement(Content, { ...props })))));
+        return (React__namespace["default"].createElement(React__namespace["default"].Fragment, null,
+            React__namespace["default"].createElement(Backdrop, { ...options }),
+            React__namespace["default"].createElement(uiReact.Flex, { className: "amplify-inappmessaging-backdrop-content-container" },
+                React__namespace["default"].createElement(uiReact.View, { className: "amplify-inappmessaging-backdrop-content" },
+                    React__namespace["default"].createElement(Content, { ...props })))));
     };
 }
 
@@ -353,7 +352,7 @@ const onMessageAction = ({ action, url }) => {
     });
 };
 function InAppMessageDisplay({ components: overrideComponents, }) {
-    const components = React__default["default"].useMemo(() => ({ ...platformComponents, ...overrideComponents }), [overrideComponents]);
+    const components = React__namespace["default"].useMemo(() => ({ ...platformComponents, ...overrideComponents }), [overrideComponents]);
     const { Component, props } = uiReactCoreNotifications.useMessage({
         components,
         onMessageAction,
@@ -366,8 +365,8 @@ function InAppMessageDisplay({ components: overrideComponents, }) {
     // There is currently no way to pass In-App Message payload variants so we
     // will fix the theme around In-App Messaging components to always assume
     // light mode
-    return (React__default["default"].createElement(uiReact.ThemeProvider, { colorMode: "light" },
-        React__default["default"].createElement(Component, { ...props })));
+    return (React__namespace["default"].createElement(uiReact.ThemeProvider, { colorMode: "light" },
+        React__namespace["default"].createElement(Component, { ...props })));
 }
 InAppMessageDisplay.BannerMessage = BannerMessage;
 InAppMessageDisplay.CarouselMessage = CarouselMessage;
@@ -376,17 +375,17 @@ InAppMessageDisplay.ModalMessage = ModalMessage;
 
 function withInAppMessaging(Component, options) {
     return function WrappedWithInAppMessaging(props) {
-        return (React__default["default"].createElement(uiReactCoreNotifications.InAppMessagingProvider, null,
-            React__default["default"].createElement(InAppMessageDisplay, { ...options }),
-            React__default["default"].createElement(Component, { ...props })));
+        return (React__namespace["default"].createElement(uiReactCoreNotifications.InAppMessagingProvider, null,
+            React__namespace["default"].createElement(InAppMessageDisplay, { ...options }),
+            React__namespace["default"].createElement(Component, { ...props })));
     };
 }
 
-Object.defineProperty(exports, 'InAppMessagingProvider', {
+Object.defineProperty(exports, "InAppMessagingProvider", {
     enumerable: true,
     get: function () { return uiReactCoreNotifications.InAppMessagingProvider; }
 });
-Object.defineProperty(exports, 'useInAppMessaging', {
+Object.defineProperty(exports, "useInAppMessaging", {
     enumerable: true,
     get: function () { return uiReactCoreNotifications.useInAppMessaging; }
 });

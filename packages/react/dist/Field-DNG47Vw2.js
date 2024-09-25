@@ -280,6 +280,7 @@ const getCSSVariableIfValueIsThemeKey = (propKey, value, tokens) => {
 };
 
 // Inspiration for getMediaQueries and useBreakpoint
+// comes from https://github.com/iiroj/use-breakpoint/
 const getMediaQueries = ({ breakpoints }) => {
     const sortedBreakpoints = objectKeys(breakpoints).sort((a, b) => breakpoints[b] - breakpoints[a]);
     return sortedBreakpoints.map((breakpoint, index) => {
@@ -306,6 +307,7 @@ const getMediaQueries = ({ breakpoints }) => {
 };
 
 // Inspiration for getMediaQueries and useBreakpoint
+// comes from https://github.com/iiroj/use-breakpoint/
 const useIsomorphicEffect = typeof window === 'undefined' ? React__namespace.useEffect : React__namespace.useLayoutEffect;
 const useBreakpoint = ({ breakpoints, defaultBreakpoint, }) => {
     const supportMatchMedia = typeof window !== 'undefined' && typeof window.matchMedia !== 'undefined';

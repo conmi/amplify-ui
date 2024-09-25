@@ -8,9 +8,9 @@ var utils = require('aws-amplify/utils');
 var ui = require('@aws-amplify/ui');
 var uiReactCore = require('@aws-amplify/ui-react-core');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var React__default = /*#__PURE__*/_interopDefault(React);
 
 const InAppMessagingContext = React.createContext(null);
 
