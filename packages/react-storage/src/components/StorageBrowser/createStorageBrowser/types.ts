@@ -1,5 +1,6 @@
 import {
   ActionConfigs,
+  ComponentName,
   DefaultActionConfigs,
   DefaultActionKeys,
 } from '../actions/configs';
@@ -15,7 +16,7 @@ interface CreateStorageBrowserInput<T extends ActionConfigs> {
 
 interface CreateStorageBrowserOutput<T extends ActionConfigs> {
   StorageBrowser: {
-    (props: { type: DerivedComponentName<T> }): React.JSX.Element;
+    (props: {}): React.JSX.Element;
     displayName: string;
     Provider: (props: { children?: React.ReactNode }) => React.JSX.Element;
   } & DerivedViews<T>; // & the action derived views components
@@ -24,33 +25,46 @@ interface CreateStorageBrowserOutput<T extends ActionConfigs> {
 
 export interface CreateStorageBrowser {
   <
-    DefinedActionConfigs extends ActionConfigs &
+    T extends ActionConfigs &
       Partial<DefaultActionConfigs> = Partial<DefaultActionConfigs>,
   >(
-    input: CreateStorageBrowserInput<DefinedActionConfigs>
-  ): CreateStorageBrowserOutput<
-    DefinedActionConfigs & ActionConfigs<DefaultActionKeys>
-  >;
+    input: CreateStorageBrowserInput<T>
+  ): CreateStorageBrowserOutput<T & ActionConfigs<DefaultActionKeys>>;
 }
 
-/**
- * Extract component names from action configs to a string union.
- */
-type DerivedComponentName<T> = keyof ({
-  [Key in keyof DefaultActionConfigs as DefaultActionConfigs[Key] extends {
-    componentName: Capitalize<string>;
-  }
-    ? DefaultActionConfigs[Key]['componentName']
-    : never]: undefined;
-} & {
-  [Key in keyof T as Key extends DefaultActionKeys
+interface LocationActionViewProps<T> {
+  type?: T;
+}
+
+type LocationActionViewComponent<T> = (
+  props: LocationActionViewProps<T>
+) => React.JSX.Element;
+
+// Custom actions derived views
+type CustomActionViews<T> = {
+  readonly [K in keyof T as K extends DefaultActionKeys
     ? never
-    : T[Key] extends {
-        componentName: Capitalize<string>;
-      }
-    ? T[Key]['componentName']
-    : never]: undefined;
-});
+    : T[K] extends { componentName: ComponentName }
+    ? T[K]['componentName']
+    : never]: DerivedTaskActionViewComponent<T[K]>;
+};
+
+type ViewComponent<T, K = {}> = {
+  (props: K): React.JSX.Element;
+  displayName: string;
+  Provider: (props: { children?: React.ReactNode }) => React.JSX.Element;
+} & T;
+
+interface DefaultActionViews {
+  ListLocationItems: ViewComponent<ListLocationItemsActionViewSubComponents>;
+  ListLocations: ViewComponent<ListLocationsActionViewSubComponents>;
+  // temp: needs full subcomp defintions
+  Upload: ViewComponent<
+    BatchTaskActionViewSubComponents & { Bonus: () => React.JSX.Element }
+  >;
+  // temp: needs full subcomp defintions
+  CreateFolder: ViewComponent<SingleTaskActionViewSubComponents>;
+}
 
 /**
  * Create derived views from both custom actions and default actions.
@@ -58,43 +72,31 @@ type DerivedComponentName<T> = keyof ({
  * One can override default actions, but the view interface of the default actions
  * remain the same.
  */
-type DerivedViews<T> =
-  // Custom actions derived views
-  {
-    readonly [Key in keyof T as Key extends DefaultActionKeys
-      ? never
-      : T[Key] extends {
-          componentName: Capitalize<string>;
-        }
-      ? T[Key]['componentName']
-      : never]: T[Key] extends { type: infer Type }
-      ? DerivedSubComponents<Type>
-      : never;
-  } & {
-    // Default actions derived views
-    readonly [Key in keyof DefaultActionConfigs as DefaultActionConfigs[Key] extends {
-      componentName: Capitalize<string>;
-    }
-      ? DefaultActionConfigs[Key]['componentName']
-      : never]: DerivedSubComponents<DefaultActionConfigs[Key]['type']>;
-  };
+type DerivedViews<T> = CustomActionViews<T> & {
+  readonly [K in keyof T as K extends keyof DefaultActionViews
+    ? K
+    : never]: K extends keyof DefaultActionViews
+    ? DefaultActionViews[K]
+    : never;
+} & {
+  readonly LocationActionView: LocationActionViewComponent<
+    // exclude list view actions
+    Exclude<keyof T, 'ListLocationItems' | 'ListLocations'>
+  >;
+};
 
 /**
- * Create sub-components interfaces from action types.
+ * Create view & sub-components interface from action type
  */
-export type DerivedSubComponents<T, K extends object = object> = {
-  (props: K): React.JSX.Element;
-  displayName: string;
-  Provider: (props: { children?: React.ReactNode }) => React.JSX.Element;
-} & (T extends 'SINGLE_ACTION'
-  ? SingleTaskActionViewSubComponents
-  : T extends 'BATCH_ACTION'
-  ? BatchTaskActionViewSubComponents
-  : T extends 'LIST_LOCATIONS'
-  ? ListLocationsActionViewSubComponents
-  : T extends 'LIST_LOCATION_ITEMS'
-  ? ListLocationItemsActionViewSubComponents
-  : never);
+export type DerivedTaskActionViewComponent<T> = ViewComponent<
+  T extends { type: infer G }
+    ? G extends 'SINGLE_ACTION'
+      ? SingleTaskActionViewSubComponents
+      : G extends 'BATCH_ACTION'
+      ? BatchTaskActionViewSubComponents
+      : never
+    : never
+>;
 
 interface DefaultViewSubComponentProps {
   className?: string;

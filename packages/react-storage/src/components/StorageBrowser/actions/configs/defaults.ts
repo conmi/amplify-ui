@@ -38,14 +38,12 @@ export const listLocationItemsActionConfig: ListLocationItemsActionConfig = {
     }
     return !bucket ? '-' : bucket;
   },
-  type: 'LIST_LOCATION_ITEMS',
 };
 
 export const listLocationsActionConfig: ListLocationsActionConfig = {
   componentName: 'LocationsView',
   handler: listLocationsHandler,
   displayName: 'Home',
-  type: 'LIST_LOCATIONS',
 };
 
 export const uploadActionConfig: UploadActionConfig = {
