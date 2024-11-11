@@ -51,7 +51,7 @@ describe('useDestinationPicker', () => {
             prefix: 'test-prefix/',
             bucket: 'bucket',
             id: 'id',
-            permission: 'READWRITE',
+            permissions: 'READWRITE',
             type: 'PREFIX',
           },
           path: '',

@@ -16,8 +16,8 @@ const createCredentialsStore = ({
   const { destroy, getProvider } = createLocationCredentialsStore(input);
   return {
     destroy,
-    getCredentials: ({ bucket, permission, prefix }) =>
-      getProvider({ scope: `s3://${bucket}/${prefix}*`, permission }),
+    getCredentials: ({ bucket, permissions, prefix }) =>
+      getProvider({ scope: `s3://${bucket}/${prefix}*`, permissions }),
   };
 };
 

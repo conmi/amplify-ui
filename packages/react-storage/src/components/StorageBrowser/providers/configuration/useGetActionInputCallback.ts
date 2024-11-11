@@ -25,14 +25,14 @@ export function useGetActionInputCallback({
   return React.useCallback(() => {
     assertLocationData(current, ERROR_MESSAGE);
 
-    const { bucket, permission } = current;
+    const { bucket, permissions } = current;
 
     return {
       accountId,
       bucket,
       credentials: getCredentials({
         bucket,
-        permission,
+        permissions,
         prefix: key,
       }),
       region,
