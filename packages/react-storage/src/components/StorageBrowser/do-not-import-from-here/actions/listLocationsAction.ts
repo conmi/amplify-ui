@@ -71,9 +71,9 @@ export const createListLocationsAction = (
           ({ permission, type, scope }) =>
             !(
               shouldExclude(permission, exclude) ||
-              // filter out non-object scopes that don't end with /, e.g. /prefix*
+              // filter out PREFIX/BUCKET types with scopes that don't end with /*, e.g. /prefix*
               (type !== 'OBJECT' && !scope.endsWith('/*')) ||
-              // filter out object scopes that are only support write access
+              // filter out OBJECT types  with WRITE Permission
               (type === 'OBJECT' && permission === 'WRITE')
             )
         ),
