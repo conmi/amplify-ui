@@ -14,6 +14,10 @@ import { getLocationsViewTableData } from './getLocationsViewTableData';
 import { useDisplayText } from '../../displayText';
 import { LocationViewHeaders } from './getLocationsViewTableData/types';
 
+import { useProcessTasks } from '../../tasks';
+import { useGetActionInput } from '../../providers/configuration';
+import { FileDataItem, LocationData, downloadHandler } from '../../actions';
+
 export const DEFAULT_ERROR_MESSAGE = 'There was an error loading locations.';
 
 const {
@@ -49,7 +53,7 @@ const getHeaders = ({
   tableColumnBucketHeader: string;
   tableColumnFolderHeader: string;
   tableColumnPermissionsHeader: string;
-    tableColumnActionsHeader: string;
+  tableColumnActionsHeader: string;
 }): LocationViewHeaders => {
   return [
     {
@@ -116,15 +120,37 @@ export function LocationsView({
     tableColumnActionsHeader,
   });
 
+  const getConfig = useGetActionInput();
+
+  const [{ tasks }, handleDownload] = useProcessTasks(downloadHandler);
+
+  const onDownload = (location: LocationData) => {
+    const data: FileDataItem = {
+      fileKey: location.prefix,
+      id: location.id,
+      key: location.prefix,
+      lastModified: new Date(),
+      size: 1000,
+      type: 'FILE',
+    };
+
+    handleDownload({ config: getConfig(location), data });
+  };
+
   return (
     <ControlsContextProvider
       data={{
         isDataRefreshDisabled: isLoading,
         tableData: getLocationsViewTableData({
           headers,
-          pageItems,
+          pageItems: pageItems.map((item) => ({
+            ...item,
+            isPending: tasks?.some(
+              ({ data, status }) => data.id === item.id && status === 'PENDING'
+            ),
+          })),
+          onDownload,
           onNavigate,
-          onDownload: (location) => console.log(JSON.stringify(location))
         }),
         searchPlaceholder: searchPlaceholder,
       }}
