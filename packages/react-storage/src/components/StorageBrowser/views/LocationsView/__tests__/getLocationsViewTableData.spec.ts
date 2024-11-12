@@ -31,6 +31,7 @@ describe('getLocationsViewTableData', () => {
 
   // create mocks
   const mockOnNavigate = jest.fn();
+  const mockOnDownload = jest.fn();
 
   afterEach(() => {
     mockOnNavigate.mockClear();
@@ -39,9 +40,11 @@ describe('getLocationsViewTableData', () => {
   it('should return table data as expected', () => {
     expect(
       getLocationsViewTableData({
+        onDownload: mockOnDownload,
         pageItems: [location1],
         onNavigate: mockOnNavigate,
         headers,
+        downloadLabel: () => 'download',
       })
     ).toStrictEqual({
       headers: [
@@ -75,7 +78,9 @@ describe('getLocationsViewTableData', () => {
       getLocationsViewTableData({
         pageItems: [{ ...location1, prefix: '' }],
         onNavigate: mockOnNavigate,
+        onDownload: mockOnDownload,
         headers,
+        downloadLabel: () => 'download',
       })
     ).toStrictEqual(
       expect.objectContaining({
@@ -97,7 +102,9 @@ describe('getLocationsViewTableData', () => {
     const tableData = getLocationsViewTableData({
       pageItems: [location1, location2],
       onNavigate: mockOnNavigate,
+      onDownload: mockOnDownload,
       headers,
+      downloadLabel: () => 'download',
     });
     const [row1FirstContent] = tableData.rows[0].content;
     const [row2FirstContent] = tableData.rows[1].content;

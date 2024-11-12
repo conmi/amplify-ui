@@ -45,17 +45,19 @@ const LocationsMessage = ({
 };
 
 const getHeaders = ({
+  hasObjectLocations,
   tableColumnBucketHeader,
   tableColumnFolderHeader,
   tableColumnPermissionsHeader,
   tableColumnActionsHeader,
 }: {
+  hasObjectLocations: boolean;
   tableColumnBucketHeader: string;
   tableColumnFolderHeader: string;
   tableColumnPermissionsHeader: string;
   tableColumnActionsHeader: string;
 }): LocationViewHeaders => {
-  return [
+  const headers: LocationViewHeaders = [
     {
       key: 'folder',
       type: 'sort',
@@ -71,12 +73,17 @@ const getHeaders = ({
       type: 'sort',
       content: { label: tableColumnPermissionsHeader },
     },
-    {
+  ];
+
+  if (hasObjectLocations) {
+    headers.push({
       key: 'action',
       type: 'sort',
       content: { label: tableColumnActionsHeader },
-    },
-  ];
+    });
+  }
+
+  return headers;
 };
 
 const LocationsEmptyMessage = ({ show }: { show: boolean }) => {
@@ -110,10 +117,12 @@ export function LocationsView({
       tableColumnPermissionsHeader,
       tableColumnActionsHeader,
       searchPlaceholder,
+      downloadLabel,
     },
   } = useDisplayText();
 
   const headers = getHeaders({
+    hasObjectLocations: pageItems.some(({ type }) => type === 'OBJECT'),
     tableColumnBucketHeader,
     tableColumnFolderHeader,
     tableColumnPermissionsHeader,
@@ -122,7 +131,7 @@ export function LocationsView({
 
   const getConfig = useGetActionInput();
 
-  const [{ tasks }, handleDownload] = useProcessTasks(downloadHandler);
+  const [_, handleDownload] = useProcessTasks(downloadHandler);
 
   const onDownload = (location: LocationData) => {
     const data: FileDataItem = {
@@ -143,14 +152,10 @@ export function LocationsView({
         isDataRefreshDisabled: isLoading,
         tableData: getLocationsViewTableData({
           headers,
-          pageItems: pageItems.map((item) => ({
-            ...item,
-            isPending: tasks?.some(
-              ({ data, status }) => data.id === item.id && status === 'PENDING'
-            ),
-          })),
+          pageItems,
           onDownload,
           onNavigate,
+          downloadLabel,
         }),
         searchPlaceholder: searchPlaceholder,
       }}

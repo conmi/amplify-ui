@@ -7,11 +7,13 @@ export const getLocationsViewTableData = ({
   onNavigate,
   onDownload,
   headers,
+  downloadLabel,
 }: {
-  pageItems: (LocationData & { isPending?: boolean })[];
+  pageItems: LocationData[];
   onNavigate: (location: LocationData) => void;
   headers: LocationViewHeaders;
   onDownload: (location: LocationData) => void;
+  downloadLabel: (fileName: string) => string;
 }): DataTableProps => {
   const rows: DataTableProps['rows'] = pageItems.map((location) => {
     const { bucket, id, permission, prefix } = location;
@@ -47,16 +49,23 @@ export const getLocationsViewTableData = ({
             return { key, type: 'text', content: { text: permission } };
           }
           case 'action': {
-            return {
-              key,
-              type: 'button',
-              content: {
-                label: 'Download',
-                onClick: () => {
-                  onDownload(location);
-                },
-              },
-            };
+            return location.type === 'OBJECT'
+              ? {
+                  key,
+                  type: 'button',
+                  content: {
+                    icon: 'download',
+                    ariaLabel: downloadLabel(location.prefix),
+                    onClick: () => {
+                      onDownload(location);
+                    },
+                  },
+                }
+              : {
+                  key,
+                  type: 'text',
+                  content: { text: '' },
+                };
           }
         }
       }),

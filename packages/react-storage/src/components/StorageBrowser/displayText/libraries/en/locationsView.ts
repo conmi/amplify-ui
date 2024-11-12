@@ -1,13 +1,15 @@
 import { DEFAULT_LIST_VIEW_DISPLAY_TEXT } from './shared';
 import { DefaultLocationsViewDisplayText } from '../../types';
 
-export const DEFAULT_LOCATIONS_VIEW_DISPLAY_TEXT: DefaultLocationsViewDisplayText = {
-  ...DEFAULT_LIST_VIEW_DISPLAY_TEXT,
-  title: 'Home',
-  searchPlaceholder: 'Filter folders and files',
-  getListResultsMessage: () => 'lol',
-  tableColumnBucketHeader: 'Bucket',
-  tableColumnFolderHeader: 'Folder',
-  tableColumnPermissionsHeader: 'Permissions',
-  tableColumnActionsHeader: 'Actions',
-};
+export const DEFAULT_LOCATIONS_VIEW_DISPLAY_TEXT: DefaultLocationsViewDisplayText =
+  {
+    ...DEFAULT_LIST_VIEW_DISPLAY_TEXT,
+    title: 'Home',
+    searchPlaceholder: 'Filter folders and files',
+    getListResultsMessage: () => 'lol',
+    tableColumnBucketHeader: 'Bucket',
+    tableColumnFolderHeader: 'Folder',
+    tableColumnPermissionsHeader: 'Permissions',
+    tableColumnActionsHeader: 'Actions',
+    downloadLabel: (fileName: string) => `Download ${fileName}`,
+  };

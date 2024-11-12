@@ -87,9 +87,11 @@ exports[`DEFAULT_STORAGE_BROWSER_DISPLAY_TEXT DEFAULT_STORAGE_BROWSER_DISPLAY_TE
 
 exports[`DEFAULT_STORAGE_BROWSER_DISPLAY_TEXT DEFAULT_STORAGE_BROWSER_DISPLAY_TEXT.LocationsView should match snapshot 1`] = `
 {
+  "downloadLabel": [Function],
   "getListResultsMessage": [Function],
   "searchPlaceholder": "Filter folders and files",
   "searchSubmitLabel": "Search",
+  "tableColumnActionsHeader": "Actions",
   "tableColumnBucketHeader": "Bucket",
   "tableColumnFolderHeader": "Folder",
   "tableColumnPermissionsHeader": "Permissions",
@@ -199,9 +201,11 @@ exports[`DEFAULT_STORAGE_BROWSER_DISPLAY_TEXT should match snapshot 1`] = `
     "title": [Function],
   },
   "LocationsView": {
+    "downloadLabel": [Function],
     "getListResultsMessage": [Function],
     "searchPlaceholder": "Filter folders and files",
     "searchSubmitLabel": "Search",
+    "tableColumnActionsHeader": "Actions",
     "tableColumnBucketHeader": "Bucket",
     "tableColumnFolderHeader": "Folder",
     "tableColumnPermissionsHeader": "Permissions",
