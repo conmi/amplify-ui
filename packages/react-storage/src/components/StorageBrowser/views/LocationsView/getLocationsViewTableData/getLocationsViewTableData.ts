@@ -8,7 +8,7 @@ export const getLocationsViewTableData = ({
   onDownload,
   headers,
 }: {
-  pageItems: LocationData[];
+  pageItems: (LocationData & { isPending?: boolean })[];
   onNavigate: (location: LocationData) => void;
   headers: LocationViewHeaders;
   onDownload: (location: LocationData) => void;

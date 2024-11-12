@@ -14,6 +14,9 @@ import { getLocationDetailViewTableData } from './getLocationDetailViewTableData
 import { DropZoneControl } from '../../controls/DropZoneControl';
 import { ViewElement } from '../../context/elements';
 import { SearchControl } from '../../controls/SearchControl';
+import { useProcessTasks } from '../../tasks';
+import { FileDataItem, downloadHandler } from '../../actions';
+import { useGetActionInput } from '../../providers/configuration';
 
 export const DEFAULT_ERROR_MESSAGE = 'There was an error loading items.';
 const DEFAULT_PAGE_SIZE = 100;
@@ -64,6 +67,7 @@ export function LocationDetailView({
   onExit,
   onNavigate: onNavigateProp,
 }: LocationDetailViewProps): React.JSX.Element {
+  const getInput = useGetActionInput();
   const {
     page,
     pageItems,
@@ -89,6 +93,12 @@ export function LocationDetailView({
     onSelectAll,
     onSearch,
   } = useLocationDetailView({ onNavigate: onNavigateProp, onExit });
+
+  const [{ tasks: __ }, ___] = useProcessTasks(downloadHandler);
+
+  // const _onDownload = (data: FileDataItem) => {
+  //   handleDownload({ data });
+  // };
 
   return (
     <div

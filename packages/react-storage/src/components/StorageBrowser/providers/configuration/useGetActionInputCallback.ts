@@ -5,6 +5,7 @@ import { useStore } from '../store';
 
 import { useCredentials } from './credentials';
 import { GetActionInput } from './types';
+import { LocationData } from '../../actions';
 
 export const ERROR_MESSAGE =
   'Unable to resolve credentials due to invalid value of `locationData`.';
@@ -12,6 +13,7 @@ export const ERROR_MESSAGE =
 export function useGetActionInputCallback({
   accountId,
   customEndpoint,
+
   region,
 }: {
   accountId?: string;
@@ -22,21 +24,25 @@ export function useGetActionInputCallback({
   const [{ location }] = useStore();
   const { current, key } = location;
 
-  return React.useCallback(() => {
-    assertLocationData(current, ERROR_MESSAGE);
+  return React.useCallback(
+    (location?: LocationData) => {
+      const _location = current ?? location;
+      assertLocationData(_location, ERROR_MESSAGE);
 
-    const { bucket, permission } = current;
+      const { bucket, permission } = _location;
 
-    return {
-      accountId,
-      bucket,
-      credentials: getCredentials({
+      return {
+        accountId,
         bucket,
-        permission,
-        prefix: key,
-      }),
-      region,
-      customEndpoint,
-    };
-  }, [accountId, current, customEndpoint, getCredentials, key, region]);
+        credentials: getCredentials({
+          bucket,
+          permission,
+          prefix: key,
+        }),
+        region,
+        customEndpoint,
+      };
+    },
+    [accountId, current, customEndpoint, getCredentials, key, region]
+  );
 }
