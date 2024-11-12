@@ -5,11 +5,13 @@ import { LocationViewHeaders } from './types';
 export const getLocationsViewTableData = ({
   pageItems,
   onNavigate,
+  onDownload,
   headers,
 }: {
   pageItems: LocationData[];
   onNavigate: (location: LocationData) => void;
   headers: LocationViewHeaders;
+  onDownload: (location: LocationData) => void;
 }): DataTableProps => {
   const rows: DataTableProps['rows'] = pageItems.map((location) => {
     const { bucket, id, permission, prefix } = location;
@@ -22,19 +24,39 @@ export const getLocationsViewTableData = ({
             return { key, type: 'text', content: { text: bucket } };
           }
           case 'folder': {
+            return location.type === 'OBJECT'
+              ? {
+                  key,
+                  type: 'text',
+                  content: {
+                    text: prefix,
+                  },
+                }
+              : {
+                  key,
+                  type: 'button',
+                  content: {
+                    label: prefix || bucket,
+                    onClick: () => {
+                      onNavigate(location);
+                    },
+                  },
+                };
+          }
+          case 'permission': {
+            return { key, type: 'text', content: { text: permission } };
+          }
+          case 'action': {
             return {
               key,
               type: 'button',
               content: {
-                label: prefix || bucket,
+                label: 'Download',
                 onClick: () => {
-                  onNavigate(location);
+                  onDownload(location);
                 },
               },
             };
-          }
-          case 'permission': {
-            return { key, type: 'text', content: { text: permission } };
           }
         }
       }),

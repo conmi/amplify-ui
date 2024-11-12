@@ -39,6 +39,7 @@ export interface DefaultLocationsViewDisplayText
   tableColumnFolderHeader: string;
   tableColumnBucketHeader: string;
   tableColumnPermissionsHeader: string;
+  tableColumnActionsHeader: string;
 }
 
 export interface DefaultLocationDetailViewDisplayText

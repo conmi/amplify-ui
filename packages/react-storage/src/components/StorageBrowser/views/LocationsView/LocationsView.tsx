@@ -44,10 +44,12 @@ const getHeaders = ({
   tableColumnBucketHeader,
   tableColumnFolderHeader,
   tableColumnPermissionsHeader,
+  tableColumnActionsHeader,
 }: {
   tableColumnBucketHeader: string;
   tableColumnFolderHeader: string;
   tableColumnPermissionsHeader: string;
+    tableColumnActionsHeader: string;
 }): LocationViewHeaders => {
   return [
     {
@@ -64,6 +66,11 @@ const getHeaders = ({
       key: 'permission',
       type: 'sort',
       content: { label: tableColumnPermissionsHeader },
+    },
+    {
+      key: 'action',
+      type: 'sort',
+      content: { label: tableColumnActionsHeader },
     },
   ];
 };
@@ -97,6 +104,7 @@ export function LocationsView({
       tableColumnBucketHeader,
       tableColumnFolderHeader,
       tableColumnPermissionsHeader,
+      tableColumnActionsHeader,
       searchPlaceholder,
     },
   } = useDisplayText();
@@ -105,6 +113,7 @@ export function LocationsView({
     tableColumnBucketHeader,
     tableColumnFolderHeader,
     tableColumnPermissionsHeader,
+    tableColumnActionsHeader,
   });
 
   return (
@@ -115,6 +124,7 @@ export function LocationsView({
           headers,
           pageItems,
           onNavigate,
+          onDownload: (location) => console.log(JSON.stringify(location))
         }),
         searchPlaceholder: searchPlaceholder,
       }}
