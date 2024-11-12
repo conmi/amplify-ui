@@ -2,7 +2,6 @@ import { Amplify } from 'aws-amplify';
 import { createAIHooks, AIConversation } from '@aws-amplify/ui-react-ai';
 import { generateClient } from 'aws-amplify/api';
 import '@aws-amplify/ui-react/styles.css';
-import '@aws-amplify/ui-react-ai/ai-conversation-styles.css';
 
 import outputs from './amplify_outputs';
 import type { Schema } from '@environments/ai/gen2/amplify/data/resource';
@@ -36,14 +35,15 @@ function Chat() {
         messages={messages}
         handleSendMessage={sendMessage}
         isLoading={isLoading}
+        allowAttachments
         suggestedPrompts={[
           {
             inputText: 'hello',
-            header: 'hello',
+            component: 'hello',
           },
           {
             inputText: 'how are you?',
-            header: 'how are you?',
+            component: 'how are you?',
           },
         ]}
         variant="bubble"

@@ -4,21 +4,25 @@ import { AIConversationElements } from './context/elements';
 import {
   ActionsBarControl,
   AvatarControl,
-  FieldControl,
-  HeaderControl,
+  FormControl,
   MessagesControl,
   PromptControl,
 } from './views';
 import { DisplayTextTemplate } from '@aws-amplify/ui';
 import { AIConversationDisplayText } from './displayText';
-import { ConversationMessage, SendMessage } from '../../types';
+import {
+  ConversationMessage,
+  ImageContentBlock,
+  SendMessage,
+  TextContentBlock,
+} from '../../types';
 import { ControlsContextProps } from './context/ControlsContext';
+import { AIConversationProviderProps } from './AIConversationProvider';
 
 export interface Controls {
   Avatars: AvatarControl;
   ActionsBar: ActionsBarControl;
-  Field: FieldControl;
-  Header: HeaderControl;
+  Form: FormControl;
   Messages: MessagesControl;
   SuggestedPrompts: PromptControl;
 }
@@ -26,11 +30,15 @@ export interface Controls {
 export interface AIConversationInput {
   elements?: Partial<AIConversationElements>;
   displayText?: DisplayTextTemplate<AIConversationDisplayText>;
+  welcomeMessage?: React.ReactNode;
   suggestedPrompts?: SuggestedPrompt[];
   actions?: CustomAction[];
   responseComponents?: ResponseComponents;
+  FallbackResponseComponent?: React.ComponentType<any>;
   variant?: MessageVariant;
   controls?: ControlsContextProps;
+  allowAttachments?: boolean;
+  messageRenderer?: MessageRenderer;
 }
 
 export interface AIConversationProps {
@@ -40,18 +48,22 @@ export interface AIConversationProps {
   isLoading?: boolean;
 }
 
-export interface AIConversation {
-  (props: AIConversationProps): JSX.Element;
-  Conversation: () => React.JSX.Element;
-  Controls: Controls;
-  Provider: (
-    props: {
-      children?: React.ReactNode;
-    } & Pick<AIConversationProps, 'messages' | 'avatars' | 'handleSendMessage'>
-  ) => React.JSX.Element;
+export interface AIConversation<
+  PropsType extends AIConversationProps = AIConversationProps,
+> {
+  (props: PropsType): JSX.Element;
+  DefaultMessage: () => JSX.Element | undefined;
+  Messages: () => JSX.Element;
+  Form: () => JSX.Element;
+  Provider: (props: AIConversationProviderProps) => React.JSX.Element;
 }
 
 export type MessageVariant = 'bubble' | 'default';
+
+export interface MessageRenderer {
+  text?: (input: { text: TextContentBlock }) => React.JSX.Element;
+  image?: (input: { image: ImageContentBlock }) => React.JSX.Element;
+}
 
 export interface Avatar {
   username?: string;
@@ -64,14 +76,12 @@ export interface Avatars {
 }
 
 export interface CustomAction {
-  displayName: string;
   handler: (message: ConversationMessage) => void;
-  icon: React.ReactNode;
+  component?: React.ReactNode;
 }
 
 export interface SuggestedPrompt {
-  icon?: React.ReactNode;
-  header: string;
+  component?: React.ReactNode;
   inputText: string;
 }
 

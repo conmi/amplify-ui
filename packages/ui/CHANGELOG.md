@@ -1,5 +1,58 @@
 # @aws-amplify/ui
 
+## 6.6.5
+
+### Patch Changes
+
+- [#5917](https://github.com/aws-amplify/amplify-ui/pull/5917) [`3655af2be`](https://github.com/aws-amplify/amplify-ui/commit/3655af2be54733d364e71d3c7f86f32d7bbcf811) Thanks [@dbanksdesign](https://github.com/dbanksdesign)! - chore(ai): adding UA string for AIConversation
+
+## 6.6.4
+
+### Patch Changes
+
+- [#5827](https://github.com/aws-amplify/amplify-ui/pull/5827) [`ac7cb271a`](https://github.com/aws-amplify/amplify-ui/commit/ac7cb271aff895e643fb5dc927030df9245b7c5b) Thanks [@dbanksdesign](https://github.com/dbanksdesign)! - chore(ai): add theming for AIConversation
+
+  ```ts
+  const theme = createTheme({
+    tokens: {
+      components: {
+        aiConversation: {},
+      },
+    },
+  });
+  ```
+
+  ```ts
+  const aiConversationTheme = defineComponentTheme({
+    name: 'ai-conversation',
+    theme(tokens) {
+      return {
+        _element: {
+          message: {
+            color: tokens.colors.font.tertiary,
+          },
+        },
+      };
+    },
+  });
+  ```
+
+## 6.6.3
+
+### Patch Changes
+
+- [#5848](https://github.com/aws-amplify/amplify-ui/pull/5848) [`0d86485fc`](https://github.com/aws-amplify/amplify-ui/commit/0d86485fc4bf74766a1b82c69cfa322ed1e9baf7) Thanks [@esauerbo](https://github.com/esauerbo)! - chore: Copy `style-dictionary` functions to ui package and export from there. Remove `style-dictionary` dependency from React Native package.
+
+## 6.6.2
+
+### Patch Changes
+
+- [#5849](https://github.com/aws-amplify/amplify-ui/pull/5849) [`22e285f58`](https://github.com/aws-amplify/amplify-ui/commit/22e285f5802e40b78c5a055a7384943c41252428) Thanks [@calebpollman](https://github.com/calebpollman)! - chore(utils): prefer isFunction
+
+- [#5830](https://github.com/aws-amplify/amplify-ui/pull/5830) [`545aa6a60`](https://github.com/aws-amplify/amplify-ui/commit/545aa6a608b68b9fb78f5df56da0e1e09b537d58) Thanks [@calebpollman](https://github.com/calebpollman)! - chore(rollup): upgrade rollup deps, migrate to mjs config file, enforce linting on mjs files
+
+- [#5853](https://github.com/aws-amplify/amplify-ui/pull/5853) [`87d74a7de`](https://github.com/aws-amplify/amplify-ui/commit/87d74a7deaa7d0cf393dfed3fb3cc85a3790c382) Thanks [@calebpollman](https://github.com/calebpollman)! - fix(deps): remove @aws-amplify/core devDep from react-core
+
 ## 6.6.1
 
 ### Patch Changes

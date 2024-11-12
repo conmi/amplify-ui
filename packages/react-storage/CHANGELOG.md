@@ -1,5 +1,51 @@
 # @aws-amplify/ui-react-storage
 
+## 3.3.9
+
+### Patch Changes
+
+- [#5917](https://github.com/aws-amplify/amplify-ui/pull/5917) [`3655af2be`](https://github.com/aws-amplify/amplify-ui/commit/3655af2be54733d364e71d3c7f86f32d7bbcf811) Thanks [@dbanksdesign](https://github.com/dbanksdesign)! - chore(ai): adding UA string for AIConversation
+
+- Updated dependencies [[`6fea94b89`](https://github.com/aws-amplify/amplify-ui/commit/6fea94b890d9d497a3f13e189ea0b52e8dcdadb8), [`3655af2be`](https://github.com/aws-amplify/amplify-ui/commit/3655af2be54733d364e71d3c7f86f32d7bbcf811)]:
+  - @aws-amplify/ui-react@6.5.5
+  - @aws-amplify/ui-react-core@3.0.29
+  - @aws-amplify/ui@6.6.5
+
+## 3.3.8
+
+### Patch Changes
+
+- Updated dependencies [[`ac7cb271a`](https://github.com/aws-amplify/amplify-ui/commit/ac7cb271aff895e643fb5dc927030df9245b7c5b)]:
+  - @aws-amplify/ui@6.6.4
+  - @aws-amplify/ui-react@6.5.4
+  - @aws-amplify/ui-react-core@3.0.28
+
+## 3.3.7
+
+### Patch Changes
+
+- [#5867](https://github.com/aws-amplify/amplify-ui/pull/5867) [`bbe4ca0aa`](https://github.com/aws-amplify/amplify-ui/commit/bbe4ca0aaf81d87905783e1f3c708a7f1150dae6) Thanks [@esauerbo](https://github.com/esauerbo)! - chore: Manually recreate `StorageAccessLevel` type and remove `@aws-amplify/core` peerDep from ui-react-storage package.
+
+- Updated dependencies [[`0d86485fc`](https://github.com/aws-amplify/amplify-ui/commit/0d86485fc4bf74766a1b82c69cfa322ed1e9baf7)]:
+  - @aws-amplify/ui@6.6.3
+  - @aws-amplify/ui-react@6.5.3
+  - @aws-amplify/ui-react-core@3.0.27
+
+## 3.3.6
+
+### Patch Changes
+
+- [#5849](https://github.com/aws-amplify/amplify-ui/pull/5849) [`22e285f58`](https://github.com/aws-amplify/amplify-ui/commit/22e285f5802e40b78c5a055a7384943c41252428) Thanks [@calebpollman](https://github.com/calebpollman)! - chore(utils): prefer isFunction
+
+- [#5830](https://github.com/aws-amplify/amplify-ui/pull/5830) [`545aa6a60`](https://github.com/aws-amplify/amplify-ui/commit/545aa6a608b68b9fb78f5df56da0e1e09b537d58) Thanks [@calebpollman](https://github.com/calebpollman)! - chore(rollup): upgrade rollup deps, migrate to mjs config file, enforce linting on mjs files
+
+- [#5853](https://github.com/aws-amplify/amplify-ui/pull/5853) [`87d74a7de`](https://github.com/aws-amplify/amplify-ui/commit/87d74a7deaa7d0cf393dfed3fb3cc85a3790c382) Thanks [@calebpollman](https://github.com/calebpollman)! - fix(deps): remove @aws-amplify/core devDep from react-core
+
+- Updated dependencies [[`22e285f58`](https://github.com/aws-amplify/amplify-ui/commit/22e285f5802e40b78c5a055a7384943c41252428), [`545aa6a60`](https://github.com/aws-amplify/amplify-ui/commit/545aa6a608b68b9fb78f5df56da0e1e09b537d58), [`87d74a7de`](https://github.com/aws-amplify/amplify-ui/commit/87d74a7deaa7d0cf393dfed3fb3cc85a3790c382)]:
+  - @aws-amplify/ui-react-core@3.0.26
+  - @aws-amplify/ui-react@6.5.2
+  - @aws-amplify/ui@6.6.2
+
 ## 3.3.5
 
 ### Patch Changes

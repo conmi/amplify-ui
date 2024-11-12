@@ -1,10 +1,9 @@
 import { fetchAuthSession } from 'aws-amplify/auth';
-import { StorageAccessLevel } from '@aws-amplify/core';
 import { UploadDataWithPathInput, UploadDataInput } from 'aws-amplify/storage';
 
-import { isString, isTypedFunction } from '@aws-amplify/ui';
+import { isString, isFunction } from '@aws-amplify/ui';
 
-import { ProcessFile } from '../types';
+import { ProcessFile, StorageAccessLevel } from '../types';
 import { resolveFile } from './resolveFile';
 import { PathCallback, PathInput } from './uploadFile';
 
@@ -28,7 +27,7 @@ export const getInput = ({
   useAccelerateEndpoint,
 }: GetInputParams) => {
   return async (): Promise<PathInput | UploadDataInput> => {
-    const hasCallbackPath = isTypedFunction<PathCallback>(path);
+    const hasCallbackPath = isFunction(path);
     const hasStringPath = isString(path);
 
     const hasKeyInput = !!accessLevel && !hasCallbackPath;
