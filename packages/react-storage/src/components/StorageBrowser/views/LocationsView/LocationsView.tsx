@@ -14,10 +14,6 @@ import { getLocationsViewTableData } from './getLocationsViewTableData';
 import { useDisplayText } from '../../displayText';
 import { LocationViewHeaders } from './getLocationsViewTableData/types';
 
-import { useProcessTasks } from '../../tasks';
-import { useGetActionInput } from '../../providers/configuration';
-import { FileDataItem, LocationData, downloadHandler } from '../../actions';
-
 export const DEFAULT_ERROR_MESSAGE = 'There was an error loading locations.';
 
 const {
@@ -104,6 +100,7 @@ export function LocationsView({
     pageItems,
     message,
     shouldShowEmptyMessage,
+    onDownload,
     onRefresh,
     onPaginate,
     onNavigate,
@@ -132,23 +129,6 @@ export function LocationsView({
     tableColumnPermissionsHeader,
     tableColumnActionsHeader,
   });
-
-  const getConfig = useGetActionInput();
-
-  const [_, handleDownload] = useProcessTasks(downloadHandler);
-
-  const onDownload = (location: LocationData) => {
-    const data: FileDataItem = {
-      fileKey: location.prefix,
-      id: location.id,
-      key: location.prefix,
-      lastModified: new Date(),
-      size: 1000,
-      type: 'FILE',
-    };
-
-    handleDownload({ config: getConfig(location), data });
-  };
 
   return (
     <ControlsContextProvider

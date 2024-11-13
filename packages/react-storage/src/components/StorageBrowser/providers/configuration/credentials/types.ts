@@ -9,6 +9,7 @@ import {
   GetLocationCredentials,
   LocationCredentialsStore,
 } from '../../../credentials/types';
+import { LocationType } from '../../../actions';
 
 export type RegisterAuthListener = (onStateChange: () => void) => void;
 
@@ -16,6 +17,7 @@ export type GetCredentials = (input: {
   bucket: string;
   permission: Permission;
   prefix: string;
+  type: LocationType;
 }) => LocationCredentialsProvider;
 
 export interface CredentialsStore

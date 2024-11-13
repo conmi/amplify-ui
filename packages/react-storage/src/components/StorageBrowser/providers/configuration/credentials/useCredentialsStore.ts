@@ -9,6 +9,18 @@ import {
 } from './types';
 import { createLocationCredentialsStore } from '../../../credentials/store';
 import { GetLocationCredentials } from '../../../credentials/types';
+import { LocationType } from '../../../actions';
+
+const getScope = ({
+  bucket,
+  prefix,
+  type,
+}: {
+  bucket: string;
+  prefix: string;
+  type: LocationType;
+}): string =>
+  type === 'OBJECT' ? `s3://${bucket}/${prefix}` : `s3://${bucket}/${prefix}*`;
 
 const createCredentialsStore = ({
   ...input
@@ -16,8 +28,11 @@ const createCredentialsStore = ({
   const { destroy, getProvider } = createLocationCredentialsStore(input);
   return {
     destroy,
-    getCredentials: ({ bucket, permission, prefix }) =>
-      getProvider({ scope: `s3://${bucket}/${prefix}*`, permission }),
+    getCredentials: ({ bucket, permission, prefix, type }) =>
+      getProvider({
+        scope: getScope({ type, bucket, prefix }),
+        permission,
+      }),
   };
 };
 

@@ -13,7 +13,6 @@ export const ERROR_MESSAGE =
 export function useGetActionInputCallback({
   accountId,
   customEndpoint,
-
   region,
 }: {
   accountId?: string;
@@ -27,9 +26,10 @@ export function useGetActionInputCallback({
   return React.useCallback(
     (location?: LocationData) => {
       const _location = current ?? location;
+      const _prefix = current ? key : location?.prefix;
       assertLocationData(_location, ERROR_MESSAGE);
 
-      const { bucket, permission } = _location;
+      const { bucket, permission, type } = _location;
 
       return {
         accountId,
@@ -37,7 +37,8 @@ export function useGetActionInputCallback({
         credentials: getCredentials({
           bucket,
           permission,
-          prefix: key,
+          prefix: _prefix!,
+          type,
         }),
         region,
         customEndpoint,
