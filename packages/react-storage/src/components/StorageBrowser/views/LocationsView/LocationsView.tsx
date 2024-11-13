@@ -91,7 +91,9 @@ export function LocationsView({
       tableColumnBucketHeader,
       tableColumnFolderHeader,
       tableColumnPermissionsHeader,
+      tableColumnActionsHeader,
       searchPlaceholder,
+      getDownloadLabel,
       getPermissionName,
     },
   } = useDisplayText();
@@ -114,19 +116,6 @@ export function LocationsView({
     onSearchQueryChange,
     onSearchClear,
   } = useLocationsView(props);
-
-  const {
-    LocationsView: {
-      title,
-      tableColumnBucketHeader,
-      tableColumnFolderHeader,
-      tableColumnPermissionsHeader,
-      tableColumnActionsHeader,
-      searchPlaceholder,
-      getDownloadLabel,
-      getPermissionName,
-    },
-  } = useDisplayText();
 
   const headers = getHeaders({
     hasObjectLocations: pageItems.some(({ type }) => type === 'OBJECT'),

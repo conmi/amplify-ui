@@ -82,7 +82,6 @@ const taskOne: TasksModule.Task<FileDataItem> = {
   cancel: jest.fn(),
   message: undefined,
   progress: undefined,
-  remove: jest.fn(),
   status: 'QUEUED',
 };
 
