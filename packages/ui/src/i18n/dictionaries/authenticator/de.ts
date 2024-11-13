@@ -38,6 +38,7 @@ export const deDict: AuthenticatorDictionary = {
   'Enter your Preferred Username':
     'Geben Sie Ihren bevorzugten Benutzernamen ein',
   'Enter your username': 'Geben Sie Ihren Benutzernamen ein',
+  'Enter your Username': 'Geben Sie Ihren Benutzernamen ein',
   'Forgot password?': 'Passwort vergessen?',
   'Forgot your password?': 'Passwort vergessen? ',
   'Hide password': 'Passwort verbergen',
