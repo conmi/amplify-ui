@@ -1,28 +1,23 @@
 import React from 'react';
 
-import { CLASS_BASE } from '../constants';
-import { Controls } from '../Controls';
-import { resolveClassName } from '../utils';
-import { useLocationsView } from './useLocationsView';
-import { ControlsContextProvider } from '../../controls/context';
+import { ViewElement } from '../../context/elements';
 import { DataRefreshControl } from '../../controls/DataRefreshControl';
 import { DataTableControl } from '../../controls/DataTableControl';
 import { SearchControl } from '../../controls/SearchControl';
-import { LocationsViewProps } from './types';
-import { ViewElement } from '../../context/elements';
-import { getLocationsViewTableData } from './getLocationsViewTableData';
+import { TitleControl } from '../../controls/TitleControl';
+import { ControlsContextProvider } from '../../controls/context';
 import { useDisplayText } from '../../displayText';
+import { Controls } from '../Controls';
+import { AMPLIFY_CLASS_BASE, CLASS_BASE } from '../constants';
+import { resolveClassName } from '../utils';
+import { getLocationsViewTableData } from './getLocationsViewTableData';
 import { LocationViewHeaders } from './getLocationsViewTableData/types';
+import { useLocationsView } from './useLocationsView';
+import { LocationsViewProps } from './types';
 
 export const DEFAULT_ERROR_MESSAGE = 'There was an error loading locations.';
 
-const {
-  EmptyMessage,
-  Loading: LoadingElement,
-  Message,
-  Paginate,
-  Title,
-} = Controls;
+const { EmptyMessage, Loading: LoadingElement, Message, Paginate } = Controls;
 
 const Loading = ({ show }: { show: boolean }) => {
   return show ? <LoadingElement /> : null;
@@ -91,6 +86,17 @@ export function LocationsView({
   ...props
 }: LocationsViewProps): React.JSX.Element {
   const {
+    LocationsView: {
+      title,
+      tableColumnBucketHeader,
+      tableColumnFolderHeader,
+      tableColumnPermissionsHeader,
+      searchPlaceholder,
+      getPermissionName,
+    },
+  } = useDisplayText();
+
+  const {
     hasError,
     hasNextPage,
     highestPageVisited,
@@ -142,6 +148,7 @@ export function LocationsView({
           onNavigate,
           getDownloadLabel,
         }),
+        title,
         searchPlaceholder: searchPlaceholder,
         searchQuery,
       }}
@@ -151,10 +158,10 @@ export function LocationsView({
       onSearchClear={onSearchClear}
     >
       <div
-        className={resolveClassName(CLASS_BASE, className)}
+        className={resolveClassName(AMPLIFY_CLASS_BASE, className)}
         data-testid="LOCATIONS_VIEW"
       >
-        <Title>{title}</Title>
+        <TitleControl className={`${CLASS_BASE}__locations-view-title`} />
         <ViewElement className={`${CLASS_BASE}__location-detail-view-controls`}>
           <SearchControl className={`${CLASS_BASE}__locations-view-search`} />
           <Paginate
@@ -169,13 +176,7 @@ export function LocationsView({
         </ViewElement>
         <LocationsMessage show={hasError} message={message} />
         <Loading show={isLoading} />
-        {hasError ? null : (
-          <ViewElement className={`${CLASS_BASE}__table-wrapper`}>
-            <DataTableControl
-              className={`${CLASS_BASE}__locations-view-data-table`}
-            />
-          </ViewElement>
-        )}
+        {hasError ? null : <DataTableControl />}
         <LocationsEmptyMessage show={shouldShowEmptyMessage} />
       </div>
     </ControlsContextProvider>
