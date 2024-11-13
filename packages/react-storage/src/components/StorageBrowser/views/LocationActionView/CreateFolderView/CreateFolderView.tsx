@@ -90,3 +90,27 @@ export function CreateFolderView({
     </div>
   );
 }
+
+CreateFolderView.displayName = 'CreateFolderView';
+
+CreateFolderView.Cancel = function Cancel() {
+  return null;
+};
+CreateFolderView.Destination = function Destination() {
+  return null;
+};
+CreateFolderView.Exit = function Exit() {
+  return null;
+};
+CreateFolderView.Start = function Start() {
+  return null;
+};
+CreateFolderView.StatusDisplay = function StatusDisplay() {
+  return null;
+};
+CreateFolderView.Table = function Table() {
+  return null;
+};
+CreateFolderView.Title = function Title() {
+  return null;
+};

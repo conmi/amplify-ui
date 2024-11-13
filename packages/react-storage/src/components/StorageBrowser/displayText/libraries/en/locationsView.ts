@@ -14,7 +14,7 @@ export const DEFAULT_LOCATIONS_VIEW_DISPLAY_TEXT: DefaultLocationsViewDisplayTex
     title: 'Home',
     searchPlaceholder: 'Filter folders and files',
     getListResultsMessage: () => 'lol',
-    getPermissionName: (permission: Permission) =>
+    getPermissionsValue: (permission: Permission) =>
       PERMISSION_DISPLAY_TEXT[permission] ?? permission,
     tableColumnBucketHeader: 'Bucket',
     tableColumnFolderHeader: 'Folder',

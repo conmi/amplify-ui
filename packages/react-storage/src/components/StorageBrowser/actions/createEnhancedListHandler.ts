@@ -19,7 +19,7 @@ export interface EnhancedListHandlerOptions<T, K>
   search?: SearchOptions<T>;
 }
 
-interface EnhancedListHandler<T, K>
+export interface EnhancedListHandler<T, K>
   extends AsyncDataAction<
     ListHandlerOutput<T>,
     ListHandlerInput<EnhancedListHandlerOptions<T, K>>

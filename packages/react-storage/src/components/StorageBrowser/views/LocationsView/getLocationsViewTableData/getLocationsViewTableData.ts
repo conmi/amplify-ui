@@ -7,12 +7,12 @@ export const getLocationsViewTableData = ({
   pageItems,
   onNavigate,
   headers,
-  getPermissionName,
+  getPermissionsValue,
 }: {
   pageItems: LocationData[];
   onNavigate: (location: LocationData) => void;
   headers: LocationViewHeaders;
-  getPermissionName: (permission: Permission) => string;
+  getPermissionsValue: (permission: Permission) => string;
 }): DataTableProps => {
   const rows: DataTableProps['rows'] = pageItems.map((location) => {
     const { bucket, id, permission, prefix } = location;
@@ -40,7 +40,7 @@ export const getLocationsViewTableData = ({
             return {
               key,
               type: 'text',
-              content: { text: getPermissionName(permission) },
+              content: { text: getPermissionsValue(permission) },
             };
           }
         }

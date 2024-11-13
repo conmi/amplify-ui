@@ -37,7 +37,7 @@ export interface DefaultListViewDisplayText<T = any> {
 
 export interface DefaultLocationsViewDisplayText
   extends DefaultListViewDisplayText<LocationData> {
-  getPermissionName: (permission: Permission) => string;
+  getPermissionsValue: (permission: Permission) => string;
   title: string;
   tableColumnFolderHeader: string;
   tableColumnBucketHeader: string;
@@ -73,7 +73,7 @@ export interface DefaultCreateFolderViewDisplayText
 export interface DefaultCopyViewDisplayText
   extends DefaultActionViewDisplayText {
   getFolderListResultsMessage: (data: {
-    items: LocationItemData[];
+    items: LocationItemData[] | undefined;
     query?: string;
     errorMessage?: string;
   }) => string | undefined;

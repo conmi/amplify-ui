@@ -5,7 +5,7 @@ import { CLASS_BASE } from '../constants';
 
 const BLOCK_NAME = `${CLASS_BASE}__title`;
 
-interface TitleControlProps {
+export interface TitleControlProps {
   children?: React.ReactNode;
 }
 

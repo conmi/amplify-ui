@@ -1,18 +1,18 @@
-import { useEffect } from 'react';
+import React from 'react';
+
 import { useDataState } from '@aws-amplify/ui-react-core';
 
 import { usePaginate } from '../../hooks/usePaginate';
-import {
-  listLocationItemsHandler,
-  ListLocationItemsHandlerOutput,
-  LocationItemData,
-} from '../../../actions';
+import { listLocationItemsHandler, FolderData } from '../../../actions';
 import { useGetActionInput } from '../../../providers/configuration';
 
-import { useStore } from '../../../providers/store';
 import { createEnhancedListHandler } from '../../../actions/createEnhancedListHandler';
 import { useSearch } from '../../hooks/useSearch';
 import { getDestinationListFullPrefix } from './utils';
+import {
+  ListLocationItemsHandlerInput,
+  ListHandlerOutput,
+} from '../../../actions';
 
 const DEFAULT_PAGE_SIZE = 100;
 export const DEFAULT_LIST_OPTIONS = {
@@ -23,46 +23,48 @@ export const DEFAULT_LIST_OPTIONS = {
 
 const DEFAULT_REFRESH_OPTIONS = { ...DEFAULT_LIST_OPTIONS, refresh: true };
 
+export type ListFoldersAction = (
+  input: ListLocationItemsHandlerInput
+) => Promise<ListHandlerOutput<FolderData>>;
+
 const listLocationItemsAction = createEnhancedListHandler(
-  listLocationItemsHandler
+  listLocationItemsHandler as ListFoldersAction
 );
 
-export const useDestinationPicker = ({
+export const useFolders = ({
   destinationList,
+  onDestinationChange,
 }: {
-  destinationList: string[];
+  destinationList?: string[];
+  onDestinationChange?: (destinationList: string[]) => void;
 }): {
-  bucket: string | undefined;
-  items: ListLocationItemsHandlerOutput['items'];
-  hasNextToken: boolean;
   currentPage: number;
-  isLoading: boolean;
-  highestPageVisited: number;
+  currentQuery: string;
+  folders: FolderData[];
   hasError: boolean;
+  hasMorePages: boolean;
+  highestPageVisited: number;
+  isLoading: boolean;
   message: string | undefined;
-  pageItems: LocationItemData[];
+  onSelect: (name: string) => void;
   onPaginate: (page: number) => void;
-  searchQuery: string;
   onSearch: () => void;
-  onSearchQueryChange: (value: string) => void;
   onSearchClear: () => void;
-  resetSearch: () => void;
 } => {
-  const prefix = getDestinationListFullPrefix(destinationList);
+  const prefix = !destinationList
+    ? ''
+    : getDestinationListFullPrefix(destinationList);
 
   const [{ data, hasError, isLoading, message }, handleList] = useDataState(
     listLocationItemsAction,
-    {
-      items: [],
-      nextToken: undefined,
-    }
+    { items: [], nextToken: undefined }
   );
 
   const getInput = useGetActionInput();
 
   const { items, nextToken } = data;
 
-  const hasNextToken = !!nextToken;
+  const hasMorePages = !!nextToken;
 
   const paginateCallback = () => {
     handleList({
@@ -82,7 +84,7 @@ export const useDestinationPicker = ({
     items,
     paginateCallback,
     pageSize: DEFAULT_PAGE_SIZE,
-    hasNextToken,
+    hasNextToken: hasMorePages,
   });
 
   const onSearch = (query: string) => {
@@ -97,10 +99,19 @@ export const useDestinationPicker = ({
     });
   };
 
-  const { onSearchSubmit, onSearchQueryChange, searchQuery, resetSearch } =
-    useSearch({ onSearch });
+  const onSelect = (name: string) => {
+    const newPath = !destinationList
+      ? undefined
+      : [...destinationList, name.replace('/', '')];
 
-  useEffect(() => {
+    if (!newPath) return;
+
+    onDestinationChange?.(newPath);
+  };
+
+  const { onSearchSubmit, searchQuery, resetSearch } = useSearch({ onSearch });
+
+  React.useEffect(() => {
     handleList({
       config: getInput(),
       prefix,
@@ -108,25 +119,19 @@ export const useDestinationPicker = ({
     });
   }, [getInput, handleList, prefix]);
 
-  const [{ location }] = useStore();
-
-  const { current } = location;
-  const { bucket } = current ?? {};
   return {
-    items,
-    bucket,
-    hasNextToken,
     currentPage,
-    isLoading,
+    currentQuery: searchQuery,
+    hasMorePages,
+    folders: pageItems,
+    onSelect,
     highestPageVisited,
     hasError,
-    message,
-    pageItems,
-    searchQuery,
     onPaginate,
+    isLoading,
+    message,
+
     onSearch: onSearchSubmit,
-    onSearchQueryChange,
-    resetSearch,
     onSearchClear: () => {
       handleReset();
       resetSearch();

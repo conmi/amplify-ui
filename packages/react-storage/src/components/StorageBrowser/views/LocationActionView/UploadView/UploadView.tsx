@@ -140,3 +140,27 @@ export function UploadView({
     </div>
   );
 }
+
+UploadView.displayName = 'UploadView';
+
+UploadView.Cancel = function Cancel() {
+  return null;
+};
+UploadView.Destination = function Destination() {
+  return null;
+};
+UploadView.Exit = function Exit() {
+  return null;
+};
+UploadView.Start = function Start() {
+  return null;
+};
+UploadView.StatusDisplay = function StatusDisplay() {
+  return null;
+};
+UploadView.Table = function Table() {
+  return null;
+};
+UploadView.Title = function Title() {
+  return null;
+};

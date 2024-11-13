@@ -78,3 +78,25 @@ export function DeleteView({
     </div>
   );
 }
+
+DeleteView.Cancel = function Cancel() {
+  return null;
+};
+DeleteView.Destination = function Destination() {
+  return null;
+};
+DeleteView.Exit = function Exit() {
+  return null;
+};
+DeleteView.Start = function Start() {
+  return null;
+};
+DeleteView.StatusDisplay = function StatusDisplay() {
+  return null;
+};
+DeleteView.Table = function Table() {
+  return null;
+};
+DeleteView.Title = function Title() {
+  return null;
+};

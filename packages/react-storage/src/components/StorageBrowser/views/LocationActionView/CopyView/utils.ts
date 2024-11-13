@@ -59,3 +59,40 @@ export const getDestinationListFullPrefix = (
   const destination = destinationList.filter((item) => item !== '').join('/');
   return destination.endsWith('/') ? destination : `${destination}/`;
 };
+
+export const _getDestinationPickerTableData = ({
+  folders,
+  onSelect,
+}: {
+  folders?: { key: string; id: string }[];
+  onSelect?: (name: string) => void;
+}): DataTableProps => {
+  const rows: DataTableProps['rows'] = !folders
+    ? []
+    : folders.map((item) => {
+        const name = getFolderNameFromKey(item.key);
+        const row: WithKey<DataTableRow> = {
+          key: item.id,
+          content: [
+            {
+              key: item.id,
+              type: 'button',
+              content: {
+                label: name,
+                icon: 'folder',
+                onClick: () => {
+                  onSelect?.(name);
+                },
+              },
+            },
+          ],
+        };
+        return row;
+      });
+
+  const tableData: DataTableProps = {
+    headers: DESTINATION_PICKER_COLUMNS,
+    rows,
+  };
+  return tableData;
+};

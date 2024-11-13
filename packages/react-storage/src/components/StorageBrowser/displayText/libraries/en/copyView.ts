@@ -7,7 +7,7 @@ export const DEFAULT_COPY_VIEW_DISPLAY_TEXT: DefaultCopyViewDisplayText = {
   actionStartLabel: 'Copy',
   actionDestinationLabel: 'Copy destination:',
   getFolderListResultsMessage: ({ items, query, errorMessage }) => {
-    if (!items.length) {
+    if (!items?.length) {
       return query
         ? `No folders found matching "${query}"`
         : 'No subfolders found within folder.';
