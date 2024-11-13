@@ -120,7 +120,7 @@ export function LocationsView({
       tableColumnPermissionsHeader,
       tableColumnActionsHeader,
       searchPlaceholder,
-      downloadLabel,
+      getDownloadLabel,
       getPermissionName,
     },
   } = useDisplayText();
@@ -160,7 +160,7 @@ export function LocationsView({
           pageItems,
           onDownload,
           onNavigate,
-          downloadLabel,
+          getDownloadLabel,
         }),
         searchPlaceholder: searchPlaceholder,
         searchQuery,

@@ -8,14 +8,14 @@ export const getLocationsViewTableData = ({
   onNavigate,
   onDownload,
   headers,
-  downloadLabel,
+  getDownloadLabel,
   getPermissionName,
 }: {
   pageItems: LocationData[];
   onNavigate: (location: LocationData) => void;
   headers: LocationViewHeaders;
   onDownload: (location: LocationData) => void;
-  downloadLabel: (fileName: string) => string;
+  getDownloadLabel: (fileName: string) => string;
   getPermissionName: (permission: Permission) => string;
 }): DataTableProps => {
   const rows: DataTableProps['rows'] = pageItems.map((location) => {
@@ -62,7 +62,7 @@ export const getLocationsViewTableData = ({
                   type: 'button',
                   content: {
                     icon: 'download',
-                    ariaLabel: downloadLabel(location.prefix),
+                    ariaLabel: getDownloadLabel(location.prefix),
                     onClick: () => {
                       onDownload(location);
                     },

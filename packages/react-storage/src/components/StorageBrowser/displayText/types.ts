@@ -43,7 +43,7 @@ export interface DefaultLocationsViewDisplayText
   tableColumnBucketHeader: string;
   tableColumnPermissionsHeader: string;
   tableColumnActionsHeader: string;
-  downloadLabel: (fileName: string) => string;
+  getDownloadLabel: (fileName: string) => string;
 }
 
 export interface DefaultLocationDetailViewDisplayText

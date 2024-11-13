@@ -92,7 +92,7 @@ exports[`DEFAULT_STORAGE_BROWSER_DISPLAY_TEXT DEFAULT_STORAGE_BROWSER_DISPLAY_TE
 
 exports[`DEFAULT_STORAGE_BROWSER_DISPLAY_TEXT DEFAULT_STORAGE_BROWSER_DISPLAY_TEXT.LocationsView should match snapshot 1`] = `
 {
-  "downloadLabel": [Function],
+  "getDownloadLabel": [Function],
   "getListResultsMessage": [Function],
   "getPermissionName": [Function],
   "loadingIndicatorLabel": "Loading",
@@ -213,7 +213,7 @@ exports[`DEFAULT_STORAGE_BROWSER_DISPLAY_TEXT should match snapshot 1`] = `
     "title": [Function],
   },
   "LocationsView": {
-    "downloadLabel": [Function],
+    "getDownloadLabel": [Function],
     "getListResultsMessage": [Function],
     "getPermissionName": [Function],
     "loadingIndicatorLabel": "Loading",

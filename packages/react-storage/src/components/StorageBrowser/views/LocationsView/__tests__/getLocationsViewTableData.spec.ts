@@ -47,7 +47,7 @@ describe('getLocationsViewTableData', () => {
         pageItems: [location1],
         onNavigate: mockOnNavigate,
         headers,
-        downloadLabel: () => 'download',
+        getDownloadLabel: () => 'download',
         getPermissionName,
       })
     ).toStrictEqual({
@@ -84,7 +84,7 @@ describe('getLocationsViewTableData', () => {
         onNavigate: mockOnNavigate,
         onDownload: mockOnDownload,
         headers,
-        downloadLabel: () => 'download',
+        getDownloadLabel: () => 'download',
         getPermissionName,
       })
     ).toStrictEqual(
@@ -109,7 +109,7 @@ describe('getLocationsViewTableData', () => {
       onNavigate: mockOnNavigate,
       onDownload: mockOnDownload,
       headers,
-      downloadLabel: () => 'download',
+      getDownloadLabel: () => 'download',
       getPermissionName,
     });
     const [row1FirstContent] = tableData.rows[0].content;
