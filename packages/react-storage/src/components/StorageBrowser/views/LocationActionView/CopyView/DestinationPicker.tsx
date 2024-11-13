@@ -11,24 +11,22 @@ import { useDestinationPicker } from '../CopyView/useDestinationPicker';
 import { CLASS_BASE } from '../../constants';
 import { DataTableControl } from '../../../controls/DataTableControl';
 import { ControlsContextProvider } from '../../../controls/context';
-import { getDestinationListFullPrefix } from './getDestinationListFullPrefix';
-import { getDestinationPickerTableData } from './getDestinationPickerDataTable';
 import { ControlsContext } from '../../../controls/types';
 import { Breadcrumb } from '../../../components/BreadcrumbNavigation';
 import { DescriptionList } from '../../../components/DescriptionList';
 import { SearchControl } from '../../../controls/SearchControl';
+
+import {
+  getDestinationListFullPrefix,
+  getDestinationPickerTableData,
+} from './utils';
+
 const {
   actionSetDestination,
   actionDestinationPickerCurrentFolderSelected,
   actionDestinationPickerNoMoreFolders,
   actionDestinationPickerDefaultError,
 } = displayText;
-
-const DEFAULT_PAGE_SIZE = 10;
-export const DEFAULT_LIST_OPTIONS = {
-  pageSize: DEFAULT_PAGE_SIZE,
-  delimiter: '/',
-};
 
 export const DestinationPicker = ({
   destinationList,
@@ -48,16 +46,22 @@ export const DestinationPicker = ({
     onPaginate,
     onSearch,
     pageItems,
+    searchQuery,
+    onSearchQueryChange,
+    onSearchClear,
+    resetSearch,
   } = useDestinationPicker({ destinationList });
 
   const handleNavigateFolder = (key: string) => {
     const newPath = [...destinationList, key.replace('/', '')];
     onDestinationChange(newPath);
+    resetSearch();
   };
 
   const handleNavigatePath = (index: number) => {
     const newPath = destinationList.slice(0, index + 1);
     onDestinationChange(newPath);
+    resetSearch();
   };
 
   const tableData = getDestinationPickerTableData({
@@ -68,10 +72,12 @@ export const DestinationPicker = ({
   const contextValue: ControlsContext = {
     data: {
       tableData,
-      showIncludeSubfolders: false,
       searchPlaceholder: displayText.filterCopyPlaceholder,
+      searchQuery,
     },
     onSearch,
+    onSearchQueryChange,
+    onSearchClear,
   };
 
   const noSubfolders = !items.length;

@@ -1,6 +1,7 @@
 import { DataTableProps } from '../../../composables/DataTable';
 import { LocationData } from '../../../actions';
 import { LocationViewHeaders } from './types';
+import { Permission } from '../../../storage-internal';
 
 export const getLocationsViewTableData = ({
   pageItems,
@@ -8,12 +9,14 @@ export const getLocationsViewTableData = ({
   onDownload,
   headers,
   downloadLabel,
+  getPermissionName,
 }: {
   pageItems: LocationData[];
   onNavigate: (location: LocationData) => void;
   headers: LocationViewHeaders;
   onDownload: (location: LocationData) => void;
   downloadLabel: (fileName: string) => string;
+  getPermissionName: (permission: Permission) => string;
 }): DataTableProps => {
   const rows: DataTableProps['rows'] = pageItems.map((location) => {
     const { bucket, id, permission, prefix } = location;
@@ -46,7 +49,11 @@ export const getLocationsViewTableData = ({
                 };
           }
           case 'permission': {
-            return { key, type: 'text', content: { text: permission } };
+            return {
+              key,
+              type: 'text',
+              content: { text: getPermissionName(permission) },
+            };
           }
           case 'action': {
             return location.type === 'OBJECT'
